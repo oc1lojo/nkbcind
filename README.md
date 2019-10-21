@@ -3,6 +3,11 @@
 
 # nkbcind
 
+[![Build
+Status](https://travis-ci.org/oc1lojo/nkbcind.svg?branch=master)](https://travis-ci.org/oc1lojo/nkbcind)
+[![Build
+status](https://ci.appveyor.com/api/projects/status/ebayuxjb2vr1u2vw/branch/master?svg=true)](https://ci.appveyor.com/project/oc1lojo/nkbcind/branch/master)
+
 Planen är att lägga material för beräkning av kvalitetsindikatorer för
 NKBC här.
 
