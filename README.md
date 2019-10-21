@@ -34,8 +34,10 @@ Jfr
 ## Installation
 
 ``` r
-# install.packages("devtools")
-# devtools::install_bitbucket("cancercentrum/nkbcind")
+if (!requireNamespace("remotes"))
+  install.packages("remotes")
+
+remotes::install_bitbucket("cancercentrum/nkbcind")
 ```
 
 ## Användning
