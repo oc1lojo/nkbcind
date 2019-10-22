@@ -9,7 +9,7 @@ Status](https://travis-ci.org/oc1lojo/nkbcind.svg?branch=master)](https://travis
 status](https://ci.appveyor.com/api/projects/status/ebayuxjb2vr1u2vw/branch/master?svg=true)](https://ci.appveyor.com/project/oc1lojo/nkbcind/branch/master)
 
 Planen är att lägga material för beräkning av kvalitetsindikatorer för
-NKBC här.
+Nationellt kvalitetsregister för bröstcancer (NKBC) här.
 
 Visionen är att detta R-paket kommer vara en **central** plats för
 definition, implementering och dokumentation av beräkning av
@@ -34,8 +34,10 @@ Jfr
 ## Installation
 
 ``` r
-# install.packages("devtools")
-# devtools::install_bitbucket("cancercentrum/nkbcind")
+if (!requireNamespace("remotes"))
+  install.packages("remotes")
+
+remotes::install_bitbucket("cancercentrum/nkbcind")
 ```
 
 ## Användning
