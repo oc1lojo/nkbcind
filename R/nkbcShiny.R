@@ -1,8 +1,10 @@
 nkbcShiny <- function(nkbcind, inca = TRUE, ...) {
   if (inca) {
     rccShiny2(
-      inca = inca,
+      inca = TRUE,
       incaScript = file.path(Sys.getenv("ScriptPath"), "Stockholm", "Brostcancer", "nkbc-rccShiny-dm.R"),
+      idOverviewLink = "PatientOversikt",
+      idAuthorisedToView = "registerpostbehorighet",
       outcome = outcome(nkbcind),
       outcomeTitle = outcome_title(nkbcind),
       periodDateLevel = "quarter", # OBS Annorlunda jfr med publika rapporter
