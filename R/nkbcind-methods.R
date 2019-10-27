@@ -104,6 +104,8 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
           case_when(
             x$sjhkod_var %in% "a_inr_sjhkod" ~
             "anmälande sjukhus",
+            x$sjhkod_var %in% "d_opans_sjhkod" ~
+            "opererande sjukhus och om detta saknas, anmälande sjukhus",
             x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
             "sjukhus där onkologisk behandling ges",
             x$sjhkod_var %in% "op_inr_sjhkod" ~
