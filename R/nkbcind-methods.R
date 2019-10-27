@@ -21,6 +21,7 @@ geo_units_vars <- function(x) UseMethod("geo_units_vars")
 
 textBeforeSubtitle <- function(x) UseMethod("textBeforeSubtitle")
 description <- function(x, report_end_year = report_end_year) UseMethod("description")
+description_inca <- function(x) UseMethod("description_inca")
 varOther <- function(x) UseMethod("varOther")
 
 # Definiera metoder för klasserna nkbcind och nkbc33 ----
@@ -104,6 +105,8 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
           case_when(
             x$sjhkod_var %in% "a_inr_sjhkod" ~
             "anmälande sjukhus",
+            x$sjhkod_var %in% "d_opans_sjhkod" ~
+            "opererande sjukhus och om detta saknas, anmälande sjukhus",
             x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
             "sjukhus där onkologisk behandling ges",
             x$sjhkod_var %in% "op_inr_sjhkod" ~
@@ -156,6 +159,79 @@ description.nkbc33 <- function(x, report_end_year = report_end_year, ...) {
         x$teknisk_beskrivning,
         paste0("Population: ", x$pop, "."),
         "Uppgifterna redovisas uppdelat på den region personen var bosatt i vid diagnos."
+      ),
+      collapse = "\n<p></p>\n"
+    )
+  )
+}
+
+description_inca.nkbcind <- function(x, ...) {
+  c(
+    # Om indikatorn
+    paste(
+      c(
+        x$om_indikatorn,
+        if (!is.null(x$target_values)) {
+          case_when(
+            length(x$target_values) == 1 ~
+            paste0("Målnivå: ", x$target_values[1], "%"),
+            length(x$target_values) == 2 ~
+            paste0("Målnivåer: ", x$target_values[1], "% (låg) ", x$target_values[2], "% (hög)")
+          )
+        }
+      ),
+      collapse = "\n<p></p>\n"
+    ),
+    # Vid tolkning
+    paste(
+      c(
+        x$vid_tolkning,
+        if (!is.null(x$inkl_beskr_missca) && x$inkl_beskr_missca == TRUE) {
+          "Datum för välgrundad misstanke om cancer tillkom som variabel 2016 och innan detta har datum för 1:a kontakt använts."
+        },
+        # if (!is.null(x$inkl_beskr_onk_beh) && x$inkl_beskr_onk_beh == TRUE) {
+        #   paste(
+        #     "Uppgifter som rör given onkologisk behandling redovisas enbart t.o.m.",
+        #     report_end_year - 1, "p.g.a. eftersläpning i rapporteringen."
+        #   )
+        # },
+        # if (!is.null(x$inkl_beskr_overlevnad_5ar) && x$inkl_beskr_overlevnad_5ar == TRUE) {
+        #   paste0("Uppgifter som rör 5 års överlevnad redovisas enbart t.o.m. ", report_end_year - 5, ".")
+        # },
+        paste(
+          "Ett fall per bröst kan rapporterats till det nationella kvalitetsregistret för bröstcancer.",
+          "Det innebär att samma person kan finnas med i statistiken upp till två gånger."
+        ),
+        "Skövde och Lidköpings sjukhus presenteras tillsammans som Skaraborg.",
+        if (x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod", "d_onkpreans_sjhkod", "d_onkpostans_sjhkod", "d_prim_beh_sjhkod")) {
+          "Malmö och Lunds sjukhus presenteras tillsammans som Lund/Malmö."
+        }
+      ),
+      collapse = "\n<p></p>\n"
+    ),
+    # Teknisk beskrivning
+    paste(
+      c(
+        x$teknisk_beskrivning,
+        paste0("Population: ", x$pop, "."),
+        paste0(
+          "Uppgifterna redovisas uppdelat på ",
+          case_when(
+            x$sjhkod_var %in% "a_inr_sjhkod" ~
+            "anmälande sjukhus",
+            x$sjhkod_var %in% "d_opans_sjhkod" ~
+            "opererande sjukhus och om detta saknas, anmälande sjukhus",
+            x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
+            "sjukhus där onkologisk behandling ges",
+            x$sjhkod_var %in% "op_inr_sjhkod" ~
+            "opererande sjukhus",
+            x$sjhkod_var %in% "d_prim_beh_sjhkod" ~
+            "sjukhus ansvarig för primär behandling",
+            x$sjhkod_var %in% c("d_onkpreans_sjhkod", "d_onkpostans_sjhkod") ~
+            "rapporterande sjukhus där onkologisk behandling ges och om detta saknas, sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus"
+          ),
+          "."
+        )
       ),
       collapse = "\n<p></p>\n"
     )

@@ -3,11 +3,15 @@ nkbc30 <- list(
   lab = "Observerad 5 års överlevnad",
   pop = "alla anmälda fall",
   filter_pop = function(x, ...) {
-    filter(x)
+    filter(
+      x,
+      year(a_diag_dat) <= year(today()) - 6
+    )
   },
   mutate_outcome = function(x, ...) {
     mutate(x,
-      lastdate = ymd(paste0(report_end_year, "-12-31")),
+      # lastdate = ymd(paste0(report_end_year, "-12-31")),
+      lastdate = ymd(paste0(year(today()) - 1, "-12-31")),
       surv_time = ymd(VITALSTATUSDATUM_ESTIMAT) - ymd(a_diag_dat),
       outcome = surv_time >= 365.25 * 5
     )
