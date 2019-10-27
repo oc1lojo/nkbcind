@@ -23,8 +23,8 @@ nkbc38 <- list(
   mutate_outcome = function(x, ...) {
     mutate(x,
       # Går på det värde som finns
-      pre_kemo_enlplan_Varde = ifelse(pre_kemo_enlplan_Varde %in% c(0,1), pre_kemo_enlplan_Varde, NA),
-      post_kemo_enlplan_Varde = ifelse(post_kemo_enlplan_Varde %in% c(0,1), post_kemo_enlplan_Varde, NA),
+      pre_kemo_enlplan_Varde = ifelse(pre_kemo_enlplan_Varde %in% c(0, 1), pre_kemo_enlplan_Varde, NA),
+      post_kemo_enlplan_Varde = ifelse(post_kemo_enlplan_Varde %in% c(0, 1), post_kemo_enlplan_Varde, NA),
       d_kemo_enlplan_Varde = pmin(post_kemo_enlplan_Varde, pre_kemo_enlplan_Varde, na.rm = TRUE),
 
       # Hantera missing

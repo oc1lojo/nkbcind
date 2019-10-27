@@ -3,7 +3,8 @@ nkbc30 <- list(
   lab = "Observerad 5 års överlevnad",
   pop = "alla anmälda fall",
   filter_pop = function(x, ...) {
-    filter(x,
+    filter(
+      x,
       year(a_diag_dat) <= year(today()) - 6
     )
   },
