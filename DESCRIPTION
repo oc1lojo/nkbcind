@@ -1,14 +1,14 @@
 Package: nkbcind
 Type: Package
 Title: Verktyg för kvalitetsindikatorer från NKBC
-Version: 0.0.0.9008
+Version: 0.0.0.9009
 Authors@R: c(
     person("John", "Lövrot", , "john.lovrot@sll.se", c("aut", "cre"), c(ORCID = "0000-0002-9339-8059")),
     person("Lina", "Benson", , , c("aut"), c(ORCID = "0000-0002-5393-0055")),
     person("RCC", role = c("cph", "fnd"))
     )
 Description: Verktyg för kvalitetsindikatorer från Nationellt 
-    kvalitietsregister för bröstcancer (NKBC) 
+    kvalitetsregister för bröstcancer (NKBC) 
 License: GPL-3
 URL: https://cancercentrum.bitbucket.io/nkbcind/, http://bitbucket.org/cancercentrum/nkbcind
 BugReports: https://bitbucket.org/cancercentrum/nkbcind/issues
