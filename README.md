@@ -52,8 +52,8 @@ remotes::install_bitbucket("cancercentrum/nkbcind")
 library(dplyr)
 library(tidyr)
 library(lubridate)
-library(nkbcgeneral)
-library(nkbcind)
+library(nkbcgeneral) # https://cancercentrum.bitbucket.io/nkbcgeneral/
+library(nkbcind) # https://cancercentrum.bitbucket.io/nkbcind/
 ```
 
 TODO Lägg till exempel.
