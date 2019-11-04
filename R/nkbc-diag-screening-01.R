@@ -34,6 +34,3 @@ nkbc01 <- list(
   teknisk_beskrivning = NULL
 )
 class(nkbc01) <- "nkbcind"
-
-filter_nkbc01_pop <- nkbc01$filter_pop
-mutate_nkbc01_outcome <- nkbc01$mutate_outcome
