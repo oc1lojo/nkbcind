@@ -20,6 +20,3 @@ nkbc09i <- list(
   teknisk_beskrivning = NULL
 )
 class(nkbc09i) <- "nkbcind"
-
-filter_nkbc09i_pop <- nkbc09i$filter_pop
-mutate_nkbc09i_outcome <- nkbc09i$mutate_outcome
