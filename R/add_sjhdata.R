@@ -1,6 +1,6 @@
 add_sjhdata <- function(x,
                         sjukhuskoder = sjukhuskoder,
-                        sjhkod_var,
+                        sjhkod_var = "a_inr_sjhkod",
                         samredovisning_skaraborg = TRUE,
                         samredovisning_lund_malmo_onkbeh = TRUE,
                         ...) {
