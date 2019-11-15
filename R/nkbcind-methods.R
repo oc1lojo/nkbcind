@@ -201,11 +201,11 @@ description_inca.nkbcind <- function(x, ...) {
         paste(
           "Ett fall per bröst kan rapporterats till det nationella kvalitetsregistret för bröstcancer.",
           "Det innebär att samma person kan finnas med i statistiken upp till två gånger."
-        ),
-        "Skövde och Lidköpings sjukhus presenteras tillsammans som Skaraborg.",
-        if (x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod", "d_onkpreans_sjhkod", "d_onkpostans_sjhkod", "d_prim_beh_sjhkod")) {
-          "Malmö och Lunds sjukhus presenteras tillsammans som Lund/Malmö."
-        }
+        )
+        # "Skövde och Lidköpings sjukhus presenteras tillsammans som Skaraborg.",
+        # if (x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod", "d_onkpreans_sjhkod", "d_onkpostans_sjhkod", "d_prim_beh_sjhkod")) {
+        #   "Malmö och Lunds sjukhus presenteras tillsammans som Lund/Malmö."
+        # }
       ),
       collapse = "\n<p></p>\n"
     ),
