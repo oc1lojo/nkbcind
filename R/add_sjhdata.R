@@ -33,7 +33,7 @@ add_sjhdata <- function(x, sjukhuskoder = sjukhuskoder, sjhkod_var) {
         landsting,
         NA_integer_
       ),
-      # Samredovisning av landsting SKAS
+      # Samredovisning av Skaraborg
       sjukhus = if_else(
         sjukhus %in% c("Skövde", "Lidköping"), "Skaraborg", sjukhus
       ),
