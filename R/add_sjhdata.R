@@ -1,7 +1,12 @@
-add_sjhdata <- function(x, sjukhuskoder = sjukhuskoder, sjhkod_var) {
+add_sjhdata <- function(x,
+                        sjukhuskoder = sjukhuskoder,
+                        sjhkod_var,
+                        samredovisning_skaraborg = TRUE,
+                        samredovisning_lund_malmo_onkbeh = TRUE,
+                        ...) {
   names(x)[names(x) == sjhkod_var] <- "sjhkod"
 
-  x %>%
+  x <- x %>%
     mutate(sjhkod = as.integer(sjhkod)) %>%
     left_join(sjukhuskoder, by = c("sjhkod" = "sjukhuskod")) %>%
     mutate(
@@ -32,16 +37,30 @@ add_sjhdata <- function(x, sjukhuskoder = sjukhuskoder, sjhkod_var) {
         ),
         landsting,
         NA_integer_
-      ),
-      # Samredovisning av Skaraborg
-      sjukhus = if_else(
-        sjukhus %in% c("Skövde", "Lidköping"), "Skaraborg", sjukhus
-      ),
-      # Samredovisning av Lund och Malmö avseende onkologisk behandling
-      sjukhus = if_else(
-        sjukhus %in% c("Malmö", "Lund") &
-          sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod", "d_onkpreans_sjhkod", "d_onkpostans_sjhkod", "d_prim_beh_sjhkod"),
-        "Lund/Malmö", sjukhus
       )
     )
+
+  # Ev. samredovisning av Skaraborg
+  if (samredovisning_skaraborg) {
+    x <- x %>%
+      mutate(
+        sjukhus = if_else(
+          sjukhus %in% c("Skövde", "Lidköping"), "Skaraborg", sjukhus
+        )
+      )
+  }
+
+  # Ev. samredovisning av Lund och Malmö avseende onkologisk behandling
+  if (samredovisning_lund_malmo_onkbeh) {
+    x <- x %>%
+      mutate(
+        sjukhus = if_else(
+          sjukhus %in% c("Malmö", "Lund") &
+            sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod", "d_onkpreans_sjhkod", "d_onkpostans_sjhkod", "d_prim_beh_sjhkod"),
+          "Lund/Malmö", sjukhus
+        )
+      )
+  }
+
+  return(x)
 }
