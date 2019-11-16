@@ -6,7 +6,7 @@ nkbc23 <- list(
     filter(
       x,
       # Reg av given onkologisk behandling
-      period >= 2012,
+      year(a_diag_dat) >= 2012,
 
       # Endast opererade
       !is.na(op_kir_dat),
