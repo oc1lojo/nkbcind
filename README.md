@@ -12,7 +12,7 @@ Verktyg för beräkning av kvalitetsindikatorer för Nationellt
 kvalitetsregister för bröstcancer (NKBC).
 
 Detta R-paket är en **central** plats för definition, implementering och
-dokumentation av beräkning av kvalitetsindikatorer för NKBC i **alla**
+dokumentation av **beräkning av kvalitetsindikatorer** för NKBC i **alla**
 utdata-kanaler.
 
   - Användning på INCA

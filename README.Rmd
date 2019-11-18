@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 
 Verktyg för beräkning av kvalitetsindikatorer för Nationellt kvalitetsregister för bröstcancer (NKBC).
 
-Detta R-paket är en **central** plats för definition, implementering och dokumentation av beräkning av kvalitetsindikatorer för NKBC i **alla** utdata-kanaler.
+Detta R-paket är en **central** plats för definition, implementering och dokumentation av **beräkning av kvalitetsindikatorer** för NKBC i **alla** utdata-kanaler.
 
 - Användning på INCA
   - NKBC onlinerapporter innanför inloggning på INCA med R-paketet [rccShiny](https://bitbucket.org/cancercentrum/rccshiny)
