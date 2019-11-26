@@ -12,10 +12,14 @@ Verktyg för beräkning av kvalitetsindikatorer för Nationellt
 kvalitetsregister för bröstcancer (NKBC).
 
 Detta R-paket är en **central** plats för definition, implementering och
-dokumentation av beräkning av kvalitetsindikatorer för NKBC i **alla**
+dokumentation av **beräkning av kvalitetsindikatorer** för NKBC i **alla**
 utdata-kanaler.
 
-  - Använding på INCA
+  - Användning på INCA tillsammans med R-paketet [nkbcgeneral](https://bitbucket.org/cancercentrum/nkbcgeneral)
+      - NKBC onlinerapporter innanför inloggning på INCA med R-paketet
+        [rccShiny](https://bitbucket.org/cancercentrum/rccshiny)
+          - <https://bitbucket.org/cancercentrum/nkbc-onlinerapporter/>
+            (RCC-internt kodförråd)
       - NKBC Koll på läget (KPL), med R-paketet
         [rccKPL](https://bitbucket.org/cancercentrum/rcckpl)
           - <https://bitbucket.org/cancercentrum/nkbc-kpl/> (RCC-internt
@@ -24,11 +28,7 @@ utdata-kanaler.
         [incavis](https://bitbucket.org/cancercentrum/incavis)
           - <https://bitbucket.org/cancercentrum/nkbc-vis/> (RCC-internt
             kodförråd)
-      - NKBC onlinerapporter innanför inloggning på INCA med R-paketet
-        [rccShiny](https://bitbucket.org/cancercentrum/rccshiny)
-          - <https://bitbucket.org/cancercentrum/nkbc-onlinerapporter/>
-            (RCC-internt kodförråd)
-  - Använding lokalt på RCC Stockholm-Gotland
+  - Användning lokalt på RCC Stockholm-Gotland tillsammans med R-paketet [nkbcgeneral](https://bitbucket.org/cancercentrum/nkbcgeneral)
       - Framtagande av NKBC Interaktiva Årsrapport med R-paketet
         [rccShiny](https://bitbucket.org/cancercentrum/rccshiny)
           - <https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny>
