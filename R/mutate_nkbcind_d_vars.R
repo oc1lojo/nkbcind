@@ -1,4 +1,4 @@
-mutate_nkbc_other_vars <- function(x, ...) {
+mutate_nkbcind_d_vars <- function(x, ...) {
   mutate(x,
 
     # Primär behandling
