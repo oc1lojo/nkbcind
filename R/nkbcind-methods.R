@@ -283,30 +283,30 @@ kpl_description.nkbcind <- function(x, ...) {
         " och ",
         case_when(
           x$sjhkod_var %in% "a_inr_sjhkod" ~
-            "anmälande sjukhus",
+          "anmälande sjukhus",
           x$sjhkod_var %in% "d_opans_sjhkod" ~
-            "opererande sjukhus och om detta saknas, anmälande sjukhus",
+          "opererande sjukhus och om detta saknas, anmälande sjukhus",
           x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
-            "sjukhus där onkologisk behandling ges",
+          "sjukhus där onkologisk behandling ges",
           x$sjhkod_var %in% "op_inr_sjhkod" ~
-            "opererande sjukhus",
+          "opererande sjukhus",
           x$sjhkod_var %in% "d_prim_beh_sjhkod" ~
-            "sjukhus ansvarig för primär behandling",
+          "sjukhus ansvarig för primär behandling",
           x$sjhkod_var %in% c("d_onkpreans_sjhkod", "d_onkpostans_sjhkod") ~
-            paste(
-              "rapporterande sjukhus där onkologisk behandling ges,",
-              "och om detta saknas,",
-              "sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling på anmälan, och anmälande sjukhus"
-            )
+          paste(
+            "rapporterande sjukhus där onkologisk behandling ges,",
+            "och om detta saknas,",
+            "sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling på anmälan, och anmälande sjukhus"
+          )
         ),
         "."
       ),
       if (!is.null(x$target_values)) {
         case_when(
           length(x$target_values) == 1 ~
-            paste0("Målnivå: ", x$target_values[1], "%."),
+          paste0("Målnivå: ", x$target_values[1], "%."),
           length(x$target_values) == 2 ~
-            paste0("Målnivåer: ", x$target_values[1], "% (låg) ", x$target_values[2], "% (hög).")
+          paste0("Målnivåer: ", x$target_values[1], "% (låg) ", x$target_values[2], "% (hög).")
         )
       }
     ),
