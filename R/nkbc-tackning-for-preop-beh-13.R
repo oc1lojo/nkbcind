@@ -25,6 +25,7 @@ nkbc13 <- list(
     )
   },
   target_values = c(70, 85),
+  period_dat_var = "a_diag_dat",
   sjhkod_var = "d_onkpreans_sjhkod",
   om_indikatorn = "Rapportering av given onkologisk behandling sker på ett eget formulär till kvalitetsregistret, separat från anmälan. Rapporteringen sker cirka 1 - 1,5 år efter anmälan.",
   vid_tolkning = NULL,

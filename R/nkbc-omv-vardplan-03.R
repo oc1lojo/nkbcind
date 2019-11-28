@@ -17,6 +17,7 @@ nkbc03 <- list(
     )
   },
   target_values = c(95, 99),
+  period_dat_var = "a_diag_dat",
   sjhkod_var = "a_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
   om_indikatorn = "En individuell skriftlig vårdplan, kallad Min vårdplan, ska tas fram för varje patient med cancer enligt den  Nationella Cancerstrategin (SOU 2009:11).",

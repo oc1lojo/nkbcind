@@ -34,6 +34,7 @@ nkbc16 <- list(
   },
   prop_within_value = 28,
   target_values = 80,
+  period_dat_var = "d_pre_onk_dat",
   sjhkod_var = "pre_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
   om_indikatorn =

@@ -20,6 +20,7 @@ nkbc01 <- list(
     )
   },
   target_values = c(60, 70),
+  period_dat_var = "a_diag_dat",
   sjhkod_var = "a_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
   om_indikatorn = "Mammografiscreening erbjuds alla kvinnor mellan 40–74 år.",
