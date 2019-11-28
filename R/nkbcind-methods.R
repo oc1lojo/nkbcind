@@ -262,6 +262,7 @@ kpl_description.nkbcind <- function(x, ...) {
     lab_mod <- paste("Tid från", tolower(lab(x)), "inom", prop_within_value(x), "dagar")
   } else {
     lab_mod <- lab(x) %>%
+      tolower() %>%
       stringr::str_replace(", måluppfyllelse", "")
   }
 
