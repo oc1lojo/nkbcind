@@ -262,13 +262,12 @@ kpl_description.nkbcind <- function(x, ...) {
     lab_mod <- paste("Tid från", tolower(lab(x)), "inom", prop_within_value(x), "dagar")
   } else {
     lab_mod <- lab(x) %>%
-      tolower() %>%
       stringr::str_replace(", måluppfyllelse", "")
   }
 
   paste(
     c(
-      paste0("Andel med ", lab_mod, " bland ", pop(x), ".") %>%
+      paste0("Andel med ", tolower(lab_mod), " bland ", pop(x), ".") %>%
         # stringr::str_to_sentence(locale = "sv") %>%
         stringr::str_replace_all("min vårdplan", "Min Vårdplan"),
       if (!is.null(x$inkl_beskr_missca) && x$inkl_beskr_missca == TRUE) {
