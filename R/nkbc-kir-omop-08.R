@@ -19,6 +19,7 @@ nkbc08 <- list(
     )
   },
   target_values = c(80, 90),
+  period_dat_var = "op_kir_dat",
   sjhkod_var = "op_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
   om_indikatorn = "Om det vid analys av den bortopererade vävnaden visar sig att tumörvävnad kan ha kvarlämnats blir patienten ofta rekommenderad en omoperation.",

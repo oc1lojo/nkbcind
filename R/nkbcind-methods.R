@@ -24,6 +24,9 @@ description <- function(x, report_end_year = report_end_year) UseMethod("descrip
 description_inca <- function(x) UseMethod("description_inca")
 varOther <- function(x) UseMethod("varOther")
 
+period_dat_var <- function(x) UseMethod("period_dat_var")
+kpl_description <- function(x) UseMethod("kpl_description")
+
 # Definiera metoder för klasserna nkbcind och nkbc33 ----
 code.nkbcind <- function(x) x$code
 lab.nkbcind <- function(x) x$lab
@@ -249,4 +252,64 @@ varOther.nkbcind <- function(x, varbesk = varbesk_other_vars, ...) {
     }
     return(out)
   }
+}
+
+period_dat_var.nkbcind <- function(x, ...) x$period_dat_var
+
+kpl_description.nkbcind <- function(x, ...) {
+  if (!is.null(prop_within_value(x))) {
+    # x antas vara en ledtid
+    lab_mod <- paste("Tid från", tolower(lab(x)), "inom", prop_within_value(x), "dagar")
+  } else {
+    lab_mod <- lab(x) %>%
+      stringr::str_replace(", måluppfyllelse", "")
+  }
+
+  paste(
+    c(
+      paste0("Andel med ", tolower(lab_mod), " bland ", pop(x), ".") %>%
+        # stringr::str_to_sentence(locale = "sv") %>%
+        stringr::str_replace_all("min vårdplan", "Min Vårdplan"),
+      if (!is.null(x$inkl_beskr_missca) && x$inkl_beskr_missca == TRUE) {
+        "Datum för välgrundad misstanke om cancer tillkom som variabel 2016 och innan detta har datum för 1:a kontakt använts."
+      },
+      paste0(
+        "Fall beskrivs utifrån ",
+        case_when(
+          x$period_dat_var %in% "a_diag_dat" ~ "diagnosdatum",
+          x$period_dat_var %in% "d_pre_onk_dat" ~ "startdatum för preoperativ onkologisk behandling",
+          x$period_dat_var %in% "op_kir_dat" ~ "operationsdatum"
+        ),
+        " och ",
+        case_when(
+          x$sjhkod_var %in% "a_inr_sjhkod" ~
+          "anmälande sjukhus",
+          x$sjhkod_var %in% "d_opans_sjhkod" ~
+          "opererande sjukhus och om detta saknas, anmälande sjukhus",
+          x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
+          "sjukhus där onkologisk behandling ges",
+          x$sjhkod_var %in% "op_inr_sjhkod" ~
+          "opererande sjukhus",
+          x$sjhkod_var %in% "d_prim_beh_sjhkod" ~
+          "sjukhus ansvarig för primär behandling",
+          x$sjhkod_var %in% c("d_onkpreans_sjhkod", "d_onkpostans_sjhkod") ~
+          paste(
+            "rapporterande sjukhus där onkologisk behandling ges,",
+            "och om detta saknas,",
+            "sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling på anmälan, och anmälande sjukhus"
+          )
+        ),
+        "."
+      ),
+      if (!is.null(x$target_values)) {
+        case_when(
+          length(x$target_values) == 1 ~
+          paste0("Målnivå: ", x$target_values[1], "%."),
+          length(x$target_values) == 2 ~
+          paste0("Målnivåer: ", x$target_values[1], "% (låg) ", x$target_values[2], "% (hög).")
+        )
+      }
+    ),
+    collapse = " "
+  )
 }

@@ -20,6 +20,7 @@ nkbc07 <- list(
     )
   },
   target_values = c(15, 20),
+  period_dat_var = "op_kir_dat",
   sjhkod_var = "op_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
   om_indikatorn = "Omedelbar rekonstruktion innebär att en bröstform återskapas i samband med att ett helt bröst opereras bort. Bröstrekonstruktion kan göras senare efter avslutad onkologisk behandling.",

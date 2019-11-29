@@ -32,6 +32,7 @@ nkbc32 <- list(
     )
   },
   target_values = c(90, 95),
+  period_dat_var = "a_diag_dat",
   sjhkod_var = "d_onk_sjhkod",
   other_vars = "a_pat_alder",
   om_indikatorn = "Vid HER2-positiv invasiv bröstcancer rekommenderas behandling med antikroppsbehandling i kombination efter eller med cytostatika, under förutsättning att patienten kan tolerera det sistnämnda.",

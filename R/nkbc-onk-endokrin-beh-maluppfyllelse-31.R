@@ -29,6 +29,7 @@ nkbc31 <- list(
     )
   },
   target_values = c(85, 90),
+  period_dat_var = "a_diag_dat",
   sjhkod_var = "d_onk_sjhkod",
   other_vars = "a_pat_alder",
   om_indikatorn =

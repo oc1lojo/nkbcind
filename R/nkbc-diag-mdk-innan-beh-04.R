@@ -12,6 +12,7 @@ nkbc04 <- list(
     )
   },
   target_values = c(90, 99),
+  period_dat_var = "a_diag_dat",
   sjhkod_var = "a_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
   om_indikatorn = "Att definierade specialister och professioner deltar i MDK och formulerar behandlingsrekommendationer har betydelse för vårdprocess för jämlik vård, kunskapsstyrd vård och för kvalitetssäkring.",

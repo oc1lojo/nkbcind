@@ -19,6 +19,7 @@ nkbc06 <- list(
     )
   },
   target_values = c(85, 90),
+  period_dat_var = "op_kir_dat",
   sjhkod_var = "a_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
   om_indikatorn = "En fastställd diagnos innan behandlingsstart är viktigt för planering och genomförande av behandling och undvikande av omoperationer.",
