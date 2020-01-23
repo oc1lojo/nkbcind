@@ -27,7 +27,7 @@ nkbc24 <- list(
     )
   },
   sjhkod_var = "pre_inr_sjhkod",
-  other_vars = c("a_pat_alder", "d_invasiv"),
+  other_vars = c("a_pat_alder", "d_invasiv", "d_vitalstatus"),
   om_indikatorn =
     paste(
       "Ett övergripande mål är att erbjuda alla bröstcancerpatienter medverkan i studier för att utveckla nya behandlingar och arbetssätt.",

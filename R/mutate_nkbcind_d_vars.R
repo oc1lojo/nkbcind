@@ -100,6 +100,11 @@ mutate_nkbcind_d_vars <- function(x, ...) {
 
     d_max_extent = pmax(op_pad_extentx, op_pad_extenty, na.rm = TRUE),
 
-    d_kemo = as.logical(pmax(post_kemo_Varde, pre_kemo_Varde, na.rm = TRUE))
+    d_kemo = as.logical(pmax(post_kemo_Varde, pre_kemo_Varde, na.rm = TRUE)),
+
+    d_vitalstatus = factor(VITALSTATUS,
+      levels = c(0, 1, 2),
+      labels = c("Levande", "Avlidna", "Uppgift saknas")
+    )
   )
 }
