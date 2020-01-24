@@ -19,6 +19,16 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       labels = c("Invasiv cancer", "Enbart cancer in situ", "Uppgift saknas")
     ),
 
+    # Histologisk grad (invasiv) eller kärnatypigrad (cancer in situ)
+    d_op_pad_nhg = factor(
+      case_when(
+        op_pad_nhg_Varde %in% c(97, 98, NA) ~ 99L,
+        TRUE ~ op_pad_nhg_Varde
+      ),
+      levels = c(1, 2, 3, 99),
+      labels = c("Grad 1", "Grad 2", "Grad 3", "Uppgift saknas")
+    ),
+
     # ER
     d_er = factor(
       replace_na(d_er_Varde, 99),
