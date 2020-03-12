@@ -91,6 +91,12 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       labels = c("Nej (M0)", "Ja (M1)", "Uppgift saknas")
     ),
 
+    # Tumörstorlek vid operation, kategorier
+    d_op_pad_invstl_kat = cut(op_pad_invstl,
+      breaks = c(-Inf, 20, 50, Inf),
+      labels = c("<=20 mm", "20-50 mm", ">50 mm")
+    ),
+
     # pN
     d_pn = cut(op_pad_lglmetant, c(1, 4, 100),
       include.lowest = TRUE,
