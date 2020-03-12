@@ -55,6 +55,7 @@ nkbc16 <- list(
       "Siffrorna skall därför tolkas med viss försiktighet."
     ),
   inkl_beskr_missca = TRUE,
+  inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL
 )
 class(nkbc16) <- "nkbcind"
