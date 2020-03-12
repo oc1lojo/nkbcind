@@ -1,7 +1,7 @@
 nkbc23 <- list(
   code = "nkbc23",
   lab = "Operation till strålbehandling",
-  pop = "primärt opererade fall utan fjärrmetastaser vid diagnos",
+  pop = "primärt opererade fall utan fjärrmetastaser vid diagnos som inte fått postoperativ cytostatikabehandling",
   filter_pop = function(x, ...) {
     filter(
       x,
@@ -13,6 +13,9 @@ nkbc23 <- list(
 
       # Endast primär opereration (planerad om utförd ej finns)
       d_prim_beh_Varde == 1,
+
+      # Ej postop cytostatikabeh
+      !(post_kemo_Varde %in% 1),
 
       # Ej fjärrmetastaser vid diagnos
       !a_tnm_mklass_Varde %in% 10
