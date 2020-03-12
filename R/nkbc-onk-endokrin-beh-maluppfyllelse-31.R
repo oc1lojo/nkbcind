@@ -31,7 +31,7 @@ nkbc31 <- list(
   target_values = c(85, 90),
   period_dat_var = "a_diag_dat",
   sjhkod_var = "d_onk_sjhkod",
-  other_vars = "a_pat_alder",
+  other_vars = c("a_pat_alder", "op_pad_invstl"),
   om_indikatorn =
     paste(
       "Endokrin behandling bör erbjudas till alla patienter med östrogenreceptorpositiv (ER+) bröstcancer.",
