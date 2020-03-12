@@ -5,6 +5,7 @@ varbesk_other_vars <- tibble::enframe(
     op_pad_invstl = "Tumörstorlek",
     d_tstad = "Tumörstorlek",
     d_op_pad_invstl_kat = "Tumörstorlek",
+    d_op_pad_invstl_diko10 = "Tumörstorlek",
     d_nstad = "Spridning till lymfkörtlar",
     d_invasiv = "Invasivitet vid diagnos",
     d_pn = "Spridning till lymfkörtlar",

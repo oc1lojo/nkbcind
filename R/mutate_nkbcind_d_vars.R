@@ -97,6 +97,12 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       labels = c("<=20 mm", "20-50 mm", ">50 mm")
     ),
 
+    # Tumörstorlek vid operation, dikotomiserad med brytpunkt 10 mm
+    d_op_pad_invstl_diko10 <- cut(op_pad_invstl,
+      breaks = c(-Inf, 10, Inf),
+      labels = c("<=10 mm", ">10 mm")
+    ),
+
     # pN
     d_pn = cut(op_pad_lglmetant, c(1, 4, 100),
       include.lowest = TRUE,
