@@ -23,7 +23,7 @@ nkbc47 <- list(
     )
   },
   sjhkod_var = "op_inr_sjhkod",
-  other_vars = c("a_pat_alder", "d_trigrp", "d_nstad"),
+  other_vars = c("a_pat_alder", "d_tstad", "d_nstad", "d_trigrp"),
   om_indikatorn =
     paste(
       "Preoperativ (neoadjuvant) onkologisk behandling är aktuellt när reduktion av primärtumören önskas inför kirurgi och/eller utvärdering av behandlingseffekten med tumören kvar är en fördel.",
