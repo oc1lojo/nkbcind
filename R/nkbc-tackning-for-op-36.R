@@ -8,7 +8,7 @@ nkbc36 <- list(
     filter(
       x,
       # Split av anmälan och op formulär okt 2017
-      year(a_diag_dat) >= 2017,
+      year(a_diag_dat) >= 2018,
 
       # Endast planerad op (prim op eller med preop onk behandling)
       a_planbeh_typ_Varde %in% c(1, 2),
