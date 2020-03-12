@@ -5,6 +5,8 @@ nkbc44 <- list(
   filter_pop = function(x, ...) {
     filter(
       x,
+      # Reg av given onkologisk behandling
+      year(a_diag_dat) >= 2012,
 
       # Endast opererade
       !is.na(op_kir_dat),
@@ -34,7 +36,7 @@ nkbc44 <- list(
   other_vars = c("a_pat_alder", "d_invasiv", "d_prim_beh"),
   om_indikatorn = NULL,
   vid_tolkning = NULL,
-  inkl_beskr_missca = TRUE,
+  inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL
 )
 class(nkbc44) <- "nkbcind"

@@ -45,6 +45,7 @@ nkbc20 <- list(
       "Många patienter som startar preoperativ onkologisk behandling ingår i behandlingsstudier där vissa undersökningar är obligatoriska som annars hade gjorts senare.",
       "Siffrorna skall därför tolkas med viss försiktighet."
     ),
+  inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL
 )
 class(nkbc20) <- "nkbcind"
