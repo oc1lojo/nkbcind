@@ -39,7 +39,7 @@ nkbc35 <- list(
     )
   },
   sjhkod_var = "d_onk_sjhkod",
-  other_vars = c("a_pat_alder", "d_tstad", "d_nstad", "d_er"),
+  other_vars = c("a_pat_alder", "d_tstad", "d_nstad", "d_trigrp"),
   om_indikatorn = "Pre- eller postoperativ cytostatikabehandling rekommenderas i allmänhet vid bröstcancer med spridning till axillens lymfkörtlar, men även utan lymfkörtelengagemang om tumören har svag hormonell känslighet och/eller då det föreligger riskfaktorer.",
   vid_tolkning =
     c(
