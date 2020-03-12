@@ -3,6 +3,7 @@ varbesk_other_vars <- tibble::enframe(
     a_pat_alder = "Ålder vid diagnos",
     d_prim_beh = "Primär behandling",
     d_tstad = "Tumörstorlek",
+    d_op_pad_invstl_kat = "Tumörstorlek",
     d_nstad = "Spridning till lymfkörtlar",
     d_invasiv = "Invasivitet vid diagnos",
     d_pn = "Spridning till lymfkörtlar",

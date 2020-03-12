@@ -20,10 +20,7 @@ nkbc09h <- list(
   mutate_outcome = function(x, ...) {
     mutate(x,
       outcome1 = as.numeric(op_pad_invstl),
-      outcome2 = cut(op_pad_invstl,
-        breaks = c(-Inf, 20, 50, Inf),
-        labels = c("<=20 mm", "20-50 mm", ">50 mm")
-      )
+      outcome2 = d_op_pad_invstl_kat
     )
   },
   outcome = c("outcome1", "outcome2"),
