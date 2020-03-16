@@ -1,7 +1,7 @@
 nkbc29b <- list(
   code = "nkbc29b",
   lab = "Strålbehandling efter bröstkirurgi",
-  pop = "fall opererade med bröstkirurgi och utan fjärrmetastaser vid diagnos",
+  pop = "operade fall med bröstkirurgi och utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
     filter(
       x,
