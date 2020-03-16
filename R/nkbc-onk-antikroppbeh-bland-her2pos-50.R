@@ -28,7 +28,7 @@ nkbc50 <- list(
       outcome = as.logical(pmax(post_antikropp_Varde, pre_antikropp_Varde, na.rm = TRUE))
     )
   },
-  period_dat_var = "a_diag_dat",
+  period_dat_var = c("a_diag_dat", "d_op_pad_invstl_diko10"),
   sjhkod_var = "d_onk_sjhkod",
   other_vars = "a_pat_alder",
   om_indikatorn = "Vid HER2-positiv invasiv bröstcancer rekommenderas behandling med antikroppsbehandling.",
