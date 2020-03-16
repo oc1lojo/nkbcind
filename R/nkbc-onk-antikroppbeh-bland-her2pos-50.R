@@ -30,7 +30,7 @@ nkbc50 <- list(
   },
   period_dat_var = "a_diag_dat",
   sjhkod_var = "d_onk_sjhkod",
-  other_vars = c("a_pat_alder", "d_op_pad_invstl_diko10"),
+  other_vars = "a_pat_alder",
   om_indikatorn = "Vid HER2-positiv invasiv bröstcancer rekommenderas behandling med antikroppsbehandling.",
   vid_tolkning = "Både preoperativ och postoperativ antikroppsbehandling är medtaget i beräkningen.",
   inkl_beskr_onk_beh = TRUE,
