@@ -37,6 +37,7 @@ nkbc51 <- list(
   sjhkod_var = "d_prim_beh_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv", "d_prim_beh"),
   om_indikatorn = "Standardiserat vårdförlopp infördes 2016 för att säkra utredning och vård till patienter i rimlig och säker tid.",
+  inkl_beskr_onk_beh = TRUE,
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
 )

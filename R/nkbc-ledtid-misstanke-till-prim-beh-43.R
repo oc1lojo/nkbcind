@@ -46,6 +46,7 @@ nkbc43 <- list(
     ),
   vid_tolkning = NULL,
   inkl_beskr_missca = TRUE,
+  inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL
 )
 class(nkbc43) <- "nkbcind"
