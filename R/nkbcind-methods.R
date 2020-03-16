@@ -192,12 +192,12 @@ description_inca.nkbcind <- function(x, ...) {
         if (!is.null(x$inkl_beskr_missca) && x$inkl_beskr_missca == TRUE) {
           "Datum för välgrundad misstanke om cancer tillkom som variabel 2016 och innan detta har datum för 1:a kontakt använts."
         },
-        # if (!is.null(x$inkl_beskr_onk_beh) && x$inkl_beskr_onk_beh == TRUE) {
-        #   paste(
-        #     "Uppgifter som rör given onkologisk behandling redovisas enbart t.o.m.",
-        #     report_end_year - 1, "p.g.a. eftersläpning i rapporteringen."
-        #   )
-        # },
+        if (!is.null(x$inkl_beskr_onk_beh) && x$inkl_beskr_onk_beh == TRUE) {
+          paste(
+            "Rapportering av given onkologisk behandling sker på ett eget formulär till kvalitetsregistret, separat från anmälan.",
+            "Rapporteringen sker cirka 1 - 1,5 år efter anmälan."
+          )
+        },
         # if (!is.null(x$inkl_beskr_overlevnad_5ar) && x$inkl_beskr_overlevnad_5ar == TRUE) {
         #   paste0("Uppgifter som rör 5 års överlevnad redovisas enbart t.o.m. ", report_end_year - 5, ".")
         # },
