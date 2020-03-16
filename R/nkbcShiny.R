@@ -1,5 +1,15 @@
 nkbcShiny <- function(nkbcind, inca = TRUE, ...) {
   if (inca) {
+
+    # Standardperiod för de interaktiva rapporterna
+    if (!is.null(nkbcind$inkl_beskr_onk_beh) && nkbcind$inkl_beskr_onk_beh) {
+      # Standardperiod är två år bakåt i tiden för rapporter om given onk beh pga eftersläpning i rapportering
+      default_period_year <- year(today()) - 2
+    } else {
+      # Standardperiod är föregående år för övriga rapporter
+      default_period_year <- year(today()) - 1
+    }
+
     rccShiny2(
       inca = TRUE,
       incaScript = file.path(Sys.getenv("ScriptPath"), "Stockholm", "Brostcancer", "nkbc-rccShiny-dm.R"),
@@ -9,8 +19,8 @@ nkbcShiny <- function(nkbcind, inca = TRUE, ...) {
       outcomeTitle = outcome_title(nkbcind),
       periodDateLevel = "quarter", # OBS Annorlunda jfr med publika rapporter
       periodLabel = "Kvartal för diagnos",
-      periodDefaultStart = paste0(year(today()) - 1, "Q1"),
-      periodDefaultEnd = paste0(year(today()) - 1, "Q4"),
+      periodDefaultStart = paste0(default_period_year, "Q1"),
+      periodDefaultEnd = paste0(default_period_year, "Q4"),
       textBeforeSubtitle = textBeforeSubtitle(nkbcind),
       # description = description(nkbcind, year(today())),
       description = description_inca(nkbcind),
