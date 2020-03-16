@@ -5,6 +5,9 @@ nkbc51 <- list(
   filter_pop = function(x, ...) {
     filter(
       x,
+      # Reg av given onkologisk behandling
+      year(a_diag_dat) >= 2012,
+
       # Endast opererade
       !is.na(op_kir_dat),
 
