@@ -92,16 +92,21 @@ mutate_nkbcind_d_vars <- function(x, ...) {
     ),
 
     # Tumörstorlek vid operation, kategorier
-    d_op_pad_invstl_kat = cut(op_pad_invstl,
-      breaks = c(-Inf, 20, 50, Inf),
-      labels = c("<=20 mm", "20-50 mm", ">50 mm")
-    ),
+    d_op_pad_invstl_kat =
+      cut(
+        if_else(d_prim_beh_Varde %in% 1, op_pad_invstl, NA_integer_),
+        breaks = c(-Inf, 20, 50, Inf),
+        labels = c("<=20 mm", "20-50 mm", ">50 mm")
+      ) %>%
+        forcats::fct_explicit_na(na_level = "Uppgift saknas"),
 
     # Tumörstorlek vid operation, dikotomiserad med brytpunkt 10 mm
-    d_op_pad_invstl_diko10 = cut(op_pad_invstl,
+    d_op_pad_invstl_diko10 = cut(
+      if_else(d_prim_beh_Varde %in% 1, op_pad_invstl, NA_integer_),
       breaks = c(-Inf, 10, Inf),
       labels = c("<=10 mm", ">10 mm")
-    ),
+    ) %>%
+      forcats::fct_explicit_na(na_level = "Uppgift saknas"),
 
     # pN
     d_pn = cut(op_pad_lglmetant, c(1, 4, 100),
