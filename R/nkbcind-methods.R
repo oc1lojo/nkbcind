@@ -22,7 +22,7 @@ geo_units_vars <- function(x) UseMethod("geo_units_vars")
 textBeforeSubtitle <- function(x) UseMethod("textBeforeSubtitle")
 description <- function(x, report_end_year = report_end_year) UseMethod("description")
 description_inca <- function(x) UseMethod("description_inca")
-varOther <- function(x) UseMethod("varOther")
+varOther <- function(x, varbesk, ...) UseMethod("varOther")
 
 period_dat_var <- function(x) UseMethod("period_dat_var")
 kpl_description <- function(x) UseMethod("kpl_description")
