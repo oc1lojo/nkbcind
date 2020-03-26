@@ -129,7 +129,7 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
 
 description.nkbc33 <- function(x, report_end_year = report_end_year, ...) {
   # Anpassad för rapporteringa av täckningsgrad mot cancerregistret (nkbc33)
-  varOther <- c(
+  c(
     # Om indikatorn
     paste(
       c(
