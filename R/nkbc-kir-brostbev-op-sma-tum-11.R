@@ -4,10 +4,10 @@ nkbc11 <- list(
   pop = "primärt opererade fall med invasiv cancer <=30 mm eller ej invasiv cancer <=20 mm utan fjärrmetastaser vid diagnos",
   pop_short = "primärt opererade fall med små tumörer utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Extent infördes mitten av 2014
-      year(a_diag_dat) >= 2015,
+      lubridate::year(a_diag_dat) >= 2015,
 
       # Endast primär opereration (planerad om utförd ej finns)
       d_prim_beh_Varde == 1,
@@ -24,7 +24,7 @@ nkbc11 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       outcome = ifelse(op_kir_brost_Varde == 1, TRUE, FALSE)
     )
   },

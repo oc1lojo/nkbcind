@@ -4,7 +4,7 @@ nkbc07 <- list(
   pop = "fall med mastektomi eller subkutan mastektomi utan fjärrmetastaser vid diagnos",
   pop_short = "mastektomerade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Endast mastektomi och subkutan mastektomi
       op_kir_brost_Varde %in% c(2, 4),
@@ -14,7 +14,7 @@ nkbc07 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       # Hantera missing
       outcome = as.logical(ifelse(op_kir_onkoplastik_Varde %in% c(0, 1), op_kir_onkoplastik_Varde, NA))
     )

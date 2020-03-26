@@ -4,10 +4,10 @@ nkbc32 <- list(
   pop = "opererade, cytostatikabehandlade HER2 positiva invasiva fall utan fjärrmetastaser vid diagnos",
   pop_short = "opererade, cytostatikabehandlade HER2+ invasiva fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Reg av given onkologisk behandling
-      year(a_diag_dat) >= 2012,
+      lubridate::year(a_diag_dat) >= 2012,
 
       # Endast opererade
       !is.na(op_kir_dat),
@@ -26,7 +26,7 @@ nkbc32 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       # Går på det som finns, pre eller postop. Om det ena saknas antas samma som finns för det andra.
       outcome = as.logical(pmax(post_antikropp_Varde, pre_antikropp_Varde, na.rm = TRUE))
     )

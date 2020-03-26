@@ -3,10 +3,10 @@ nkbc15 <- list(
   lab = "Välgrundad misstanke om cancer till operation",
   pop = "primärt opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Endast fall med år från 2013 (1:a kontakt tillkom 2013)
-      year(a_diag_dat) >= 2013,
+      lubridate::year(a_diag_dat) >= 2013,
 
       # Endast opererade
       !is.na(op_kir_dat),
@@ -19,9 +19,9 @@ nkbc15 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
-      d_a_diag_misscadat = ymd(coalesce(a_diag_misscadat, a_diag_kontdat)),
-      outcome = as.numeric(ymd(op_kir_dat) - d_a_diag_misscadat),
+    dplyr::mutate(x,
+      d_a_diag_misscadat = lubridate::ymd(coalesce(a_diag_misscadat, a_diag_kontdat)),
+      outcome = as.numeric(lubridate::ymd(op_kir_dat) - d_a_diag_misscadat),
       outcome = ifelse(outcome < 0, 0, outcome)
     )
   },

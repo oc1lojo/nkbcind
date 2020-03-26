@@ -6,10 +6,10 @@ nkbc37 <- list(
   lab_short = "Slutenvård pga behandlingskomplikationer av cytostatikabehandling",
   pop = "opererade, cytostatikabehandlade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Reg av given onkologisk behandling
-      year(a_diag_dat) >= 2012,
+      lubridate::year(a_diag_dat) >= 2012,
 
       # Endast opererade
       !is.na(op_kir_dat),
@@ -22,7 +22,7 @@ nkbc37 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       # Går på det värde som finns
       pre_kemo_kompl_Varde = ifelse(pre_kemo_kompl_Varde %in% c(0, 1), pre_kemo_kompl_Varde, NA),
       post_kemo_kompl_Varde = ifelse(post_kemo_kompl_Varde %in% c(0, 1), post_kemo_kompl_Varde, NA),

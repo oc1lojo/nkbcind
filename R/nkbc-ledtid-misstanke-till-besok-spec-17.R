@@ -3,16 +3,16 @@ nkbc17 <- list(
   lab = "Välgrundad misstanke om cancer till första besök i specialiserad vård",
   pop = "alla anmälda fall",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Endast fall med år från 2013 (1:a kontakt tillkom 2013)
-      year(a_diag_dat) >= 2013
+      lubridate::year(a_diag_dat) >= 2013
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
-      d_a_diag_misscadat = ymd(coalesce(a_diag_misscadat, a_diag_kontdat)),
-      outcome = as.numeric(ymd(a_diag_besdat) - d_a_diag_misscadat),
+    dplyr::mutate(x,
+      d_a_diag_misscadat = lubridate::ymd(coalesce(a_diag_misscadat, a_diag_kontdat)),
+      outcome = as.numeric(lubridate::ymd(a_diag_besdat) - d_a_diag_misscadat),
 
       outcome = ifelse(outcome < 0, 0, outcome)
     )

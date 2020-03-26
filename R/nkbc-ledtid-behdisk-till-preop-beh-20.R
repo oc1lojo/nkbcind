@@ -3,10 +3,10 @@ nkbc20 <- list(
   lab = "Första behandlingsdiskussion till preoperativ onkologisk behandling",
   pop = "opererade fall utan fjärrmetastaser vid diagnos med preoperativ onkologisk behandling",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Reg av given onkologisk behandling
-      year(a_diag_dat) >= 2012,
+      lubridate::year(a_diag_dat) >= 2012,
 
       # Endast opererade
       !is.na(op_kir_dat),
@@ -19,14 +19,14 @@ nkbc20 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       d_pre_onk_dat = pmin(as.Date(pre_kemo_dat),
         as.Date(pre_rt_dat),
         as.Date(pre_endo_dat),
         na.rm = TRUE
       ),
 
-      outcome = as.numeric(ymd(d_pre_onk_dat) - ymd(a_planbeh_infopatdat)),
+      outcome = as.numeric(lubridate::ymd(d_pre_onk_dat) - lubridate::ymd(a_planbeh_infopatdat)),
       outcome = ifelse(outcome < 0, 0, outcome)
     )
   },

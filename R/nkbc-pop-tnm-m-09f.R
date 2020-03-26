@@ -4,7 +4,7 @@ nkbc09f <- list(
   lab_short = "Fjärrmetastaser",
   pop = "alla anmälda fall",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x
       # Endast invasiv cancer
       # invasiv == "Invasiv cancer", Bortselekterat pga om väljer enbart invasiv
@@ -13,7 +13,7 @@ nkbc09f <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       outcome = d_mstad
     )
   },

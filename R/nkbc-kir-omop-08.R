@@ -4,14 +4,14 @@ nkbc08 <- list(
   lab_short = "Enbart en operation",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Ej fjärrmetastaser vid diagnos
       !a_tnm_mklass_Varde %in% 10
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       # Hantera missing
       outcome = ifelse(op_kir_sekbrost_Varde %in% c(0, 1), op_kir_sekbrost_Varde, NA),
 

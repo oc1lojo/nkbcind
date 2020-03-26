@@ -4,10 +4,10 @@ nkbc09a <- list(
   lab_short = "Kön",
   pop = "alla anmälda fall",
   filter_pop = function(x, ...) {
-    filter(x) # ingen filtrering
+    dplyr::filter(x) # ingen filtrering
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       outcome = factor(KON_VALUE,
         levels = c(1, 2),
         labels = c("Män", "Kvinnor")

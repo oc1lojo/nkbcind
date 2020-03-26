@@ -3,10 +3,10 @@ nkbc29b <- list(
   lab = "Strålbehandling efter bröstkirurgi",
   pop = "operade fall med bröstkirurgi och utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Reg av given onkologisk behandling
-      year(a_diag_dat) >= 2012,
+      lubridate::year(a_diag_dat) >= 2012,
 
       # Opererade med bröstkirurgi (fall med enbart axillkirurgi exkluderade)
       op_kir_brost_Varde %in% c(1, 2, 4),
@@ -16,9 +16,9 @@ nkbc29b <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       d_pn = factor(
-        case_when(
+        dplyr::case_when(
           op_pad_lglmetant == 0 ~ "Nej (pN-)",
           (op_pad_snmakrometant == 0 & op_pad_snmikrometant > 0 & op_pad_lglmetant == op_pad_snmikrometant) %in% TRUE ~ "Enbart mikrometastas",
           op_pad_lglmetant > 0 & op_pad_lglmetant <= 3 ~ "1-3 metastaser",
@@ -28,7 +28,7 @@ nkbc29b <- list(
         levels = c("Nej (pN-)", "Enbart mikrometastas", "1-3 metastaser", "=> 4 metastaser", "Uppgift saknas")
       ),
       d_op_kir_brost_kat = factor(
-        case_when(
+        dplyr::case_when(
           op_kir_brost_Varde %in% 1 ~ 1L,
           op_kir_brost_Varde %in% c(2, 4) ~ 2L,
           TRUE ~ NA_integer_

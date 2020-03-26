@@ -3,7 +3,7 @@ nkbc01 <- list(
   lab = "Screeningupptäckt bröstcancer",
   pop = "kvinnor i åldrarna 40-74 år vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Ålder 40-74 år vid diagnos
       a_pat_alder <= 74,
@@ -14,7 +14,7 @@ nkbc01 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       # Hantera missing
       outcome = as.logical(ifelse(a_diag_screening_Varde %in% c(0, 1), a_diag_screening_Varde, NA))
     )

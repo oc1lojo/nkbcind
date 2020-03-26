@@ -4,7 +4,7 @@ nkbc45 <- list(
   lab_short = "Axillkirurgi",
   pop = "opererade fall med axillingrepp och utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Opererade fall
       !is.na(op_kir_dat),
@@ -17,9 +17,9 @@ nkbc45 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       outcome = factor(
-        if_else(op_kir_axilltyp_Varde %in% c(1, 2, 3), op_kir_axilltyp_Varde, 98L),
+        dplyr::if_else(op_kir_axilltyp_Varde %in% c(1, 2, 3), op_kir_axilltyp_Varde, 98L),
         levels = c(1, 3, 2, 98),
         labels = c("Enbart SN", "SN och utrymning", "Enbart utrymning", "Uppgift saknas")
       )

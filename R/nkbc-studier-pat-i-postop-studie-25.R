@@ -5,10 +5,10 @@ nkbc25 <- list(
   lab = "Patienten ingår i postoperativ studie",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Reg av given onkologisk behandling
-      year(a_diag_dat) >= 2012,
+      lubridate::year(a_diag_dat) >= 2012,
 
       # Endast opererade
       !is.na(op_kir_dat),
@@ -18,7 +18,7 @@ nkbc25 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       # Hantera missing
       outcome = as.logical(ifelse(post_beh_studie_Varde %in% c(0, 1), post_beh_studie_Varde, NA))
     )

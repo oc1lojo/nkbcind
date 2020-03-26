@@ -4,10 +4,10 @@ nkbc41 <- list(
   pop = "opererade östrogenreceptorpositiva invasiva fall utan fjärrmetastaser vid diagnos",
   pop_short = "opererade ER+ invasiva fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Reg av given onkologisk behandling
-      year(a_diag_dat) >= 2012,
+      lubridate::year(a_diag_dat) >= 2012,
 
       # Endast opererade
       !is.na(op_kir_dat),
@@ -23,10 +23,10 @@ nkbc41 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       # Pre eller postoperativ
       outcome = factor(
-        case_when(
+        dplyr::case_when(
           post_endo_Varde == 1 & pre_endo_Varde == 1 ~ 1,
           pre_endo_Varde == 1 ~ 0,
           post_endo_Varde == 1 ~ 2,

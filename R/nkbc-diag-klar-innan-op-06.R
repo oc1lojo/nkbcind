@@ -3,7 +3,7 @@ nkbc06 <- list(
   lab = "Fastställd diagnos innan operation",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Endast opererade
       !is.na(op_kir_dat),
@@ -13,7 +13,7 @@ nkbc06 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       # Hantera missing
       outcome = as.logical(ifelse(a_diag_preopmorf_Varde %in% c(0, 1), a_diag_preopmorf_Varde, NA))
     )

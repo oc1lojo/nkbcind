@@ -3,7 +3,7 @@ nkbc40 <- list(
   lab = "Typ av primär behandling",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Endast opererade
       !is.na(op_kir_dat),
@@ -13,7 +13,7 @@ nkbc40 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       # Prim op eller preop onk beh
       outcome = factor(d_prim_beh_Varde,
         levels = c(1, 2),

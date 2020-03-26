@@ -3,7 +3,7 @@ nkbc47 <- list(
   lab = "Preoperativ onkologisk behandling",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Endast opererade
       !is.na(op_kir_dat),
@@ -13,9 +13,9 @@ nkbc47 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       # Preop onk beh
-      outcome = case_when(
+      outcome = dplyr::case_when(
         d_prim_beh_Varde %in% 2 ~ TRUE,
         d_prim_beh_Varde %in% 1 ~ FALSE,
         TRUE ~ NA

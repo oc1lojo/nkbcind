@@ -3,7 +3,7 @@ nkbc48 <- list(
   lab = "Provtagningsdatum till operation",
   pop = "primärt opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
 
       # Endast opererade
@@ -17,8 +17,8 @@ nkbc48 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
-      outcome = as.numeric(ymd(op_kir_dat) - ymd(a_diag_dat)),
+    dplyr::mutate(x,
+      outcome = as.numeric(lubridate::ymd(op_kir_dat) - lubridate::ymd(a_diag_dat)),
       outcome = ifelse(outcome < 0, 0, outcome)
     )
   },

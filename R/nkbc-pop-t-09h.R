@@ -4,7 +4,7 @@ nkbc09h <- list(
   lab_short = "Tumörstorlek",
   pop = "primärt opererade invasiva fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Enbart primärt opererade
       !is.na(op_kir_dat),
@@ -18,7 +18,7 @@ nkbc09h <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       outcome1 = as.numeric(op_pad_invstl),
       outcome2 = d_op_pad_invstl_kat
     )

@@ -5,10 +5,10 @@ nkbc36 <- list(
   lab = "Täckningsgrad för rapportering av operation",
   pop = "fall med planerad operation utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Split av anmälan och op formulär okt 2017
-      year(a_diag_dat) >= 2018,
+      lubridate::year(a_diag_dat) >= 2018,
 
       # Endast planerad op (prim op eller med preop onk behandling)
       a_planbeh_typ_Varde %in% c(1, 2),
@@ -18,7 +18,7 @@ nkbc36 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       outcome = ifelse(!is.na(op_inr_dat) | !is.na(op_inr_enh) | !is.na(op_inr_initav), TRUE, FALSE)
     )
   },

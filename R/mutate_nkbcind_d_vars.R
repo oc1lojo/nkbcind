@@ -1,9 +1,9 @@
 mutate_nkbcind_d_vars <- function(x, ...) {
-  mutate(x,
+  dplyr::mutate(x,
 
     # Primär behandling
     d_prim_beh = factor(
-      replace_na(d_prim_beh_Varde, 99),
+      tidyr::replace_na(d_prim_beh_Varde, 99),
       levels = c(1, 2, 99),
       labels = c(
         "Primär operation",
@@ -14,14 +14,14 @@ mutate_nkbcind_d_vars <- function(x, ...) {
 
     # Invasivitet
     d_invasiv = factor(
-      replace_na(d_invasiv_Varde, 99),
+      tidyr::replace_na(d_invasiv_Varde, 99),
       levels = c(1, 2, 99),
       labels = c("Invasiv cancer", "Enbart cancer in situ", "Uppgift saknas")
     ),
 
     # Histologisk grad (invasiv) eller kärnatypigrad (cancer in situ)
     d_op_pad_nhg = factor(
-      case_when(
+      dplyr::case_when(
         op_pad_nhg_Varde %in% c(97, 98, NA) ~ 99L,
         TRUE ~ op_pad_nhg_Varde
       ),
@@ -31,7 +31,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
 
     # ER
     d_er = factor(
-      replace_na(d_er_Varde, 99),
+      tidyr::replace_na(d_er_Varde, 99),
       levels = c(1, 2, 99),
       labels = c("Positiv", "Negativ", "Uppgift saknas")
     ),
@@ -45,7 +45,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
 
     # T
     d_tstad = factor(
-      case_when(
+      dplyr::case_when(
         a_tnm_tklass_Varde == 0 ~ 1,
         a_tnm_tklass_Varde == 5 ~ 1,
         a_tnm_tklass_Varde == 10 ~ 1,
@@ -65,7 +65,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
 
     # N
     d_nstad = factor(
-      case_when(
+      dplyr::case_when(
         a_tnm_nklass_Varde == 0 ~ 1,
         a_tnm_nklass_Varde == 10 ~ 2,
         a_tnm_nklass_Varde == 20 ~ 2,
@@ -80,7 +80,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
 
     # M
     d_mstad = factor(
-      case_when(
+      dplyr::case_when(
         a_tnm_mklass_Varde == 0 ~ 1,
         a_tnm_mklass_Varde == 10 ~ 2,
         a_tnm_mklass_Varde == 20 ~ 99,
@@ -94,7 +94,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
     # Tumörstorlek vid operation, kategorier
     d_op_pad_invstl_kat =
       cut(
-        if_else(d_prim_beh_Varde %in% 1, op_pad_invstl, NA_integer_),
+        dplyr::if_else(d_prim_beh_Varde %in% 1, op_pad_invstl, NA_integer_),
         breaks = c(-Inf, 20, 50, Inf),
         labels = c("<=20 mm", "20-50 mm", ">50 mm")
       ) %>%
@@ -102,7 +102,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
 
     # Tumörstorlek vid operation, dikotomiserad med brytpunkt 10 mm
     d_op_pad_invstl_diko10 = cut(
-      if_else(d_prim_beh_Varde %in% 1, op_pad_invstl, NA_integer_),
+      dplyr::if_else(d_prim_beh_Varde %in% 1, op_pad_invstl, NA_integer_),
       breaks = c(-Inf, 10, Inf),
       labels = c("<=10 mm", ">10 mm")
     ) %>%
@@ -117,7 +117,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
 
     d_pnstat =
       factor(
-        case_when(
+        dplyr::case_when(
           op_pad_lglmetant == 0 ~ "Nej (pN-)",
           op_pad_lglmetant > 0 ~ "Ja (pN+)",
           TRUE ~ "Uppgift saknas"

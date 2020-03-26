@@ -3,10 +3,10 @@ nkbc04 <- list(
   lab = "Multidisciplinär konferens inför behandlingstart",
   pop = "alla anmälda fall",
   filter_pop = function(x, ...) {
-    filter(x) # ingen filtrering
+    dplyr::filter(x) # ingen filtrering
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       # Hantera missing
       outcome = as.logical(ifelse(a_mdk_Varde %in% c(0, 1), a_mdk_Varde, NA))
     )

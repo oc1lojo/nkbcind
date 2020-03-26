@@ -61,7 +61,7 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
       c(
         x$om_indikatorn,
         if (!is.null(x$target_values)) {
-          case_when(
+          dplyr::case_when(
             length(x$target_values) == 1 ~
             paste0("Målnivå: ", x$target_values[1], "%"),
             length(x$target_values) == 2 ~
@@ -105,7 +105,7 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
         paste0("Population: ", x$pop, "."),
         paste0(
           "Uppgifterna redovisas uppdelat på ",
-          case_when(
+          dplyr::case_when(
             x$sjhkod_var %in% "a_inr_sjhkod" ~
             "anmälande sjukhus",
             x$sjhkod_var %in% "d_opans_sjhkod" ~
@@ -135,7 +135,7 @@ description.nkbc33 <- function(x, report_end_year = report_end_year, ...) {
       c(
         x$om_indikatorn,
         if (!is.null(x$target_values)) {
-          case_when(
+          dplyr::case_when(
             length(x$target_values) == 1 ~
             paste0("Målnivå: ", x$target_values[1], "%"),
             length(x$target_values) == 2 ~
@@ -175,7 +175,7 @@ description_inca.nkbcind <- function(x, ...) {
       c(
         x$om_indikatorn,
         if (!is.null(x$target_values)) {
-          case_when(
+          dplyr::case_when(
             length(x$target_values) == 1 ~
             paste0("Målnivå: ", x$target_values[1], "%"),
             length(x$target_values) == 2 ~
@@ -219,7 +219,7 @@ description_inca.nkbcind <- function(x, ...) {
         paste0("Population: ", x$pop, "."),
         paste0(
           "Uppgifterna redovisas uppdelat på ",
-          case_when(
+          dplyr::case_when(
             x$sjhkod_var %in% "a_inr_sjhkod" ~
             "anmälande sjukhus",
             x$sjhkod_var %in% "d_opans_sjhkod" ~
@@ -245,7 +245,7 @@ varOther.nkbcind <- function(x, varbesk = varbesk_other_vars, ...) {
   if (is.null(x$other_vars)) {
     return(NULL)
   } else {
-    df <- left_join(tibble(var = x$other_vars), varbesk, by = "var")
+    df <- dplyr::left_join(tibble::tibble(var = x$other_vars), varbesk, by = "var")
     out <- list() # initialisera
     for (i in 1:nrow(df)) {
       out[[i]] <- as.list(df[i, ])
@@ -275,13 +275,13 @@ kpl_description.nkbcind <- function(x, ...) {
       },
       paste0(
         "Fall beskrivs utifrån ",
-        case_when(
+        dplyr::case_when(
           x$period_dat_var %in% "a_diag_dat" ~ "diagnosdatum",
           x$period_dat_var %in% "d_pre_onk_dat" ~ "startdatum för preoperativ onkologisk behandling",
           x$period_dat_var %in% "op_kir_dat" ~ "operationsdatum"
         ),
         " och ",
-        case_when(
+        dplyr::case_when(
           x$sjhkod_var %in% "a_inr_sjhkod" ~
           "anmälande sjukhus",
           x$sjhkod_var %in% "d_opans_sjhkod" ~
@@ -302,7 +302,7 @@ kpl_description.nkbcind <- function(x, ...) {
         "."
       ),
       if (!is.null(x$target_values)) {
-        case_when(
+        dplyr::case_when(
           length(x$target_values) == 1 ~
           paste0("Målnivå: ", x$target_values[1], "%."),
           length(x$target_values) == 2 ~

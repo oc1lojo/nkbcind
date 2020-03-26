@@ -4,7 +4,7 @@ nkbc09g <- list(
   lab = "Spridning till lymfkörtlarna vid operation",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Enbart opererade
       !is.na(op_kir_dat),
@@ -14,7 +14,7 @@ nkbc09g <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       outcome = d_pnstat
     )
   },

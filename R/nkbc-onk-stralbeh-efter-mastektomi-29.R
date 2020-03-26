@@ -4,10 +4,10 @@ nkbc29 <- list(
   pop = "invasiva fall med spridning till lymfkörtlarna (fall med enbart mikrometastas exkluderade) och utan fjärrmetastaser vid diagnos, opererade med mastektomi",
   pop_short = "invasiva fall med mastektomi, spridning till lymfkörtlarna och utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Reg av given onkologisk behandling
-      year(a_diag_dat) >= 2012,
+      lubridate::year(a_diag_dat) >= 2012,
 
       # Endast invasiv cancer
       d_invasiv == "Invasiv cancer",
@@ -26,7 +26,7 @@ nkbc29 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       outcome = as.logical(post_rt_Varde)
     )
   },

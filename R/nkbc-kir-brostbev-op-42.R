@@ -4,7 +4,7 @@ nkbc42 <- list(
   pop = "opererade fall med bröstkirurgi (fall med enbart axillkirurgi exkluderade) utan fjärrmetastas vid diagnos",
   pop_short = "opererade fall med bröstkirurgi utan fjärrmetastas vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Endast opererade
       !is.na(op_kir_dat),
@@ -17,8 +17,8 @@ nkbc42 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
-      outcome = case_when(
+    dplyr::mutate(x,
+      outcome = dplyr::case_when(
         op_kir_brost_Varde %in% 1 ~ TRUE,
         op_kir_brost_Varde %in% c(2, 4) ~ FALSE,
         TRUE ~ NA

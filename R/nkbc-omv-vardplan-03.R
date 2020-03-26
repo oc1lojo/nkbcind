@@ -4,14 +4,14 @@ nkbc03 <- list(
   lab_short = "Min vårdplan",
   pop = "alla anmälda fall",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # min vp tillkom mitten av 2014
-      year(a_diag_dat) >= 2015
+      lubridate::year(a_diag_dat) >= 2015
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       # Hantera missing
       outcome = as.logical(ifelse(a_omv_indivplan_Varde %in% c(0, 1), a_omv_indivplan_Varde, NA))
     )
