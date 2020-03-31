@@ -21,7 +21,7 @@ nkbc13 <- list(
   },
   mutate_outcome = function(x, ...) {
     dplyr::mutate(x,
-      outcome = ifelse(!is.na(pre_inr_dat) | !is.na(pre_inr_enh) | !is.na(pre_inr_initav), TRUE, FALSE)
+      outcome = ifelse(!is.na(pre_inr_dat) | !is.na(pre_inr_enh), TRUE, FALSE)
     )
   },
   target_values = c(70, 85),

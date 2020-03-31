@@ -19,7 +19,7 @@ nkbc36 <- list(
   },
   mutate_outcome = function(x, ...) {
     dplyr::mutate(x,
-      outcome = ifelse(!is.na(op_inr_dat) | !is.na(op_inr_enh) | !is.na(op_inr_initav), TRUE, FALSE)
+      outcome = ifelse(!is.na(op_inr_dat) | !is.na(op_inr_enh), TRUE, FALSE)
     )
   },
   sjhkod_var = "d_opans_sjhkod",
