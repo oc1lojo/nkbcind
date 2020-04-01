@@ -32,6 +32,7 @@ nkbc40 <- list(
       "Tumörstorlek, spridning till lymfkörtlarna liksom biologisk subtyp påverkar val av preoperativ behandling eller ej, liksom typ av preoperativ behandling."
     ),
   vid_tolkning = "För fall med preoperativ onkologisk behandling är östrogenreceptoruttryck hämtat från nålsbiopsi innan behandling, i övriga fall från operation.",
+  inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL
 )
 class(nkbc40) <- "nkbcind"
