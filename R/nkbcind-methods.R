@@ -241,6 +241,47 @@ description_inca.nkbcind <- function(x, ...) {
   )
 }
 
+description_inca.nkbc33 <- function(x, ...) {
+  # Anpassad för rapporteringa av täckningsgrad mot cancerregistret (nkbc33)
+  c(
+    # Om indikatorn
+    paste(
+      c(
+        x$om_indikatorn,
+        if (!is.null(x$target_values)) {
+          dplyr::case_when(
+            length(x$target_values) == 1 ~
+              paste0("Målnivå: ", x$target_values[1], "%"),
+            length(x$target_values) == 2 ~
+              paste0("Målnivåer: ", x$target_values[1], "% (låg) ", x$target_values[2], "% (hög)")
+          )
+        }
+      ),
+      collapse = "\n<p></p>\n"
+    ),
+    # Vid tolkning
+    paste(
+      c(
+        x$vid_tolkning,
+        paste(
+          "Ett fall per bröst kan rapporterats till det nationella kvalitetsregistret för bröstcancer.",
+          "Det innebär att samma person kan finnas med i statistiken upp till två gånger."
+        )
+      ),
+      collapse = "\n<p></p>\n"
+    ),
+    # Teknisk beskrivning
+    paste(
+      c(
+        x$teknisk_beskrivning,
+        paste0("Population: ", x$pop, "."),
+        "Sjukhus är i första hand inrapporterande sjukhus på anmälan i kvalitetsregistret och om detta saknas remitterande klinik i cancerregistret och om detta saknas arbetskodklinik i cancerregistret."
+      ),
+      collapse = "\n<p></p>\n"
+    )
+  )
+}
+
 varOther.nkbcind <- function(x, varbesk = varbesk_other_vars, ...) {
   if (is.null(x$other_vars)) {
     return(NULL)
