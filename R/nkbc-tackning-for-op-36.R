@@ -23,6 +23,7 @@ nkbc36 <- list(
     )
   },
   sjhkod_var = "d_opans_sjhkod",
+  other_vars = "d_prim_beh",
   om_indikatorn = NULL,
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
