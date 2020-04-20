@@ -2,6 +2,7 @@ add_sjhdata <- function(x,
                         sjukhuskoder = sjukhuskoder,
                         sjhkod_var = "a_inr_sjhkod",
                         samredovisning_skaraborg = TRUE,
+                        samredovisning_lund_malmo = TRUE,
                         samredovisning_lund_malmo_onkbeh = TRUE,
                         ...) {
   names(x)[names(x) == sjhkod_var] <- "sjhkod"
@@ -50,8 +51,16 @@ add_sjhdata <- function(x,
       )
   }
 
-  # Ev. samredovisning av Lund och Malmö avseende onkologisk behandling
-  if (samredovisning_lund_malmo_onkbeh) {
+  # Ev. samredovisning av Lund och Malmö
+  if (samredovisning_lund_malmo) {
+    x <- x %>%
+      dplyr::mutate(
+        sjukhus = dplyr::if_else(
+          sjukhus %in% c("Malmö", "Lund"), "Lund/Malmö", sjukhus
+        )
+      )
+  } else if (samredovisning_lund_malmo_onkbeh) {
+    # Ev. samredovisning av Lund och Malmö enbart avseende onkologisk behandling
     x <- x %>%
       dplyr::mutate(
         sjukhus = dplyr::if_else(
