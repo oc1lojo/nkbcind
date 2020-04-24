@@ -251,9 +251,9 @@ description_inca.nkbc33 <- function(x, ...) {
         if (!is.null(x$target_values)) {
           dplyr::case_when(
             length(x$target_values) == 1 ~
-              paste0("Målnivå: ", x$target_values[1], "%"),
+            paste0("Målnivå: ", x$target_values[1], "%"),
             length(x$target_values) == 2 ~
-              paste0("Målnivåer: ", x$target_values[1], "% (låg) ", x$target_values[2], "% (hög)")
+            paste0("Målnivåer: ", x$target_values[1], "% (låg) ", x$target_values[2], "% (hög)")
           )
         }
       ),
