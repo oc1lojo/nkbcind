@@ -12,6 +12,17 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       )
     ),
 
+    # Planerad åtgärd
+    a_planbeh_typ = factor(
+      a_planbeh_typ_Varde,
+      levels = c(1, 2, 3),
+      labels = c(
+        "Primär operation",
+        "Preoperativ onkologisk behandling eller konservativ behandling",
+        "Ej operation eller fjärrmetastas/-er vid diagnos"
+      )
+    ),
+
     # Invasivitet
     d_invasiv = factor(
       tidyr::replace_na(d_invasiv_Varde, 99),

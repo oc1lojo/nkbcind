@@ -3,14 +3,15 @@
 nkbc36 <- list(
   code = "nkbc36",
   lab = "Täckningsgrad för rapportering av operation",
-  pop = "fall med planerad operation utan fjärrmetastaser vid diagnos",
+  pop = "anmälda fall utan fjärrmetastas vid diagnos där med planerad åtgräd är primär operation, preoperativ onkologisk behandling eller konservativ behandlingplanerad åtgräd är primär operation, preoperativ onkologisk behandling eller konservativ behandling",
+  pop_short = "fall med planerad operation eller konservativ behandling och utan fjärrmetastas vid diagnos",
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
       # Split av anmälan och op formulär okt 2017
       lubridate::year(a_diag_dat) >= 2018,
 
-      # Endast planerad op (prim op eller med preop onk behandling)
+      # Planerad åtgräd är primär operation, preoperativ onkologisk behandling eller konservativ behandling
       a_planbeh_typ_Varde %in% c(1, 2),
 
       # Ej fjärrmetastaser vid diagnos
@@ -23,7 +24,7 @@ nkbc36 <- list(
     )
   },
   sjhkod_var = "d_opans_sjhkod",
-  other_vars = "d_prim_beh",
+  other_vars = c("a_pat_alder", "a_planbeh_typ"),
   om_indikatorn = NULL,
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
