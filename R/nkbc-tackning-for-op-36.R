@@ -3,8 +3,8 @@
 nkbc36 <- list(
   code = "nkbc36",
   lab = "Täckningsgrad för rapportering av operation",
-  pop = "anmälda fall utan fjärrmetastas vid diagnos där med planerad åtgräd är primär operation, preoperativ onkologisk behandling eller konservativ behandlingplanerad åtgräd är primär operation, preoperativ onkologisk behandling eller konservativ behandling",
-  pop_short = "fall med planerad operation eller konservativ behandling och utan fjärrmetastas vid diagnos",
+  pop = "anmälda fall utan fjärrmetastas vid diagnos där planerad åtgräd är primär operation, preoperativ onkologisk behandling eller konservativ behandling",
+  pop_short = "fall med planerad operation (eller konservativ behandling) och utan fjärrmetastas vid diagnos",
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
