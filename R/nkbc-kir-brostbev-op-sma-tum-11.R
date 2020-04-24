@@ -32,6 +32,7 @@ nkbc11 <- list(
   period_dat_var = "op_kir_dat",
   sjhkod_var = "op_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
+  other_vars_inca = c("a_pat_alder", "d_invasiv", "d_prim_beh"),
   om_indikatorn =
     paste(
       "Ett bröstbevarande ingrepp och  strålbehandling är  standradingrepp  för majoriten av tidigt upptäckta bröstcancrar.",
