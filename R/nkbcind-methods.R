@@ -17,12 +17,14 @@ prop_within_value <- function(x) UseMethod("prop_within_value")
 target_values <- function(x) UseMethod("target_values")
 sjhkod_var <- function(x) UseMethod("sjhkod_var")
 other_vars <- function(x) UseMethod("other_vars")
+other_vars_inca <- function(x) UseMethod("other_vars_inca")
 geo_units_vars <- function(x) UseMethod("geo_units_vars")
 
 textBeforeSubtitle <- function(x) UseMethod("textBeforeSubtitle")
 description <- function(x, report_end_year = report_end_year) UseMethod("description")
 description_inca <- function(x) UseMethod("description_inca")
 varOther <- function(x, varbesk, ...) UseMethod("varOther")
+varOther_inca <- function(x, varbesk, ...) UseMethod("varOther_inca")
 
 period_dat_var <- function(x) UseMethod("period_dat_var")
 kpl_description <- function(x) UseMethod("kpl_description")
@@ -49,6 +51,13 @@ geo_units_vars.nkbcind <- function(x) {
   }
 }
 other_vars.nkbcind <- function(x) x$other_vars
+other_vars_inca.nkbcind <- function(x) {
+  if (!is.null(x$other_vars_inca)) {
+    x$other_vars_inca
+  } else {
+    x$other_vars
+  }
+}
 
 textBeforeSubtitle.nkbcind <- function(x, ...) {
   paste0("Bland ", pop_short(x), ".")
@@ -287,6 +296,19 @@ varOther.nkbcind <- function(x, varbesk = varbesk_other_vars, ...) {
     return(NULL)
   } else {
     df <- dplyr::left_join(tibble::tibble(var = x$other_vars), varbesk, by = "var")
+    out <- list() # initialisera
+    for (i in 1:nrow(df)) {
+      out[[i]] <- as.list(df[i, ])
+    }
+    return(out)
+  }
+}
+
+varOther_inca.nkbcind <- function(x, varbesk = varbesk_other_vars, ...) {
+  if (is.null(x$other_vars_inca)) {
+    varOther(x, varbesk = varbesk, ...)
+  } else {
+    df <- dplyr::left_join(tibble::tibble(var = x$other_vars_inca), varbesk, by = "var")
     out <- list() # initialisera
     for (i in 1:nrow(df)) {
       out[[i]] <- as.list(df[i, ])
