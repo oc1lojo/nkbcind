@@ -21,6 +21,7 @@ nkbc17 <- list(
   target_values = 80,
   sjhkod_var = "a_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
+  other_vars_inca = c("a_pat_alder", "d_invasiv", "d_a_planbeh_typ"),
   om_indikatorn =
     paste(
       "Standardiserat vårdförlopp infördes 2016 för att säkra utredning och vård till patienter i rimlig och säker tid.",

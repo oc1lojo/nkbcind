@@ -2,6 +2,7 @@ varbesk_other_vars <- tibble::enframe(
   c(
     a_pat_alder = "Ålder vid diagnos",
     a_planbeh_typ = "Planerad åtgärd",
+    d_a_planbeh_typ = "Planerad åtgärd",
     d_prim_beh = "Primär behandling",
     op_pad_invstl = "Tumörstorlek",
     d_tstad = "Tumörstorlek",
