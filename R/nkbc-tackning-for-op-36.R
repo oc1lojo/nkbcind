@@ -24,7 +24,7 @@ nkbc36 <- list(
     )
   },
   sjhkod_var = "d_opans_sjhkod",
-  other_vars = c("a_pat_alder", "a_planbeh_typ"),
+  other_vars = c("a_pat_alder", "d_a_planbeh_typ"),
   om_indikatorn = NULL,
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
