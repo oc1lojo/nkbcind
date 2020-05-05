@@ -19,6 +19,7 @@ nkbc30 <- list(
   sjhkod_var = "a_inr_sjhkod",
   geo_units_vars = "region", # OBS Enbart redovisning på sjukvårdsregionsnivå
   other_vars = c("a_pat_alder", "d_invasiv", "d_trigrp"),
+  other_vars_inca = c("a_pat_alder", "d_invasiv", "d_trigrp", "d_tstad", "d_nstad", "d_mstad"),
   om_indikatorn =
     paste(
       "Total överlevnad betraktas som det viktigaste utfallsmåttet.",
