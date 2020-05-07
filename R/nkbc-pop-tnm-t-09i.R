@@ -4,12 +4,12 @@ nkbc09i <- list(
   lab_short = "Tumörstorlek",
   pop = "alla anmälda fall",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       outcome = d_tstad
     )
   },

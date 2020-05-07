@@ -4,7 +4,7 @@ nkbc26 <- list(
   pop = "invasiva fall utan spridning till lymfkörtlar (klinisk diagnos) eller fjärrmetastaser vid diagnos",
   pop_short = "invasiva fall utan spridning till lymfkörtlar eller fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Endast invasiv cancer
       d_invasiv == "Invasiv cancer",
@@ -17,8 +17,8 @@ nkbc26 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
-      outcome = case_when(
+    dplyr::mutate(x,
+      outcome = dplyr::case_when(
         op_kir_axilltyp_Varde == 1 ~ 1L,
         op_kir_axilltyp_Varde == 2 ~ 0L,
         op_kir_axilltyp_Varde == 3 ~ 1L,

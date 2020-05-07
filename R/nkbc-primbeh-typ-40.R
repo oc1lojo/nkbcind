@@ -3,7 +3,7 @@ nkbc40 <- list(
   lab = "Typ av primär behandling",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Endast opererade
       !is.na(op_kir_dat),
@@ -13,7 +13,7 @@ nkbc40 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       # Prim op eller preop onk beh
       outcome = factor(d_prim_beh_Varde,
         levels = c(1, 2),
@@ -32,6 +32,7 @@ nkbc40 <- list(
       "Tumörstorlek, spridning till lymfkörtlarna liksom biologisk subtyp påverkar val av preoperativ behandling eller ej, liksom typ av preoperativ behandling."
     ),
   vid_tolkning = "För fall med preoperativ onkologisk behandling är östrogenreceptoruttryck hämtat från nålsbiopsi innan behandling, i övriga fall från operation.",
+  inkl_beskr_onk_beh = FALSE, # Använder inte uppgifter från onkologi-formulär
   teknisk_beskrivning = NULL
 )
 class(nkbc40) <- "nkbcind"

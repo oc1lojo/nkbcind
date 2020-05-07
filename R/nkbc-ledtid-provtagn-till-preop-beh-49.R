@@ -1,7 +1,7 @@
-nkbc44 <- list(
-  code = "nkbc44",
-  lab = "Provtagningsdatum  till primär behandling",
-  pop = "opererade fall utan fjärrmetastaser vid diagnos",
+nkbc49 <- list(
+  code = "nkbc49",
+  lab = "Provtagningsdatum till preoperativ onkologisk behandling",
+  pop = "opererade fall utan fjärrmetastaser vid diagnos med preoperativ onkologisk behandling",
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -10,6 +10,9 @@ nkbc44 <- list(
 
       # Endast opererade
       !is.na(op_kir_dat),
+
+      # Endast preop onk behandling (planerad om utförd ej finns)
+      d_prim_beh_Varde == 2,
 
       # Ej fjärrmetastaser vid diagnos
       !a_tnm_mklass_Varde %in% 10
@@ -22,21 +25,19 @@ nkbc44 <- list(
         lubridate::ymd(pre_endo_dat),
         na.rm = TRUE
       ),
-      d_prim_beh_dat = dplyr::case_when(
-        d_prim_beh_Varde == 1 ~ lubridate::ymd(op_kir_dat),
-        d_prim_beh_Varde == 2 ~ d_pre_onk_dat,
-        TRUE ~ lubridate::ymd(NA_character_)
-      ),
-      outcome = as.numeric(d_prim_beh_dat - lubridate::ymd(a_diag_dat)),
+
+      outcome = as.numeric(lubridate::ymd(d_pre_onk_dat) - lubridate::ymd(a_diag_dat)),
+
       outcome = ifelse(outcome < 0, 0, outcome)
     )
   },
   prop_within_value = 28,
-  sjhkod_var = "d_prim_beh_sjhkod",
-  other_vars = c("a_pat_alder", "d_invasiv", "d_prim_beh"),
+  period_dat_var = "d_pre_onk_dat",
+  sjhkod_var = "pre_inr_sjhkod",
+  other_vars = c("a_pat_alder", "d_invasiv"),
   om_indikatorn = NULL,
   vid_tolkning = NULL,
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL
 )
-class(nkbc44) <- "nkbcind"
+class(nkbc49) <- "nkbcind"

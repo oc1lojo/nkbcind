@@ -3,10 +3,10 @@ nkbc22 <- list(
   lab = "Operation till cytostatikabehandling",
   pop = "primärt opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Reg av given onkologisk behandling
-      year(a_diag_dat) >= 2012,
+      lubridate::year(a_diag_dat) >= 2012,
 
       # Endast opererade
       !is.na(op_kir_dat),
@@ -19,8 +19,8 @@ nkbc22 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
-      outcome = as.numeric(ymd(post_kemo_dat) - ymd(op_kir_dat)),
+    dplyr::mutate(x,
+      outcome = as.numeric(lubridate::ymd(post_kemo_dat) - lubridate::ymd(op_kir_dat)),
       outcome = ifelse(outcome < 0, 0, outcome)
     )
   },

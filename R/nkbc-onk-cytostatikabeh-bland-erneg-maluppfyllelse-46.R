@@ -8,10 +8,10 @@ nkbc46 <- list(
   ),
   pop_short = "opererade ER- invasiva fall med större tumörer eller spridning till lymfkörtlar utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Reg av given onkologisk behandling
-      year(a_diag_dat) >= 2012,
+      lubridate::year(a_diag_dat) >= 2012,
 
       # Endast opererade
       !is.na(op_kir_dat),
@@ -38,8 +38,8 @@ nkbc46 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
-      outcome = case_when(
+    dplyr::mutate(x,
+      outcome = dplyr::case_when(
         d_prim_beh_Varde == 1 ~ as.logical(post_kemo_Varde),
         d_prim_beh_Varde == 2 ~ as.logical(pre_kemo_Varde) | post_kemo_Varde %in% 1,
         TRUE ~ NA

@@ -3,22 +3,23 @@ nkbc30 <- list(
   lab = "Observerad 5 års överlevnad",
   pop = "alla anmälda fall",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
-      year(a_diag_dat) <= year(today()) - 6
+      lubridate::year(a_diag_dat) <= lubridate::year(lubridate::today()) - 6
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
-      # lastdate = ymd(paste0(report_end_year, "-12-31")),
-      lastdate = ymd(paste0(year(today()) - 1, "-12-31")),
-      surv_time = ymd(VITALSTATUSDATUM_ESTIMAT) - ymd(a_diag_dat),
+    dplyr::mutate(x,
+      # lastdate = lubridate::ymd(paste0(report_end_year, "-12-31")),
+      lastdate = lubridate::ymd(paste0(year(lubridate::today()) - 1, "-12-31")),
+      surv_time = lubridate::ymd(VITALSTATUSDATUM_ESTIMAT) - lubridate::ymd(a_diag_dat),
       outcome = surv_time >= 365.25 * 5
     )
   },
   sjhkod_var = "a_inr_sjhkod",
-  geo_units_vars = c("region", "landsting"), # OBS Inte redovisning på sjukhusnivå
+  geo_units_vars = "region", # OBS Enbart redovisning på sjukvårdsregionsnivå
   other_vars = c("a_pat_alder", "d_invasiv", "d_trigrp"),
+  other_vars_inca = c("a_pat_alder", "d_invasiv", "d_trigrp", "d_tstad", "d_nstad", "d_mstad"),
   om_indikatorn =
     paste(
       "Total överlevnad betraktas som det viktigaste utfallsmåttet.",

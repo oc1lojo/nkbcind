@@ -4,10 +4,10 @@ nkbc13 <- list(
   pop = "opererade fall utan fjärrmetastaser vid diagnos med preoperativ onkologisk behandling",
   pop_short = "fall utan fjärrmetastaser vid diagnos med preoperativ onkologisk behandling",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Reg av given onkologisk behandling
-      year(a_diag_dat) >= 2012,
+      lubridate::year(a_diag_dat) >= 2012,
 
       # Endast opererade
       !is.na(op_kir_dat),
@@ -20,8 +20,8 @@ nkbc13 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
-      outcome = ifelse(!is.na(pre_inr_dat) | !is.na(pre_inr_enh) | !is.na(pre_inr_initav), TRUE, FALSE)
+    dplyr::mutate(x,
+      outcome = ifelse(!is.na(pre_inr_dat) | !is.na(pre_inr_enh), TRUE, FALSE)
     )
   },
   target_values = c(70, 85),

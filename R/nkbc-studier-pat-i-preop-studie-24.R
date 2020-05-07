@@ -5,10 +5,10 @@ nkbc24 <- list(
   lab = "Patienten ingår i preoperativ studie",
   pop = "fall utan fjärrmetastaser vid diagnos med preoperativ onkologisk behandling",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Reg av given onkologisk behandling
-      year(a_diag_dat) >= 2012,
+      lubridate::year(a_diag_dat) >= 2012,
 
       # Endast opererade
       !is.na(op_kir_dat),
@@ -21,13 +21,13 @@ nkbc24 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       # Hantera missing
       outcome = as.logical(ifelse(pre_beh_studie_Varde %in% c(0, 1), pre_beh_studie_Varde, NA))
     )
   },
   sjhkod_var = "pre_inr_sjhkod",
-  other_vars = c("a_pat_alder", "d_invasiv"),
+  other_vars = c("a_pat_alder", "d_invasiv", "d_vitalstatus"),
   om_indikatorn =
     paste(
       "Ett övergripande mål är att erbjuda alla bröstcancerpatienter medverkan i studier för att utveckla nya behandlingar och arbetssätt.",

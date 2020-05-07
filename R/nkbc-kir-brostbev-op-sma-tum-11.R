@@ -4,10 +4,10 @@ nkbc11 <- list(
   pop = "primärt opererade fall med invasiv cancer <=30 mm eller ej invasiv cancer <=20 mm utan fjärrmetastaser vid diagnos",
   pop_short = "primärt opererade fall med små tumörer utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Extent infördes mitten av 2014
-      year(a_diag_dat) >= 2015,
+      lubridate::year(a_diag_dat) >= 2015,
 
       # Endast primär opereration (planerad om utförd ej finns)
       d_prim_beh_Varde == 1,
@@ -24,7 +24,7 @@ nkbc11 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       outcome = ifelse(op_kir_brost_Varde == 1, TRUE, FALSE)
     )
   },
@@ -32,6 +32,7 @@ nkbc11 <- list(
   period_dat_var = "op_kir_dat",
   sjhkod_var = "op_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
+  other_vars_inca = c("a_pat_alder", "d_invasiv", "d_prim_beh"),
   om_indikatorn =
     paste(
       "Ett bröstbevarande ingrepp och  strålbehandling är  standradingrepp  för majoriten av tidigt upptäckta bröstcancrar.",

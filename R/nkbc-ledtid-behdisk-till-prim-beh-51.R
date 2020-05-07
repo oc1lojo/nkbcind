@@ -1,6 +1,6 @@
-nkbc44 <- list(
-  code = "nkbc44",
-  lab = "Provtagningsdatum  till primär behandling",
+nkbc51 <- list(
+  code = "nkbc51",
+  lab = "Första behandlingsdiskussion till primär behandling",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
     dplyr::filter(
@@ -27,16 +27,18 @@ nkbc44 <- list(
         d_prim_beh_Varde == 2 ~ d_pre_onk_dat,
         TRUE ~ lubridate::ymd(NA_character_)
       ),
-      outcome = as.numeric(d_prim_beh_dat - lubridate::ymd(a_diag_dat)),
+      outcome = as.numeric(d_prim_beh_dat - lubridate::ymd(a_planbeh_infopatdat)),
+
       outcome = ifelse(outcome < 0, 0, outcome)
     )
   },
-  prop_within_value = 28,
+  prop_within_value = 14,
+  target_values = 80,
   sjhkod_var = "d_prim_beh_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv", "d_prim_beh"),
-  om_indikatorn = NULL,
-  vid_tolkning = NULL,
+  om_indikatorn = "Standardiserat vårdförlopp infördes 2016 för att säkra utredning och vård till patienter i rimlig och säker tid.",
   inkl_beskr_onk_beh = TRUE,
+  vid_tolkning = NULL,
   teknisk_beskrivning = NULL
 )
-class(nkbc44) <- "nkbcind"
+class(nkbc51) <- "nkbcind"

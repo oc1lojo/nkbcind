@@ -4,10 +4,10 @@ nkbc31 <- list(
   pop = "opererade östrogenreceptorpositiva invasiva fall utan fjärrmetastaser vid diagnos",
   pop_short = "opererade ER+ invasiva fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Reg av given onkologisk behandling
-      year(a_diag_dat) >= 2012,
+      lubridate::year(a_diag_dat) >= 2012,
 
       # Endast opererade
       !is.na(op_kir_dat),
@@ -23,7 +23,7 @@ nkbc31 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       # Går på det som finns, pre eller postop. Om det ena saknas antas samma som finns för det andra.
       outcome = as.logical(pmax(post_endo_Varde, pre_endo_Varde, na.rm = TRUE))
     )
@@ -31,7 +31,7 @@ nkbc31 <- list(
   target_values = c(85, 90),
   period_dat_var = "a_diag_dat",
   sjhkod_var = "d_onk_sjhkod",
-  other_vars = "a_pat_alder",
+  other_vars = c("a_pat_alder", "d_op_pad_invstl_diko10"),
   om_indikatorn =
     paste(
       "Endokrin behandling bör erbjudas till alla patienter med östrogenreceptorpositiv (ER+) bröstcancer.",

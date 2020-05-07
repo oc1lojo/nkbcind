@@ -4,10 +4,10 @@ nkbc09c <- list(
   lab_short = "Invasivitet",
   pop = "alla anmälda fall",
   filter_pop = function(x, ...) {
-    filter(x)
+    dplyr::filter(x)
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       outcome = d_invasiv
     )
   },

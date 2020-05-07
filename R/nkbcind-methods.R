@@ -17,12 +17,14 @@ prop_within_value <- function(x) UseMethod("prop_within_value")
 target_values <- function(x) UseMethod("target_values")
 sjhkod_var <- function(x) UseMethod("sjhkod_var")
 other_vars <- function(x) UseMethod("other_vars")
+other_vars_inca <- function(x) UseMethod("other_vars_inca")
 geo_units_vars <- function(x) UseMethod("geo_units_vars")
 
 textBeforeSubtitle <- function(x) UseMethod("textBeforeSubtitle")
 description <- function(x, report_end_year = report_end_year) UseMethod("description")
 description_inca <- function(x) UseMethod("description_inca")
-varOther <- function(x) UseMethod("varOther")
+varOther <- function(x, varbesk, ...) UseMethod("varOther")
+varOther_inca <- function(x, varbesk, ...) UseMethod("varOther_inca")
 
 period_dat_var <- function(x) UseMethod("period_dat_var")
 kpl_description <- function(x) UseMethod("kpl_description")
@@ -49,6 +51,13 @@ geo_units_vars.nkbcind <- function(x) {
   }
 }
 other_vars.nkbcind <- function(x) x$other_vars
+other_vars_inca.nkbcind <- function(x) {
+  if (!is.null(x$other_vars_inca)) {
+    x$other_vars_inca
+  } else {
+    x$other_vars
+  }
+}
 
 textBeforeSubtitle.nkbcind <- function(x, ...) {
   paste0("Bland ", pop_short(x), ".")
@@ -61,7 +70,7 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
       c(
         x$om_indikatorn,
         if (!is.null(x$target_values)) {
-          case_when(
+          dplyr::case_when(
             length(x$target_values) == 1 ~
             paste0("Målnivå: ", x$target_values[1], "%"),
             length(x$target_values) == 2 ~
@@ -105,7 +114,7 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
         paste0("Population: ", x$pop, "."),
         paste0(
           "Uppgifterna redovisas uppdelat på ",
-          case_when(
+          dplyr::case_when(
             x$sjhkod_var %in% "a_inr_sjhkod" ~
             "anmälande sjukhus",
             x$sjhkod_var %in% "d_opans_sjhkod" ~
@@ -129,13 +138,13 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
 
 description.nkbc33 <- function(x, report_end_year = report_end_year, ...) {
   # Anpassad för rapporteringa av täckningsgrad mot cancerregistret (nkbc33)
-  varOther <- c(
+  c(
     # Om indikatorn
     paste(
       c(
         x$om_indikatorn,
         if (!is.null(x$target_values)) {
-          case_when(
+          dplyr::case_when(
             length(x$target_values) == 1 ~
             paste0("Målnivå: ", x$target_values[1], "%"),
             length(x$target_values) == 2 ~
@@ -175,7 +184,7 @@ description_inca.nkbcind <- function(x, ...) {
       c(
         x$om_indikatorn,
         if (!is.null(x$target_values)) {
-          case_when(
+          dplyr::case_when(
             length(x$target_values) == 1 ~
             paste0("Målnivå: ", x$target_values[1], "%"),
             length(x$target_values) == 2 ~
@@ -192,12 +201,12 @@ description_inca.nkbcind <- function(x, ...) {
         if (!is.null(x$inkl_beskr_missca) && x$inkl_beskr_missca == TRUE) {
           "Datum för välgrundad misstanke om cancer tillkom som variabel 2016 och innan detta har datum för 1:a kontakt använts."
         },
-        # if (!is.null(x$inkl_beskr_onk_beh) && x$inkl_beskr_onk_beh == TRUE) {
-        #   paste(
-        #     "Uppgifter som rör given onkologisk behandling redovisas enbart t.o.m.",
-        #     report_end_year - 1, "p.g.a. eftersläpning i rapporteringen."
-        #   )
-        # },
+        if (!is.null(x$inkl_beskr_onk_beh) && x$inkl_beskr_onk_beh == TRUE) {
+          paste(
+            "Rapportering av given onkologisk behandling sker på ett eget formulär till kvalitetsregistret, separat från anmälan.",
+            "Rapporteringen sker cirka 1 - 1,5 år efter anmälan."
+          )
+        },
         # if (!is.null(x$inkl_beskr_overlevnad_5ar) && x$inkl_beskr_overlevnad_5ar == TRUE) {
         #   paste0("Uppgifter som rör 5 års överlevnad redovisas enbart t.o.m. ", report_end_year - 5, ".")
         # },
@@ -219,7 +228,7 @@ description_inca.nkbcind <- function(x, ...) {
         paste0("Population: ", x$pop, "."),
         paste0(
           "Uppgifterna redovisas uppdelat på ",
-          case_when(
+          dplyr::case_when(
             x$sjhkod_var %in% "a_inr_sjhkod" ~
             "anmälande sjukhus",
             x$sjhkod_var %in% "d_opans_sjhkod" ~
@@ -241,11 +250,65 @@ description_inca.nkbcind <- function(x, ...) {
   )
 }
 
+description_inca.nkbc33 <- function(x, ...) {
+  # Anpassad för rapporteringa av täckningsgrad mot cancerregistret (nkbc33)
+  c(
+    # Om indikatorn
+    paste(
+      c(
+        x$om_indikatorn,
+        if (!is.null(x$target_values)) {
+          dplyr::case_when(
+            length(x$target_values) == 1 ~
+            paste0("Målnivå: ", x$target_values[1], "%"),
+            length(x$target_values) == 2 ~
+            paste0("Målnivåer: ", x$target_values[1], "% (låg) ", x$target_values[2], "% (hög)")
+          )
+        }
+      ),
+      collapse = "\n<p></p>\n"
+    ),
+    # Vid tolkning
+    paste(
+      c(
+        x$vid_tolkning,
+        paste(
+          "Ett fall per bröst kan rapporterats till det nationella kvalitetsregistret för bröstcancer.",
+          "Det innebär att samma person kan finnas med i statistiken upp till två gånger."
+        )
+      ),
+      collapse = "\n<p></p>\n"
+    ),
+    # Teknisk beskrivning
+    paste(
+      c(
+        x$teknisk_beskrivning,
+        paste0("Population: ", x$pop, "."),
+        "Sjukhus är i första hand inrapporterande sjukhus på anmälan i kvalitetsregistret och om detta saknas remitterande klinik i cancerregistret och om detta saknas arbetskodklinik i cancerregistret."
+      ),
+      collapse = "\n<p></p>\n"
+    )
+  )
+}
+
 varOther.nkbcind <- function(x, varbesk = varbesk_other_vars, ...) {
   if (is.null(x$other_vars)) {
     return(NULL)
   } else {
-    df <- left_join(tibble(var = x$other_vars), varbesk, by = "var")
+    df <- dplyr::left_join(tibble::tibble(var = x$other_vars), varbesk, by = "var")
+    out <- list() # initialisera
+    for (i in 1:nrow(df)) {
+      out[[i]] <- as.list(df[i, ])
+    }
+    return(out)
+  }
+}
+
+varOther_inca.nkbcind <- function(x, varbesk = varbesk_other_vars, ...) {
+  if (is.null(x$other_vars_inca)) {
+    varOther(x, varbesk = varbesk, ...)
+  } else {
+    df <- dplyr::left_join(tibble::tibble(var = x$other_vars_inca), varbesk, by = "var")
     out <- list() # initialisera
     for (i in 1:nrow(df)) {
       out[[i]] <- as.list(df[i, ])
@@ -275,13 +338,13 @@ kpl_description.nkbcind <- function(x, ...) {
       },
       paste0(
         "Fall beskrivs utifrån ",
-        case_when(
+        dplyr::case_when(
           x$period_dat_var %in% "a_diag_dat" ~ "diagnosdatum",
           x$period_dat_var %in% "d_pre_onk_dat" ~ "startdatum för preoperativ onkologisk behandling",
           x$period_dat_var %in% "op_kir_dat" ~ "operationsdatum"
         ),
         " och ",
-        case_when(
+        dplyr::case_when(
           x$sjhkod_var %in% "a_inr_sjhkod" ~
           "anmälande sjukhus",
           x$sjhkod_var %in% "d_opans_sjhkod" ~
@@ -302,7 +365,7 @@ kpl_description.nkbcind <- function(x, ...) {
         "."
       ),
       if (!is.null(x$target_values)) {
-        case_when(
+        dplyr::case_when(
           length(x$target_values) == 1 ~
           paste0("Målnivå: ", x$target_values[1], "%."),
           length(x$target_values) == 2 ~

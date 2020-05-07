@@ -4,14 +4,14 @@ nkbc09d <- list(
   lab_short = "Biologisk subtyp",
   pop = "invasiva fall",
   filter_pop = function(x, ...) {
-    filter(
+    dplyr::filter(
       x,
       # Endast invasiv cancer
       d_invasiv == "Invasiv cancer"
     )
   },
   mutate_outcome = function(x, ...) {
-    mutate(x,
+    dplyr::mutate(x,
       outcome = d_trigrp
     )
   },
