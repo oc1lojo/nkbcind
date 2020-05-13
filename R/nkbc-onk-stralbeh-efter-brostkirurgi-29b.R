@@ -19,7 +19,7 @@ nkbc29b <- list(
     dplyr::mutate(x,
       d_pn = factor(
         dplyr::case_when(
-          op_pad_lglmetant == 0 ~ "Nej (pN-)",
+          op_pad_lglusant > 0 & op_pad_lglmetant == 0 ~ "Nej (pN-)",
           (op_pad_snmakrometant == 0 & op_pad_snmikrometant > 0 & op_pad_lglmetant == op_pad_snmikrometant) %in% TRUE ~ "Enbart mikrometastas",
           op_pad_lglmetant > 0 & op_pad_lglmetant <= 3 ~ "1-3 metastaser",
           op_pad_lglmetant >= 4 ~ "=> 4 metastaser",
