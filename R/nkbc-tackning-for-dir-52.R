@@ -1,7 +1,7 @@
 nkbc52 <- list(
   code = "nkbc52",
   lab = "Täckningsgrad för rapportering av direktrekonstruktion/onkoplastikkirurgi (PROTOTYP)",
-  pop = "opererade fall med onkoplastikkirurg och utan fjärrmetastaser vid diagnos",
+  pop = "opererade fall med onkoplastikkirurgi och utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
