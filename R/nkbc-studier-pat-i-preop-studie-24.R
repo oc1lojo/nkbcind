@@ -2,6 +2,7 @@
 
 nkbc24 <- list(
   code = "nkbc24",
+  kortnamn = "nkbc_studier_pat_i_preop_studie_24",
   lab = "Patienten ingår i preoperativ studie",
   pop = "fall utan fjärrmetastaser vid diagnos med preoperativ onkologisk behandling",
   filter_pop = function(x, ...) {

@@ -1,5 +1,6 @@
 nkbc43 <- list(
   code = "nkbc43",
+  kortnamn = "nkbc_ledtid_misstanke_till_prim_beh_43",
   lab = "Välgrundad misstanke om cancer till primär behandling",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {

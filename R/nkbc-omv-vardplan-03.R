@@ -1,5 +1,6 @@
 nkbc03 <- list(
   code = "nkbc03",
+  kortnamn = "nkbc_omv_vardplan_03",
   lab = "Individuell vårdplan (Min Vårdplan) har upprättats i samråd med patienten",
   lab_short = "Min vårdplan",
   pop = "alla anmälda fall",

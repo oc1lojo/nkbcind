@@ -1,5 +1,6 @@
 nkbc09i <- list(
   code = "nkbc09i",
+  kortnamn = "nkbc_pop_tnm_t_09i",
   lab = "Tumörstorlek (klinisk) vid diagnos",
   lab_short = "Tumörstorlek",
   pop = "alla anmälda fall",

@@ -1,5 +1,6 @@
 nkbc44 <- list(
   code = "nkbc44",
+  kortnamn = "nkbc_ledtid_provtagn_till_prim_beh_44",
   lab = "Provtagningsdatum  till primär behandling",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {

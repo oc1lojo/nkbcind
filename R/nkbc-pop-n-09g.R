@@ -1,6 +1,7 @@
 NAME <- "nkbc09g2"
 nkbc09g <- list(
   code = "nkbc09g",
+  kortnamn = "nkbc_pop_n_09g",
   lab = "Spridning till lymfkörtlarna vid operation",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {

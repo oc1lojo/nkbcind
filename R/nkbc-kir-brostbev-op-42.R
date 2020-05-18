@@ -1,5 +1,6 @@
 nkbc42 <- list(
   code = "nkbc42",
+  kortnamn = "nkbc_kir_brostbev_op_42",
   lab = "Bröstbevarande operation",
   pop = "opererade fall med bröstkirurgi (fall med enbart axillkirurgi exkluderade) utan fjärrmetastas vid diagnos",
   pop_short = "opererade fall med bröstkirurgi utan fjärrmetastas vid diagnos",

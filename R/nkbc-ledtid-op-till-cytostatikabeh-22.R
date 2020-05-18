@@ -1,5 +1,6 @@
 nkbc22 <- list(
   code = "nkbc22",
+  kortnamn = "nkbc_ledtid_op_till_cytostatikabeh_22",
   lab = "Operation till cytostatikabehandling",
   pop = "primärt opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {

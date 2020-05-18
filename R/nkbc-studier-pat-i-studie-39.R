@@ -1,5 +1,6 @@
 nkbc39 <- list(
   code = "nkbc39",
+  kortnamn = "nkbc_studier_pat_i_studie_39",
   lab = "Patienten ingår i studie",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {

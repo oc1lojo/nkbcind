@@ -1,5 +1,6 @@
 nkbc41 <- list(
   code = "nkbc41",
+  kortnamn = "nkbc_onk_endokrin_beh_fordelning_41",
   lab = "Endokrin behandling, pre- respektive postoperativt",
   pop = "opererade östrogenreceptorpositiva invasiva fall utan fjärrmetastaser vid diagnos",
   pop_short = "opererade ER+ invasiva fall utan fjärrmetastaser vid diagnos",

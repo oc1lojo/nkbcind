@@ -1,5 +1,6 @@
 nkbc06 <- list(
   code = "nkbc06",
+  kortnamn = "nkbc_diag_klar_innan_op_06",
   lab = "Fastställd diagnos innan operation",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {

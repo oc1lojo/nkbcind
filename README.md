@@ -16,9 +16,9 @@ dokumentation av **beräkning av kvalitetsindikatorer** för NKBC i
 **alla** utdata-kanaler.
 
   - Användning på INCA tillsammans med R-paketet
-    [nkbcgeneral](https://bitbucket.org/cancercentrum/nkbcgeneral)
+    [nkbcgeneral](https://cancercentrum.bitbucket.io/nkbcgeneral)
       - NKBC onlinerapporter innanför inloggning på INCA med R-paketet
-        [rccShiny](https://bitbucket.org/cancercentrum/rccshiny)
+        [rccShiny](https://cancercentrum.bitbucket.io/rccshiny)
           - <https://bitbucket.org/cancercentrum/nkbc-onlinerapporter/>
             (RCC-internt kodförråd)
       - NKBC Koll på läget (KPL), med R-paketet
@@ -30,9 +30,9 @@ dokumentation av **beräkning av kvalitetsindikatorer** för NKBC i
           - <https://bitbucket.org/cancercentrum/nkbc-vis/> (RCC-internt
             kodförråd)
   - Användning lokalt på RCC Stockholm-Gotland tillsammans med R-paketet
-    [nkbcgeneral](https://bitbucket.org/cancercentrum/nkbcgeneral)
+    [nkbcgeneral](https://cancercentrum.bitbucket.io/nkbcgeneral)
       - Framtagande av NKBC Interaktiva Årsrapport med R-paketet
-        [rccShiny](https://bitbucket.org/cancercentrum/rccshiny)
+        [rccShiny](https://cancercentrum.bitbucket.io/rccshiny)
           - <https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny>
             (publikt kodförråd)
 

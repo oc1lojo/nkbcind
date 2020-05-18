@@ -1,5 +1,6 @@
 nkbc09e <- list(
   code = "nkbc09e",
+  kortnamn = "nkbc_pop_tnm_n_09e",
   lab = "Spridning till lymfkörtlarna vid diagnos",
   lab_short = "Spridning till lymfkörtlarna",
   pop = "alla anmälda fall",

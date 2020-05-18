@@ -1,5 +1,6 @@
 nkbc09h <- list(
   code = "nkbc09h",
+  kortnamn = "nkbc_pop_t_09h",
   lab = "Tumörstorlek vid operation",
   lab_short = "Tumörstorlek",
   pop = "primärt opererade invasiva fall utan fjärrmetastaser vid diagnos",

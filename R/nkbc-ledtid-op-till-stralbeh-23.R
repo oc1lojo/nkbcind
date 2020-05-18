@@ -1,5 +1,6 @@
 nkbc23 <- list(
   code = "nkbc23",
+  kortnamn = "nkbc_ledtid_op_till_stralbeh_23",
   lab = "Operation till strålbehandling",
   pop = "primärt opererade fall utan fjärrmetastaser vid diagnos som inte fått postoperativ cytostatikabehandling",
   filter_pop = function(x, ...) {

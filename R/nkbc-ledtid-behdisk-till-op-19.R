@@ -1,5 +1,6 @@
 nkbc19 <- list(
   code = "nkbc19",
+  kortnamn = "nkbc_ledtid_behdisk_till_op_19",
   lab = "Första behandlingsdiskussion till operation",
   pop = "primärt opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {

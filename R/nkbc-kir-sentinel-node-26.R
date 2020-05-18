@@ -1,5 +1,6 @@
 nkbc26 <- list(
   code = "nkbc26",
+  kortnamn = "nkbc_kir_sentinel_node_26",
   lab = "Sentinel node operation",
   pop = "invasiva fall utan spridning till lymfkörtlar (klinisk diagnos) eller fjärrmetastaser vid diagnos",
   pop_short = "invasiva fall utan spridning till lymfkörtlar eller fjärrmetastaser vid diagnos",

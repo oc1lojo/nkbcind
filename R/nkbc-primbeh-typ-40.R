@@ -1,5 +1,6 @@
 nkbc40 <- list(
   code = "nkbc40",
+  kortnamn = "nkbc_primbeh_typ_40",
   lab = "Typ av primär behandling",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {

@@ -130,7 +130,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
     d_pnstat =
       factor(
         dplyr::case_when(
-          op_pad_lglmetant == 0 ~ "Nej (pN-)",
+          op_pad_lglusant > 0 & op_pad_lglmetant == 0 ~ "Nej (pN-)",
           op_pad_lglmetant > 0 ~ "Ja (pN+)",
           TRUE ~ "Uppgift saknas"
         ),

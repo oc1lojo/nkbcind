@@ -1,5 +1,6 @@
 nkbc05 <- list(
   code = "nkbc05",
+  kortnamn = "nkbc_diag_mdk_efter_op_05",
   lab = "Multidisciplinär konferens efter operation",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {

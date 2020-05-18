@@ -1,5 +1,6 @@
 nkbc16 <- list(
   code = "nkbc16",
+  kortnamn = "nkbc_ledtid_misstanke_till_preop_beh_16",
   lab = "Välgrundad misstanke om cancer till preoperativ onkologisk behandling",
   pop = "opererade fall utan fjärrmetastaser vid diagnos med preoperativ onkologisk behandling",
   filter_pop = function(x, ...) {
