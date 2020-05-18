@@ -1,5 +1,6 @@
 nkbc51 <- list(
   code = "nkbc51",
+  kortnamn = "nkbc_ledtid_behdisk_till_prim_beh_51",
   lab = "Första behandlingsdiskussion till primär behandling",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {

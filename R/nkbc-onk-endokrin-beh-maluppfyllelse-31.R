@@ -1,5 +1,6 @@
 nkbc31 <- list(
   code = "nkbc31",
+  kortnamn = "nkbc_onk_endokrin_beh_maluppfyllelse_31",
   lab = "Endokrin behandling, måluppfyllelse",
   pop = "opererade östrogenreceptorpositiva invasiva fall utan fjärrmetastaser vid diagnos",
   pop_short = "opererade ER+ invasiva fall utan fjärrmetastaser vid diagnos",

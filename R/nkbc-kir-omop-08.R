@@ -1,5 +1,6 @@
 nkbc08 <- list(
   code = "nkbc08",
+  kortnamn = "nkbc_kir_omop_08",
   lab = "Enbart en operation (ingen omoperation p.g.a. tumördata) i bröst",
   lab_short = "Enbart en operation",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",

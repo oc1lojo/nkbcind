@@ -1,5 +1,6 @@
 nkbc04 <- list(
   code = "nkbc04",
+  kortnamn = "nkbc_diag_mdk_innan_beh_04",
   lab = "Multidisciplinär konferens inför behandlingstart",
   pop = "alla anmälda fall",
   filter_pop = function(x, ...) {

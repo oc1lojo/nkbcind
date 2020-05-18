@@ -1,5 +1,6 @@
 nkbc50 <- list(
   code = "nkbc50",
+  kortnamn = "nkbc_onk_antikroppbeh_bland_her2pos_50",
   lab = "Antikroppsbehandling",
   pop = "opererade HER2 positiva invasiva fall utan fjärrmetastaser vid diagnos",
   pop_short = "opererade HER2+ invasiva fall utan fjärrmetastaser vid diagnos",

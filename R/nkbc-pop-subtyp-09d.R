@@ -1,5 +1,6 @@
 nkbc09d <- list(
   code = "nkbc09d",
+  kortnamn = "nkbc_pop_subtyp_09d",
   lab = "Biologisk subtyp vid diagnos",
   lab_short = "Biologisk subtyp",
   pop = "invasiva fall",

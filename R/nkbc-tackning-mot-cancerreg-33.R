@@ -1,5 +1,6 @@
 nkbc33 <- list(
   code = "nkbc33",
+  kortnamn = "nkbc_tackning_mot_cancerreg_33",
   lab = "Täckningsgrad mot cancerregistret",
   pop = "alla anmälda fall",
   target_values = c(95, 99),

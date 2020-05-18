@@ -1,5 +1,6 @@
 nkbc45 <- list(
   code = "nkbc45",
+  kortnamn = "nkbc_kir_axillkir_45",
   lab = "Typ av axillkirurgi",
   lab_short = "Axillkirurgi",
   pop = "opererade fall med axillingrepp och utan fjärrmetastaser vid diagnos",

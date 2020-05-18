@@ -1,5 +1,6 @@
 nkbc14 <- list(
   code = "nkbc14",
+  kortnamn = "nkbc_tackning_for_postop_beh_14",
   lab = "Täckningsgrad för rapportering av postoperativ onkologisk behandling",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {

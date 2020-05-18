@@ -1,5 +1,6 @@
 nkbc09b <- list(
   code = "nkbc09b",
+  kortnamn = "nkbc_pop_alder_09b",
   lab = "Ålder vid diagnos",
   lab_short = "Ålder",
   pop = "alla anmälda fall",

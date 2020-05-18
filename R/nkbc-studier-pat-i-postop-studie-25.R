@@ -2,6 +2,7 @@
 
 nkbc25 <- list(
   code = "nkbc25",
+  kortnamn = "nkbc_studier_pat_i_postop_studie_25",
   lab = "Patienten ingår i postoperativ studie",
   pop = "opererade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {

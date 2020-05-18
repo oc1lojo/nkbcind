@@ -1,5 +1,6 @@
 nkbc02 <- list(
   code = "nkbc02",
+  kortnamn = "nkbc_omv_kontaktssk_02",
   lab = "Patienten har erbjudits, i journalen dokumenterad, kontaktsjuksköterska",
   lab_short = "Kontaktsjuksköterska",
   pop = "alla anmälda fall",

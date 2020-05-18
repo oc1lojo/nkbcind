@@ -1,5 +1,6 @@
 nkbc27 <- list(
   code = "nkbc27",
+  kortnamn = "nkbc_onk_postop_cytostatikabeh_bland_erneg_27",
   lab = "Postoperativ cytostatikabehandling",
   pop = "primärt opererade östrogenreceptornegativa invasiva fall med tumörstorlek > 10mm eller spridning till lymfkörtlar utan fjärrmetastaser vid diagnos",
   pop_short = "primärt opererade ER- invasiva fall med större tumörer eller spridning till lymfkörtlar utan fjärrmetastaser vid diagnos",

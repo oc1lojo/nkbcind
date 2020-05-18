@@ -1,5 +1,6 @@
 nkbc20 <- list(
   code = "nkbc20",
+  kortnamn = "nkbc_ledtid_behdisk_till_preop_beh_20",
   lab = "Första behandlingsdiskussion till preoperativ onkologisk behandling",
   pop = "opererade fall utan fjärrmetastaser vid diagnos med preoperativ onkologisk behandling",
   filter_pop = function(x, ...) {

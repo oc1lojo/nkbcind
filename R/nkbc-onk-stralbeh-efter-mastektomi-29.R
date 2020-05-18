@@ -1,5 +1,6 @@
 nkbc29 <- list(
   code = "nkbc29",
+  kortnamn = "nkbc_onk_stralbeh_efter_mastektomi_29",
   lab = "Strålbehandling efter mastektomi",
   pop = "invasiva fall med spridning till lymfkörtlarna (fall med enbart mikrometastas exkluderade) och utan fjärrmetastaser vid diagnos, opererade med mastektomi",
   pop_short = "invasiva fall med mastektomi, spridning till lymfkörtlarna och utan fjärrmetastaser vid diagnos",

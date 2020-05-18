@@ -1,5 +1,6 @@
 nkbc09c <- list(
   code = "nkbc09c",
+  kortnamn = "nkbc_pop_invasiv_09c",
   lab = "Invasivitet vid diagnos",
   lab_short = "Invasivitet",
   pop = "alla anmälda fall",

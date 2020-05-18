@@ -1,5 +1,6 @@
 nkbc30 <- list(
   code = "nkbc30",
+  kortnamn = "nkbc_overlevnad_5ar_30",
   lab = "Observerad 5 års överlevnad",
   pop = "alla anmälda fall",
   filter_pop = function(x, ...) {

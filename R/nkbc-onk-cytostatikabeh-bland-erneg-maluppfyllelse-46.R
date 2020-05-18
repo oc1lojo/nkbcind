@@ -1,5 +1,6 @@
 nkbc46 <- list(
   code = "nkbc46",
+  kortnamn = "nkbc_onk_cytostatikabeh_bland_erneg_maluppfyllelse_46",
   lab = "Cytostatikabehandling, måluppfyllelse",
   pop = paste(
     "opererade östrogenreceptornegativa invasiva fall med större tumörer eller spridning till lymfkörtlar",

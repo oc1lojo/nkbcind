@@ -1,5 +1,6 @@
 nkbc11 <- list(
   code = "nkbc11",
+  kortnamn = "nkbc_kir_brostbev_op_sma_tum_11",
   lab = "Bröstbevarande operation vid små tumörer",
   pop = "primärt opererade fall med invasiv cancer <=30 mm eller ej invasiv cancer <=20 mm utan fjärrmetastaser vid diagnos",
   pop_short = "primärt opererade fall med små tumörer utan fjärrmetastaser vid diagnos",

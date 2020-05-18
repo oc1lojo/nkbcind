@@ -1,5 +1,6 @@
 nkbc09f <- list(
   code = "nkbc09f",
+  kortnamn = "nkbc_pop_tnm_m_09f",
   lab = "Fjärrmetastaser vid diagnos",
   lab_short = "Fjärrmetastaser",
   pop = "alla anmälda fall",
