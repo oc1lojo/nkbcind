@@ -4,6 +4,7 @@
 
 # Definiera generiska funktioner ----
 code <- function(x) UseMethod("code")
+kortnamn <- function(x) UseMethod("kortnamn")
 lab <- function(x) UseMethod("lab")
 lab_short <- function(x) UseMethod("lab_short")
 outcome <- function(x) UseMethod("outcome")
@@ -31,6 +32,7 @@ kpl_description <- function(x) UseMethod("kpl_description")
 
 # Definiera metoder för klasserna nkbcind och nkbc33 ----
 code.nkbcind <- function(x) x$code
+kortnamn.nkbcind <- function(x) x$kortnamn
 lab.nkbcind <- function(x) x$lab
 lab_short.nkbcind <- function(x) ifelse(!is.null(x$lab_short), x$lab_short, x$lab)
 outcome.nkbcind <- function(x) if (!is.null(x$outcome)) x$outcome else "outcome"
