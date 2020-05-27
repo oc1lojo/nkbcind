@@ -22,7 +22,6 @@ nkbc52 <- list(
       outcome = ifelse(!is.na(dir_inr_dat) | !is.na(dir_inr_enh), TRUE, FALSE)
     )
   },
-  target_values = c(70, 85),
   sjhkod_var = "op_inr_sjhkod",
   om_indikatorn = "Rapportering av direktrekonstruktion/onkoplastikkirurgi sker på ett eget formulär till kvalitetsregistret (driftsatt feb 2020), separat från operationsformuläret.",
   vid_tolkning = NULL,
