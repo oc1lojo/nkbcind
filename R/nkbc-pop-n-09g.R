@@ -23,13 +23,13 @@ nkbc09g <- list(
   other_vars = c("a_pat_alder", "d_invasiv"),
   om_indikatorn =
     paste(
-      "Kännedom om tumörspridning till axillens lymfkörtlar ger prognostisk information inför val av postoperativ onkologisk behandling.",
-      "Bedömning av tumörspridning till axillens lymfkörtlar görs baserad på mikroskopisk analys av sentinel node och/eller övriga lymfkörtlar i axillen."
+      "Kännedom om tumörspridning till armhålans lymfkörtlar ger prognostisk information inför val av postoperativ onkologisk behandling.",
+      "Tumörspridning fastställs genom mikroskopisk analys av sentinel node och/eller övriga lymfkörtlar i armhålan."
     ),
   vid_tolkning =
     c(
       "I populationen ingår både primärt opererade och opererade efter påbörjad/genomförd preoperativ onkologisk behandling.",
-      "Spridning till lymfkörtlar är definerat som metastas > 0.2 mm i axillen."
+      "Spridning till lymfkörtlar i armhålan definieras som metastas > 0.2 mm."
     ),
   teknisk_beskrivning = NULL
 )

@@ -2,7 +2,7 @@ nkbc29b <- list(
   code = "nkbc29b",
   kortnamn = "nkbc_onk_stralbeh_efter_brostkirurgi_29b",
   lab = "Strålbehandling efter bröstkirurgi",
-  pop = "operade fall med bröstkirurgi och utan fjärrmetastaser vid diagnos",
+  pop = "opererade fall med bröstkirurgi och utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -42,7 +42,14 @@ nkbc29b <- list(
   },
   sjhkod_var = "post_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv", "d_op_pad_nhg", "d_trigrp", "d_pn", "d_prim_beh", "d_op_kir_brost_kat"),
-  om_indikatorn = NULL,
+  om_indikatorn =
+    paste(
+      "Strålbehandling ges för att minska risken för återfall i det opererade bröstet, på bröstkorgsväggen och regionala lymfkörtelstationer.",
+      "Strålbehandling mot bröstet är rutin efter bröstbevarande kirurgi.",
+      "Strålbehandling mot armhålan är rutin vid spridning till armhålans lymfkörtlar.",
+      "Strålbehandling efter mastektomi ges vid stor tumörutbredning och/eller lymfkörtelengagemang.",
+      "Vid betydande samsjuklighet får nyttan med strålbehandling vägas mot potentiella nackdelar."
+    ),
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
 )

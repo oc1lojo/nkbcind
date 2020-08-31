@@ -2,7 +2,7 @@ nkbc27 <- list(
   code = "nkbc27",
   kortnamn = "nkbc_onk_postop_cytostatikabeh_bland_erneg_27",
   lab = "Postoperativ cytostatikabehandling",
-  pop = "primärt opererade östrogenreceptornegativa invasiva fall med tumörstorlek > 10mm eller spridning till lymfkörtlar utan fjärrmetastaser vid diagnos",
+  pop = "primärt opererade östrogenreceptornegativa invasiva fall med tumörstorlek >10 mm eller spridning till lymfkörtlar utan fjärrmetastaser vid diagnos",
   pop_short = "primärt opererade ER- invasiva fall med större tumörer eller spridning till lymfkörtlar utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
     dplyr::filter(
@@ -38,12 +38,12 @@ nkbc27 <- list(
   target_values = c(80, 90),
   sjhkod_var = "post_inr_sjhkod",
   other_vars = "a_pat_alder",
-  om_indikatorn = "Cytostatikabehandling rekommenderas i allmänhet vid bröstcancer med spridning till axillens lymfkörtlar, men även utan lymfkörtelengagemang om tumören har svag hormonell känslighet och/eller då det föreligger riskfaktorer.",
+  om_indikatorn = "Cytostatikabehandling rekommenderas i allmänhet vid bröstcancer med spridning till axillens lymfkörtlar, men även om tumören har svag hormonell känslighet och/eller då det föreligger riskfaktorer.",
   vid_tolkning =
     c(
-      "Enbart postoperativ cytostatikabehandling är medtaget i beräkningen, vilket innebär att andelen kan bli mindre för de sjukhus där cytostatika i större utsträckning ges preoperativt.",
-      "Tumörstorlek är storlek på den största invasiva tumören, det innebär att det kan finnas multifokala fall där den totala extenten är > 10 mm som inte finns medtagna i urvalet.",
-      "Spridning till lymfkörtlar är definerat som metastas > 0.2 mm i axillen."
+      "Enbart postoperativ cytostatikabehandling är medtaget i beräkningen, vilket innebär att andelen är mindre för de sjukhus där cytostatika i högre utsträckning ges preoperativt.",
+      "Tumörstorlek är definierat som storlek på den största invasiva tumören, vilket innebär att vissa multifokala fall med total utbredning >10 mm inte finns med i urvalet.",
+      "Spridning till lymfkörtlar i armhålan definieras som metastas >0.2 mm."
     ),
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL

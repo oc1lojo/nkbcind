@@ -37,13 +37,13 @@ nkbc20 <- list(
   other_vars = c("a_pat_alder", "d_invasiv"),
   om_indikatorn =
     c(
-      "I preoperativ onkologisk behandling ingår cytostatika, strålning eller endokrin behandling.",
-      "Standardiserat vårdförlopp infördes 2016 för att säkra utredning och vård till patienter i rimlig och säker tid."
+      "Preoperativ onkologisk behandling kan vara cytostatika, antikroppsbehandling, endokrin behandling eller strålbehandling.",
+      "Standardiserade vårdförlopp infördes 2015 för att säkra utredning och start av behandling till patienter i rimlig tid oberoende var patienten söker vård."
     ),
   vid_tolkning =
     paste(
-      "Andelen preoperativt behandlade patienter varierar i landet och före start av behandling görs flera undersökningar som kan förlänga tiden till start.",
-      "Många patienter som startar preoperativ onkologisk behandling ingår i behandlingsstudier där vissa undersökningar är obligatoriska som annars hade gjorts senare.",
+      "Andelen preoperativt behandlade patienter varierar i landet.",
+      "Många patienter som startar preoperativ onkologisk behandling ingår i behandlingsstudier med krav på specificerade undersökningar före start vilket kan förlänga ledtiden.",
       "Siffrorna skall därför tolkas med viss försiktighet."
     ),
   inkl_beskr_onk_beh = TRUE,

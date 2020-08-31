@@ -66,6 +66,13 @@ textBeforeSubtitle.nkbcind <- function(x, ...) {
 }
 
 description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
+  # Lägga till "(andel inom ... dagar)" för kontinuerliga variabler
+  if (!is.null(prop_within_value(x))) {
+    target_levels_extra_txt <- paste("Andel inom", prop_within_value(nkbcind), ifelse(!is.null(prop_within_unit(nkbcind)), prop_within_unit(nkbcind), "dagar "))
+  } else {
+    target_levels_extra_txt <- NULL
+  }
+
   c(
     # Om indikatorn
     paste(
@@ -74,9 +81,9 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
         if (!is.null(x$target_values)) {
           dplyr::case_when(
             length(x$target_values) == 1 ~
-            paste0("Målnivå: ", x$target_values[1], "%"),
+            paste0("Målnivå: ", target_levels_extra_txt, x$target_values[1], "%"),
             length(x$target_values) == 2 ~
-            paste0("Målnivåer: ", x$target_values[1], "% (låg) ", x$target_values[2], "% (hög)")
+            paste0("Målnivåer: ", target_levels_extra_txt, x$target_values[1], "% (låg) ", x$target_values[2], "% (hög)")
           )
         }
       ),
@@ -87,7 +94,7 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
       c(
         x$vid_tolkning,
         if (!is.null(x$inkl_beskr_missca) && x$inkl_beskr_missca == TRUE) {
-          "Datum för välgrundad misstanke om cancer tillkom som variabel 2016 och innan detta har datum för 1:a kontakt använts."
+          "Datum för välgrundad misstanke om cancer tillkom som variabel 2016 och innan detta har datum för första kontakt använts."
         },
         if (!is.null(x$inkl_beskr_onk_beh) && x$inkl_beskr_onk_beh == TRUE) {
           paste(
@@ -96,11 +103,11 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
           )
         },
         if (!is.null(x$inkl_beskr_overlevnad_5ar) && x$inkl_beskr_overlevnad_5ar == TRUE) {
-          paste0("Uppgifter som rör 5 års överlevnad redovisas enbart t.o.m. ", report_end_year - 5, ".")
+          paste0("Uppgifter som rör 5-årsöverlevnad redovisas enbart t.o.m. ", report_end_year - 5, ".")
         },
         paste(
-          "Ett fall per bröst kan rapporterats till det nationella kvalitetsregistret för bröstcancer.",
-          "Det innebär att samma person kan finnas med i statistiken upp till två gånger."
+          "Ett fall per bröst kan rapporterats till Nationellt kvalitetsregister för bröstcancer.",
+          "Det innebär att samma person kan finnas med i statistiken två gånger."
         ),
         "Skövde och Lidköpings sjukhus presenteras tillsammans som Skaraborg.",
         if (x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod", "d_onkpreans_sjhkod", "d_onkpostans_sjhkod", "d_prim_beh_sjhkod")) {
@@ -119,16 +126,16 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
           dplyr::case_when(
             x$sjhkod_var %in% "a_inr_sjhkod" ~
             "anmälande sjukhus",
-            x$sjhkod_var %in% "d_opans_sjhkod" ~
-            "opererande sjukhus och om detta saknas, anmälande sjukhus",
-            x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
-            "sjukhus där onkologisk behandling ges",
             x$sjhkod_var %in% "op_inr_sjhkod" ~
             "opererande sjukhus",
+            x$sjhkod_var %in% "d_opans_sjhkod" ~
+            "opererande sjukhus, och om detta saknas, anmälande sjukhus",
             x$sjhkod_var %in% "d_prim_beh_sjhkod" ~
             "sjukhus ansvarig för primär behandling",
+            x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
+            "sjukhus där onkologisk behandling ges",
             x$sjhkod_var %in% c("d_onkpreans_sjhkod", "d_onkpostans_sjhkod") ~
-            "rapporterande sjukhus där onkologisk behandling ges och om detta saknas, sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus"
+            "rapporterande sjukhus där onkologisk behandling ges, och om detta saknas, sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus"
           ),
           "."
         )
@@ -201,7 +208,7 @@ description_inca.nkbcind <- function(x, ...) {
       c(
         x$vid_tolkning,
         if (!is.null(x$inkl_beskr_missca) && x$inkl_beskr_missca == TRUE) {
-          "Datum för välgrundad misstanke om cancer tillkom som variabel 2016 och innan detta har datum för 1:a kontakt använts."
+          "Datum för välgrundad misstanke om cancer tillkom som variabel 2016 och innan detta har datum för första kontakt använts."
         },
         if (!is.null(x$inkl_beskr_onk_beh) && x$inkl_beskr_onk_beh == TRUE) {
           paste(
@@ -233,16 +240,16 @@ description_inca.nkbcind <- function(x, ...) {
           dplyr::case_when(
             x$sjhkod_var %in% "a_inr_sjhkod" ~
             "anmälande sjukhus",
-            x$sjhkod_var %in% "d_opans_sjhkod" ~
-            "opererande sjukhus och om detta saknas, anmälande sjukhus",
-            x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
-            "sjukhus där onkologisk behandling ges",
             x$sjhkod_var %in% "op_inr_sjhkod" ~
             "opererande sjukhus",
+            x$sjhkod_var %in% "d_opans_sjhkod" ~
+            "opererande sjukhus, och om detta saknas, anmälande sjukhus",
             x$sjhkod_var %in% "d_prim_beh_sjhkod" ~
             "sjukhus ansvarig för primär behandling",
+            x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
+            "sjukhus där onkologisk behandling ges",
             x$sjhkod_var %in% c("d_onkpreans_sjhkod", "d_onkpostans_sjhkod") ~
-            "rapporterande sjukhus där onkologisk behandling ges och om detta saknas, sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus"
+            "rapporterande sjukhus där onkologisk behandling ges, och om detta saknas, sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus"
           ),
           "."
         )
@@ -349,19 +356,19 @@ kpl_description.nkbcind <- function(x, ...) {
         dplyr::case_when(
           x$sjhkod_var %in% "a_inr_sjhkod" ~
           "anmälande sjukhus",
-          x$sjhkod_var %in% "d_opans_sjhkod" ~
-          "opererande sjukhus och om detta saknas, anmälande sjukhus",
-          x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
-          "sjukhus där onkologisk behandling ges",
           x$sjhkod_var %in% "op_inr_sjhkod" ~
           "opererande sjukhus",
+          x$sjhkod_var %in% "d_opans_sjhkod" ~
+          "opererande sjukhus, och om detta saknas, anmälande sjukhus",
           x$sjhkod_var %in% "d_prim_beh_sjhkod" ~
           "sjukhus ansvarig för primär behandling",
+          x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
+          "sjukhus där onkologisk behandling ges",
           x$sjhkod_var %in% c("d_onkpreans_sjhkod", "d_onkpostans_sjhkod") ~
           paste(
             "rapporterande sjukhus där onkologisk behandling ges,",
             "och om detta saknas,",
-            "sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling på anmälan, och anmälande sjukhus"
+            "sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus"
           )
         ),
         "."
