@@ -1,6 +1,6 @@
 nkbc35 <- list(
   code = "nkbc35",
-  kortnamn = "nkbc_onk_cytostatikabeh_35",
+  kortnamn = "nkbc_onk_cytostatikabeh_fordelning_35",
   lab = "Cytostatikabehandling, pre- respektive postoperativt",
   pop = "opererade, invasiva fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {

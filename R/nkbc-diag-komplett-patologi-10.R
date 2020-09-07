@@ -1,7 +1,7 @@
 nkbc10 <- list(
   code = "nkbc10",
   kortnamn = "nkbc_diag_komplett_patologi_10",
-  lab = "Fullständig patologirapport (innehållande grad, ER, PR, HER2, Ki67) ",
+  lab = "Fullständig patologirapport (innehållande grad, ER, PR, HER2, Ki67)",
   lab_short = "Fullständig patologirapport",
   pop = "primärt opererade invasiva fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
