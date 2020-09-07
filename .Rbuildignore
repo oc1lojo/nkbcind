@@ -2,6 +2,7 @@
 ^\.Rproj\.user$
 ^appveyor\.yml$
 ^\.travis\.yml$
+^docs$
 ^README\.Rmd$
 ^README-.*\.png$
 ^pkgdown$
