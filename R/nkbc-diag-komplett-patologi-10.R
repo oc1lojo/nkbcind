@@ -1,9 +1,9 @@
 nkbc10 <- list(
   code = "nkbc10",
   kortnamn = "nkbc_diag_komplett_patologi_10",
-  lab = "Fullständig patologirapport (Grad, ER, PR, HER2, Ki67)",
+  lab = "Fullständig patologirapport (innehållande grad, ER, PR, HER2, Ki67)",
   lab_short = "Fullständig patologirapport",
-  pop = "primärt opererade fall med invasiv cancer utan fjärrmetastaser vid diagnos",
+  pop = "primärt opererade invasiva fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -35,8 +35,12 @@ nkbc10 <- list(
   target_values = c(95, 98),
   sjhkod_var = "op_inr_sjhkod",
   other_vars = "a_pat_alder",
-  om_indikatorn = "Patologirapporten grundas i mikroskopiska vävnadsanalyser. Biomarkörerna etablerar grunden till den onkologiska behandlingen av bröstcancer (endokrin-, cytostatika-  eller antikroppsbehandling).",
-  vid_tolkning = "Ki67 tillkom som nationell variabel 2014 och ingår ej i beräkning innan detta datum.",
+  om_indikatorn =
+    paste(
+      "Patologirapporten grundas i mikroskopiska vävnadsanalyser.",
+      "Biomarkörerna utgör grunden för beslut om den postoperativa onkologiska behandlingen av bröstcancer (endokrin-, cytostatika- och antikroppsbehandling)."
+    ),
+  vid_tolkning = "Ki67 tillkom som nationell variabel 2014 och ingår ej i beräkningen före detta år.",
   teknisk_beskrivning = NULL
 )
 class(nkbc10) <- "nkbcind"

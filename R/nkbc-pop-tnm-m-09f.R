@@ -2,7 +2,6 @@ nkbc09f <- list(
   code = "nkbc09f",
   kortnamn = "nkbc_pop_tnm_m_09f",
   lab = "Fjärrmetastaser vid diagnos",
-  lab_short = "Fjärrmetastaser",
   pop = "alla anmälda fall",
   filter_pop = function(x, ...) {
     dplyr::filter(
@@ -20,7 +19,7 @@ nkbc09f <- list(
   },
   sjhkod_var = "a_inr_sjhkod",
   other_vars = "a_pat_alder",
-  om_indikatorn = "Som fjärrmetastaser vid diagnos definieras fjärrmetastaserande sjukdom diagnosticerad inom 3 månader från bröstcancerdiagnos (cytdatum).",
+  om_indikatorn = "Fjärrmetastas vid diagnos definieras som fjärrmetastaserande sjukdom diagnosticerad inom 3 månader från bröstcancerdiagnos (cytdatum).",
   vid_tolkning =
     paste(
       "T.o.m. 2012 var det möjligt att registrera en tumör som att fjärrmetastaser ej kan bedömas (MX) i NKBC.",

@@ -1,8 +1,9 @@
 nkbc32 <- list(
   code = "nkbc32",
   kortnamn = "nkbc_onk_antikroppbeh_bland_cytostatikabeh_her2pos_32",
-  lab = "Antikroppsbehandling bland cytostatikabehandlade",
-  pop = "opererade, cytostatikabehandlade HER2 positiva invasiva fall utan fjärrmetastaser vid diagnos",
+  lab_long = "Antikroppsbehandling bland cytostatikabehandlade",
+  lab = "Antikroppsbehandling",
+  pop = "opererade, cytostatikabehandlade HER2-positiva invasiva fall utan fjärrmetastaser vid diagnos",
   pop_short = "opererade, cytostatikabehandlade HER2+ invasiva fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
     dplyr::filter(
@@ -36,7 +37,7 @@ nkbc32 <- list(
   period_dat_var = "a_diag_dat",
   sjhkod_var = "d_onk_sjhkod",
   other_vars = "a_pat_alder",
-  om_indikatorn = "Vid HER2-positiv invasiv bröstcancer rekommenderas behandling med antikroppsbehandling i kombination efter eller med cytostatika, under förutsättning att patienten kan tolerera det sistnämnda.",
+  om_indikatorn = "Vid HER2-positiv invasiv bröstcancer rekommenderas antikroppsbehandling i kombination med cytostatika, under förutsättning att patienten kan tolerera det sistnämnda.",
   vid_tolkning = "Både preoperativ och postoperativ antikropps- och cytostatikabehandling är medtaget i beräkningen.",
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL

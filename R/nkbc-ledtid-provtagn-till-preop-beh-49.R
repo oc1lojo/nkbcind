@@ -33,11 +33,24 @@ nkbc49 <- list(
     )
   },
   prop_within_value = 28,
+  target_values = 80,
   period_dat_var = "d_pre_onk_dat",
   sjhkod_var = "pre_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
-  om_indikatorn = NULL,
-  vid_tolkning = NULL,
+  om_indikatorn =
+    c(
+      "Preoperativ onkologisk behandling kan vara cytostatika, antikroppsbehandling, endokrin behandling eller strålbehandling.",
+      paste(
+        "Handläggningstiden från provtagning som ger cancerdiagnos till start av preoperativ onkologisk behandling bör vara kort och oberoende av var patienten söker vård.",
+        "Både ledtidens start och slut är tydliga och väl definierade vilket underlättar vid jämförelse."
+      )
+    ),
+  vid_tolkning =
+    paste(
+      "Andelen preoperativt behandlade patienter varierar i landet.",
+      "Många patienter som startar preoperativ onkologisk behandling ingår i behandlingsstudier med krav på specificerade undersökningar före start vilket kan förlänga ledtiden.",
+      "Siffrorna skall därför tolkas med viss försiktighet."
+    ),
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL
 )

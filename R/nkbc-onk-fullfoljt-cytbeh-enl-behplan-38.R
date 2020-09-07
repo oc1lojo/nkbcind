@@ -3,7 +3,7 @@
 nkbc38 <- list(
   code = "nkbc38",
   kortnamn = "nkbc_onk_fullfoljt_cytbeh_enl_behplan_38",
-  lab = "Fullföljt pre-och postoperativ cytostatikabehandling enligt behandlingsplan",
+  lab = "Fullföljd pre-och postoperativ cytostatikabehandling enligt behandlingsplan (antal kurer)",
   pop = "opererade, cytostatikabehandlade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
     dplyr::filter(

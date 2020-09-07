@@ -40,19 +40,19 @@ nkbc16 <- list(
   other_vars = c("a_pat_alder", "d_invasiv"),
   om_indikatorn =
     c(
-      "I preoperativ onkologisk behandling ingår cytostatika, strålning eller endokrin behandling.",
+      "Preoperativ onkologisk behandling kan vara cytostatika, antikroppsbehandling, endokrin behandling eller strålbehandling.",
       paste(
-        "Standardiserat vårdförlopp infördes 2016 för att säkra utredning och start av behandling till patienter i rimlig tid.",
+        "Standardiserade vårdförlopp infördes 2015 för att säkra utredning och start av behandling till patienter i rimlig tid oberoende var patienten söker vård.",
         "För bröstcancer är tiden från välgrundad misstanke till start av behandling 28 kalenderdagar.",
-        "Av patienter som utreds för cancer bör 80% ha gjort det inom denna tidsperiod.",
+        "Av patienter som diagnosticerats med bröstcancer bör 80% ha startat behandling inom denna tidsperiod.",
         "För ett antal patienter krävs mer avancerade utredningsmetoder för att nå diagnos vilket kan förlänga tiden till behandlingsstart.",
-        "Startpunkten för SVF har tolkats olika av vårdgivare vilket ger upphov till variation varför ledtiden skall tolkas med stor försiktighet."
+        "Startpunkten för SVF har tolkats olika av vårdgivare varför ledtiden skall tolkas med försiktighet."
       )
     ),
   vid_tolkning =
     paste(
-      "Andelen preoperativt behandlade patienter varierar i landet och före start av behandling görs flera undersökningar som kan förlänga tiden till start.",
-      "Många patienter som startar preoperativ onkologisk behandling ingår i behandlingsstudier där vissa undersökningar är obligatoriska som annars hade gjorts senare.",
+      "Andelen preoperativt behandlade patienter varierar i landet.",
+      "Många patienter som startar preoperativ onkologisk behandling ingår i behandlingsstudier med krav på specificerade undersökningar före start vilket kan förlänga ledtiden.",
       "Siffrorna skall därför tolkas med viss försiktighet."
     ),
   inkl_beskr_missca = TRUE,
