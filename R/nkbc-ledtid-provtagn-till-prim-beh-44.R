@@ -33,14 +33,9 @@ nkbc44 <- list(
     )
   },
   prop_within_value = 28,
-  target_values = 80,
   sjhkod_var = "d_prim_beh_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv", "d_prim_beh"),
-  om_indikatorn =
-    paste(
-      "Handläggningstiden från provtagning som ger cancerdiagnos till start av primär behandling bör vara kort och oberoende av var patienten söker vård.",
-      "Både ledtidens start och slut är tydliga och väl definierade vilket underlättar vid jämförelse."
-    ),
+  om_indikatorn = NULL,
   vid_tolkning = NULL,
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL

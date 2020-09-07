@@ -16,12 +16,7 @@ nkbc09i <- list(
   },
   sjhkod_var = "a_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
-  om_indikatorn =
-    paste(
-      "Kännedom om tumörens utbredning i bröstet påverkar val av primär behandling, typ av kirurgi och val av postoperativ onkologisk behandling.",
-      "Måttet grundas på bilddiagnostik och klinisk undersökning.",
-      "OBS att detta mått är en uppskattning och kan ändras vid mikroskopisk analys av preparat efter kirurgi och ev. förbehandling."
-    ),
+  om_indikatorn = "Kännedom om tumörens utbredning i bröstet påverkar val av primär behandling, typ av kirurgi och val av postoperativ onkologisk behandling. Grundas på bilddiagnostik och klinisk undersökning.",
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
 )

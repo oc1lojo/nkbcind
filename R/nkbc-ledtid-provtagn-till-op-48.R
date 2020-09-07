@@ -24,16 +24,10 @@ nkbc48 <- list(
     )
   },
   prop_within_value = 28,
-  target_values = 80,
   period_dat_var = "op_kir_dat",
   sjhkod_var = "op_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
-  om_indikatorn =
-    paste(
-      "Handläggningstiden från provtagning som ger cancerdiagnos till operation bör vara kort och oberoende av var patienten söker vård.",
-      "Indikatorn provtagningsdatum till operation har funnits sedan registrets start och före införandet av standardiserade vårdförlopp.",
-      "Både ledtidens start och slut är tydliga och väl definierade vilket underlättar vid jämförelse."
-    ),
+  om_indikatorn = NULL,
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
 )

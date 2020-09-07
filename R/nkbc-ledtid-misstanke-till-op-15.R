@@ -33,11 +33,11 @@ nkbc15 <- list(
   other_vars = c("a_pat_alder", "d_invasiv"),
   om_indikatorn =
     paste(
-      "Standardiserade vårdförlopp infördes 2015 för att säkra utredning och start av behandling till patienter i rimlig tid oberoende var patienten söker vård.",
+      "Standardiserat vårdförlopp infördes 2016 för att säkra utredning och start av behandling till patienter i rimlig tid.",
       "För bröstcancer är tiden från välgrundad misstanke till start av behandling 28 kalenderdagar.",
-      "Av patienter som diagnosticerats med bröstcancer bör 80% ha startat behandling inom denna tidsperiod.",
+      "Av patienter som utreds för cancer bör 80% ha gjort det inom denna tidsperiod.",
       "För ett antal patienter krävs mer avancerade utredningsmetoder för att nå diagnos vilket kan förlänga tiden till behandlingsstart.",
-      "Startpunkten för SVF har tolkats olika av vårdgivare varför ledtiden skall tolkas med försiktighet."
+      "Startpunkten för SVF har tolkats olika av vårdgivare vilket ger upphov till variation varför ledtiden skall tolkas med stor försiktighet."
     ),
   vid_tolkning = NULL,
   inkl_beskr_missca = TRUE,

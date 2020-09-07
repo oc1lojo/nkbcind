@@ -4,7 +4,7 @@ nkbc46 <- list(
   lab = "Cytostatikabehandling, måluppfyllelse",
   pop = paste(
     "opererade östrogenreceptornegativa invasiva fall med större tumörer eller spridning till lymfkörtlar",
-    "(T2-T4 eller cN+ för opererade  fall efter preoperativ onkologisk behandling, tumörstorlek >10 mm eller pN+ för primärt opererade fall)",
+    "(T2-T4 eller cN+ för opererade  fall efter preoperativ onkologisk behandling, tumörstorlek > 10 mm eller pN+ för primärt opererade fall)",
     "utan fjärrmetastaser vid diagnos"
   ),
   pop_short = "opererade ER- invasiva fall med större tumörer eller spridning till lymfkörtlar utan fjärrmetastaser vid diagnos",
@@ -51,7 +51,7 @@ nkbc46 <- list(
   period_dat_var = "a_diag_dat",
   sjhkod_var = "d_onk_sjhkod",
   other_vars = c("a_pat_alder", "d_prim_beh"),
-  om_indikatorn = "Pre- eller postoperativ cytostatikabehandling rekommenderas i allmänhet vid bröstcancer med spridning till axillens lymfkörtlar, om tumören har svag hormonell känslighet och/eller andra riskfaktorer.",
+  om_indikatorn = "Pre- eller postoperativ cytostatikabehandling rekommenderas i allmänhet vid bröstcancer med spridning till axillens lymfkörtlar, men även utan lymfkörtelengagemang om tumören har svag hormonell känslighet och/eller då det föreligger riskfaktorer.",
   vid_tolkning = NULL,
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL

@@ -45,12 +45,8 @@ nkbc41 <- list(
   },
   sjhkod_var = "d_onk_sjhkod",
   other_vars = "a_pat_alder",
-  om_indikatorn = "Redovisar andelen fall som fått preoperativ respektive postoperativ endokrin behandling eller bägge.",
-  vid_tolkning =
-    paste(
-      "Redovisade data avser påbörjad behandling.",
-      "Studier visar att ca 70% av patienterna avbryter eller gör längre avbrott i sin endokrina behandling p.g.a. biverkningar."
-    ),
+  om_indikatorn = "Den aktuella tabellen presenterar andelen fall som fått preoperativ respektive postoperativ endokrin behandling eller bägge.",
+  vid_tolkning = "Här presenteras data för påbörjad behandling. Det finns studier som visar att ca 70% av patienterna stoppar eller gör längre avbrott i sin endokrinabehandling i huvudsak p.g.a. biverkningar.",
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL
 )

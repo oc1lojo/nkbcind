@@ -3,7 +3,7 @@ nkbc42 <- list(
   kortnamn = "nkbc_kir_brostbev_op_42",
   lab = "Bröstbevarande operation",
   pop = "opererade fall med bröstkirurgi (fall med enbart axillkirurgi exkluderade) utan fjärrmetastas vid diagnos",
-  pop_short = "opererade fall utan fjärrmetastas vid diagnos",
+  pop_short = "opererade fall med bröstkirurgi utan fjärrmetastas vid diagnos",
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -31,10 +31,10 @@ nkbc42 <- list(
   other_vars_inca = c("a_pat_alder", "d_invasiv", "d_prim_beh"),
   om_indikatorn =
     paste(
-      "Bröstbevarande ingrepp i kombination med strålbehandling är standardingreppet förmajoriteten av tidigt upptäckta bröstcancrar.",
-      "Bl.a. tumörens storlek och lokalisation liksom bröstets storlek spelar roll vid val av operationsmetod."
+      "Bröstbevarande ingrepp i kombination med strålbehandling är standardingreppet för majoriten av tidigt upptäckta bröstcancrar.",
+      "Bl.a. tumörens storlek och lokalisation liksom bröstet storlek spelar roll för av av kirurgisk operationsmetod."
     ),
-  vid_tolkning = "Case-mix liksom lokala terapitraditioner, exempelvis andel preoperativt onkologiskt behandlade, påverkar andelen bröstbevarande kirurgi.",
+  vid_tolkning = "Case-mix liksom lokala terapitraditioner, exempelvis andelen preoperativt onkologiskt behandlade, påverkar andelen bröstbevarande kirurgi.",
   teknisk_beskrivning = NULL
 )
 class(nkbc42) <- "nkbcind"

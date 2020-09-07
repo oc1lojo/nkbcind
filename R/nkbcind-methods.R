@@ -7,7 +7,6 @@ code <- function(x) UseMethod("code")
 kortnamn <- function(x) UseMethod("kortnamn")
 lab <- function(x) UseMethod("lab")
 lab_short <- function(x) UseMethod("lab_short")
-lab_long <- function(x) UseMethod("lab_long")
 outcome <- function(x) UseMethod("outcome")
 outcome_title <- function(x) UseMethod("outcome_title")
 pop <- function(x) UseMethod("pop")
@@ -32,53 +31,20 @@ period_dat_var <- function(x) UseMethod("period_dat_var")
 kpl_description <- function(x) UseMethod("kpl_description")
 
 # Definiera metoder för klasserna nkbcind och nkbc33 ----
-
-#' @export
 code.nkbcind <- function(x) x$code
-
-#' @export
 kortnamn.nkbcind <- function(x) x$kortnamn
-
-#' @export
 lab.nkbcind <- function(x) x$lab
-
-#' @export
 lab_short.nkbcind <- function(x) ifelse(!is.null(x$lab_short), x$lab_short, x$lab)
-
-#' @export
-lab_long.nkbcind <- function(x) ifelse(!is.null(x$lab_long), x$lab_long, x$lab)
-
-#' @export
 outcome.nkbcind <- function(x) if (!is.null(x$outcome)) x$outcome else "outcome"
-
-#' @export
 outcome_title.nkbcind <- function(x) if (!is.null(x$outcome_title)) x$outcome_title else x$lab
-
-#' @export
 pop.nkbcind <- function(x) x$pop
-
-#' @export
 pop_short.nkbcind <- function(x) ifelse(!is.null(x$pop_short), x$pop_short, x$pop)
-
-#' @export
 filter_pop.nkbcind <- function(x) x$filter_pop
-
-#' @export
 mutate_outcome.nkbcind <- function(x) x$mutate_outcome
-
-#' @export
 sjhkod_var.nkbcind <- function(x) x$sjhkod_var
-
-#' @export
 prop_within_unit.nkbcind <- function(x) x$prop_within_unit
-
-#' @export
 prop_within_value.nkbcind <- function(x) x$prop_within_value
-
-#' @export
 target_values.nkbcind <- function(x) x$target_values
-
-#' @export
 geo_units_vars.nkbcind <- function(x) {
   if (!is.null(x$geo_units_vars)) {
     x$geo_units_vars
@@ -86,11 +52,7 @@ geo_units_vars.nkbcind <- function(x) {
     c("region", "landsting", "sjukhus")
   }
 }
-
-#' @export
 other_vars.nkbcind <- function(x) x$other_vars
-
-#' @export
 other_vars_inca.nkbcind <- function(x) {
   if (!is.null(x$other_vars_inca)) {
     x$other_vars_inca
@@ -99,20 +61,11 @@ other_vars_inca.nkbcind <- function(x) {
   }
 }
 
-#' @export
 textBeforeSubtitle.nkbcind <- function(x, ...) {
   paste0("Bland ", pop_short(x), ".")
 }
 
-#' @export
 description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
-  # Lägga till "(andel inom ... dagar)" för kontinuerliga variabler
-  if (!is.null(prop_within_value(x))) {
-    target_levels_extra_txt <- paste("Andel inom", prop_within_value(nkbcind), ifelse(!is.null(prop_within_unit(nkbcind)), prop_within_unit(nkbcind), "dagar "))
-  } else {
-    target_levels_extra_txt <- NULL
-  }
-
   c(
     # Om indikatorn
     paste(
@@ -121,9 +74,9 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
         if (!is.null(x$target_values)) {
           dplyr::case_when(
             length(x$target_values) == 1 ~
-            paste0("Målnivå: ", target_levels_extra_txt, x$target_values[1], "%"),
+            paste0("Målnivå: ", x$target_values[1], "%"),
             length(x$target_values) == 2 ~
-            paste0("Målnivåer: ", target_levels_extra_txt, x$target_values[1], "% (låg) ", x$target_values[2], "% (hög)")
+            paste0("Målnivåer: ", x$target_values[1], "% (låg) ", x$target_values[2], "% (hög)")
           )
         }
       ),
@@ -134,7 +87,7 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
       c(
         x$vid_tolkning,
         if (!is.null(x$inkl_beskr_missca) && x$inkl_beskr_missca == TRUE) {
-          "Datum för välgrundad misstanke om cancer tillkom som variabel 2016 och innan detta har datum för första kontakt använts."
+          "Datum för välgrundad misstanke om cancer tillkom som variabel 2016 och innan detta har datum för 1:a kontakt använts."
         },
         if (!is.null(x$inkl_beskr_onk_beh) && x$inkl_beskr_onk_beh == TRUE) {
           paste(
@@ -143,11 +96,11 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
           )
         },
         if (!is.null(x$inkl_beskr_overlevnad_5ar) && x$inkl_beskr_overlevnad_5ar == TRUE) {
-          paste0("Uppgifter som rör 5-årsöverlevnad redovisas enbart t.o.m. ", report_end_year - 5, ".")
+          paste0("Uppgifter som rör 5 års överlevnad redovisas enbart t.o.m. ", report_end_year - 5, ".")
         },
         paste(
-          "Ett fall per bröst kan rapporterats till Nationellt kvalitetsregister för bröstcancer.",
-          "Det innebär att samma person kan finnas med i statistiken två gånger."
+          "Ett fall per bröst kan rapporterats till det nationella kvalitetsregistret för bröstcancer.",
+          "Det innebär att samma person kan finnas med i statistiken upp till två gånger."
         ),
         "Skövde och Lidköpings sjukhus presenteras tillsammans som Skaraborg.",
         if (x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod", "d_onkpreans_sjhkod", "d_onkpostans_sjhkod", "d_prim_beh_sjhkod")) {
@@ -166,16 +119,16 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
           dplyr::case_when(
             x$sjhkod_var %in% "a_inr_sjhkod" ~
             "anmälande sjukhus",
-            x$sjhkod_var %in% "op_inr_sjhkod" ~
-            "opererande sjukhus",
             x$sjhkod_var %in% "d_opans_sjhkod" ~
-            "opererande sjukhus, och om detta saknas, anmälande sjukhus",
-            x$sjhkod_var %in% "d_prim_beh_sjhkod" ~
-            "sjukhus ansvarig för primär behandling",
+            "opererande sjukhus och om detta saknas, anmälande sjukhus",
             x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
             "sjukhus där onkologisk behandling ges",
+            x$sjhkod_var %in% "op_inr_sjhkod" ~
+            "opererande sjukhus",
+            x$sjhkod_var %in% "d_prim_beh_sjhkod" ~
+            "sjukhus ansvarig för primär behandling",
             x$sjhkod_var %in% c("d_onkpreans_sjhkod", "d_onkpostans_sjhkod") ~
-            "rapporterande sjukhus där onkologisk behandling ges, och om detta saknas, sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus"
+            "rapporterande sjukhus där onkologisk behandling ges och om detta saknas, sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus"
           ),
           "."
         )
@@ -185,7 +138,6 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
   )
 }
 
-#' @export
 description.nkbc33 <- function(x, report_end_year = report_end_year, ...) {
   # Anpassad för rapporteringa av täckningsgrad mot cancerregistret (nkbc33)
   c(
@@ -227,7 +179,6 @@ description.nkbc33 <- function(x, report_end_year = report_end_year, ...) {
   )
 }
 
-#' @export
 description_inca.nkbcind <- function(x, ...) {
   c(
     # Om indikatorn
@@ -250,7 +201,7 @@ description_inca.nkbcind <- function(x, ...) {
       c(
         x$vid_tolkning,
         if (!is.null(x$inkl_beskr_missca) && x$inkl_beskr_missca == TRUE) {
-          "Datum för välgrundad misstanke om cancer tillkom som variabel 2016 och innan detta har datum för första kontakt använts."
+          "Datum för välgrundad misstanke om cancer tillkom som variabel 2016 och innan detta har datum för 1:a kontakt använts."
         },
         if (!is.null(x$inkl_beskr_onk_beh) && x$inkl_beskr_onk_beh == TRUE) {
           paste(
@@ -282,16 +233,16 @@ description_inca.nkbcind <- function(x, ...) {
           dplyr::case_when(
             x$sjhkod_var %in% "a_inr_sjhkod" ~
             "anmälande sjukhus",
-            x$sjhkod_var %in% "op_inr_sjhkod" ~
-            "opererande sjukhus",
             x$sjhkod_var %in% "d_opans_sjhkod" ~
-            "opererande sjukhus, och om detta saknas, anmälande sjukhus",
-            x$sjhkod_var %in% "d_prim_beh_sjhkod" ~
-            "sjukhus ansvarig för primär behandling",
+            "opererande sjukhus och om detta saknas, anmälande sjukhus",
             x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
             "sjukhus där onkologisk behandling ges",
+            x$sjhkod_var %in% "op_inr_sjhkod" ~
+            "opererande sjukhus",
+            x$sjhkod_var %in% "d_prim_beh_sjhkod" ~
+            "sjukhus ansvarig för primär behandling",
             x$sjhkod_var %in% c("d_onkpreans_sjhkod", "d_onkpostans_sjhkod") ~
-            "rapporterande sjukhus där onkologisk behandling ges, och om detta saknas, sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus"
+            "rapporterande sjukhus där onkologisk behandling ges och om detta saknas, sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus"
           ),
           "."
         )
@@ -301,7 +252,6 @@ description_inca.nkbcind <- function(x, ...) {
   )
 }
 
-#' @export
 description_inca.nkbc33 <- function(x, ...) {
   # Anpassad för rapporteringa av täckningsgrad mot cancerregistret (nkbc33)
   c(
@@ -343,7 +293,6 @@ description_inca.nkbc33 <- function(x, ...) {
   )
 }
 
-#' @export
 varOther.nkbcind <- function(x, varbesk = varbesk_other_vars, ...) {
   if (is.null(x$other_vars)) {
     return(NULL)
@@ -357,7 +306,6 @@ varOther.nkbcind <- function(x, varbesk = varbesk_other_vars, ...) {
   }
 }
 
-#' @export
 varOther_inca.nkbcind <- function(x, varbesk = varbesk_other_vars, ...) {
   if (is.null(x$other_vars_inca)) {
     varOther(x, varbesk = varbesk, ...)
@@ -371,10 +319,8 @@ varOther_inca.nkbcind <- function(x, varbesk = varbesk_other_vars, ...) {
   }
 }
 
-#' @export
 period_dat_var.nkbcind <- function(x, ...) x$period_dat_var
 
-#' @export
 kpl_description.nkbcind <- function(x, ...) {
   if (!is.null(prop_within_value(x))) {
     # x antas vara en ledtid
@@ -403,19 +349,19 @@ kpl_description.nkbcind <- function(x, ...) {
         dplyr::case_when(
           x$sjhkod_var %in% "a_inr_sjhkod" ~
           "anmälande sjukhus",
-          x$sjhkod_var %in% "op_inr_sjhkod" ~
-          "opererande sjukhus",
           x$sjhkod_var %in% "d_opans_sjhkod" ~
-          "opererande sjukhus, och om detta saknas, anmälande sjukhus",
-          x$sjhkod_var %in% "d_prim_beh_sjhkod" ~
-          "sjukhus ansvarig för primär behandling",
+          "opererande sjukhus och om detta saknas, anmälande sjukhus",
           x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
           "sjukhus där onkologisk behandling ges",
+          x$sjhkod_var %in% "op_inr_sjhkod" ~
+          "opererande sjukhus",
+          x$sjhkod_var %in% "d_prim_beh_sjhkod" ~
+          "sjukhus ansvarig för primär behandling",
           x$sjhkod_var %in% c("d_onkpreans_sjhkod", "d_onkpostans_sjhkod") ~
           paste(
             "rapporterande sjukhus där onkologisk behandling ges,",
             "och om detta saknas,",
-            "sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus"
+            "sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling på anmälan, och anmälande sjukhus"
           )
         ),
         "."

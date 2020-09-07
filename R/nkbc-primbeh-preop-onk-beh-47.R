@@ -27,10 +27,10 @@ nkbc47 <- list(
   other_vars = c("a_pat_alder", "d_tstad", "d_nstad", "d_trigrp"),
   om_indikatorn =
     paste(
-      "Preoperativ (neoadjuvant) onkologisk behandling är aktuellt när reduktion av primärtumör eller lymfkörtelmetastaser önskas inför kirurgi och/eller utvärdering av behandlingseffekten med tumören kvar är en fördel.",
+      "Preoperativ (neoadjuvant) onkologisk behandling är aktuellt när reduktion av primärtumören önskas inför kirurgi och/eller utvärdering av behandlingseffekten med tumören kvar är en fördel.",
       "Tumörstorlek, spridning till lymfkörtlarna liksom biologisk subtyp påverkar val av preoperativ behandling eller ej, liksom typ av preoperativ behandling."
     ),
-  vid_tolkning = "För fall med preoperativ onkologisk behandling är tumörkaraktäristika hämtat från nålsbiopsi innan behandling, i övriga fall från operation.",
+  vid_tolkning = "För fall med preoperativ onkologisk behandling är östrogenreceptoruttryck hämtat från nålsbiopsi innan behandling, i övriga fall från operation.",
   inkl_beskr_onk_beh = FALSE, # Använder inte uppgifter från onkologi-formulär
   teknisk_beskrivning = NULL
 )

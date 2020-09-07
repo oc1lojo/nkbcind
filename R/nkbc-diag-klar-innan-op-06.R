@@ -26,7 +26,7 @@ nkbc06 <- list(
   om_indikatorn = "En fastställd diagnos innan behandlingsstart är viktigt för planering och genomförande av behandling och undvikande av omoperationer.",
   vid_tolkning =
     paste(
-      "För att undvika alltför långa utredningstider kan det ibland vara nödvändigt att operera patienten innan diagnosen är helt fastställd.",
+      "Det kan ibland vara nödvändigt att operera patienten innan diagnosen är fastställd för att undvika alltför långa utredningstider.",
       "Fastställd diagnos måste vägas mot tidsåtgång."
     ),
   teknisk_beskrivning = NULL

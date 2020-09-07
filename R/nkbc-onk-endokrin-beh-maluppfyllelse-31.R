@@ -37,13 +37,15 @@ nkbc31 <- list(
     paste(
       "Endokrin behandling bör erbjudas till alla patienter med östrogenreceptorpositiv (ER+) bröstcancer.",
       "För patienter med mycket låg risk för återfall (tumör <=10 mm av luminal A-typ utan spridning till lymfkörtlarna) kan man avstå från endokrin behandling förutsatt att patienten är informerad om balansen mellan risk och nytta.",
-      "Vid betydande samsjuklighet får nyttan med endokrin behandling vägas mot potentiella nackdelar."
+      "I de fall där samsjuklighet föreligger får nyttan med endokrin behandling avvägas med hänsyn till övriga medicinska faktorer."
     ),
   vid_tolkning =
-    paste(
+    c(
       "Både preoperativ och postoperativ endokrin behandling är medtaget i beräkningen.",
-      "Redovisade data avser påbörjad behandling.",
-      "Studier visar att ca 70% av patienterna avbryter eller gör längre avbrott i sin endokrina behandling p.g.a. biverkningar."
+      paste(
+        "Här presenteras data för påbörjad behandling.",
+        "Det finns studier som visar att ca 70% av patienterna stoppar eller gör längre avbrott i sin endokrinabehandling i huvudsak p.g.a. biverkningar."
+      )
     ),
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL

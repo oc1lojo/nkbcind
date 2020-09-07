@@ -1,8 +1,8 @@
 nkbc52 <- list(
   code = "nkbc52",
   kortnamn = "nkbc_tackning_for_dir_52",
-  lab = "Täckningsgrad för rapportering av direktrekonstruktion/onkoplastikkirurgi",
-  pop = "fall opererade med onkoplastikkirurgi och utan fjärrmetastaser vid diagnos",
+  lab = "Täckningsgrad för rapportering av direktrekonstruktion/onkoplastikkirurgi (PROTOTYP)",
+  pop = "opererade fall med onkoplastikkirurgi och utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -22,6 +22,7 @@ nkbc52 <- list(
       outcome = ifelse(!is.na(dir_inr_dat) | !is.na(dir_inr_enh), TRUE, FALSE)
     )
   },
+  target_values = c(70, 85),
   sjhkod_var = "op_inr_sjhkod",
   om_indikatorn = "Rapportering av direktrekonstruktion/onkoplastikkirurgi sker på ett eget formulär till kvalitetsregistret (driftsatt feb 2020), separat från operationsformuläret.",
   vid_tolkning = NULL,

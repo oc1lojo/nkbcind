@@ -1,8 +1,7 @@
 nkbc07 <- list(
   code = "nkbc07",
   kortnamn = "nkbc_kir_direktrek_07",
-  lab_long = "Omedelbara rekonstruktioner vid mastektomi",
-  lab = "Omedelbara rekonstruktioner",
+  lab = "Omedelbara rekonstruktioner vid mastektomi",
   pop = "fall med mastektomi eller subkutan mastektomi utan fjärrmetastaser vid diagnos",
   pop_short = "mastektomerade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
@@ -25,12 +24,8 @@ nkbc07 <- list(
   period_dat_var = "op_kir_dat",
   sjhkod_var = "op_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
-  om_indikatorn =
-    paste(
-      "Omedelbar rekonstruktion innebär att en bröstform återskapas i samband med att bröstet opereras bort.",
-      "Bröstrekonstruktion kan också göras i ett senare skede (senrekonstruktion)."
-    ),
-  vid_tolkning = "Vissa enheter remitterar fall aktuella för omedelbar rekonstruktion till annan enhet (med kompetens för bröstrekonstruktion) vilket kan påverka statistiken.",
+  om_indikatorn = "Omedelbar rekonstruktion innebär att en bröstform återskapas i samband med att ett helt bröst opereras bort. Bröstrekonstruktion kan göras senare efter avslutad onkologisk behandling.",
+  vid_tolkning = "Vissa enheter remitterar fall för omedelbar rekonstruktion till enhet med kompetens för bröstrekonstruktion och kan därmed falla utanför statistiken.",
   teknisk_beskrivning = NULL
 )
 class(nkbc07) <- "nkbcind"

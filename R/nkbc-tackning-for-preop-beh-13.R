@@ -2,7 +2,7 @@ nkbc13 <- list(
   code = "nkbc13",
   kortnamn = "nkbc_tackning_for_preop_beh_13",
   lab = "Täckningsgrad för rapportering av preoperativ onkologisk behandling",
-  pop = "fall utan fjärrmetastaser vid diagnos som opererats efter preoperativ onkologisk behandling",
+  pop = "opererade fall utan fjärrmetastaser vid diagnos med preoperativ onkologisk behandling",
   pop_short = "fall utan fjärrmetastaser vid diagnos med preoperativ onkologisk behandling",
   filter_pop = function(x, ...) {
     dplyr::filter(

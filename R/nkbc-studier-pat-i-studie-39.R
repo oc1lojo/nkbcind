@@ -31,13 +31,12 @@ nkbc39 <- list(
     )
   },
   sjhkod_var = "post_inr_sjhkod",
-  other_vars = c("a_pat_alder", "d_invasiv"),
-  other_vars_inca = c("a_pat_alder", "d_invasiv", "d_vitalstatus"),
+  other_vars = c("a_pat_alder", "d_invasiv", "d_vitalstatus"),
   om_indikatorn =
     paste(
       "Ett övergripande mål är att erbjuda alla bröstcancerpatienter medverkan i studier för att utveckla nya behandlingar och arbetssätt.",
       "Indikatorn gäller alla typer av studier (t.ex. kliniska studier, omvårdnadsstudier, fysioterapi-studier).",
-      "Indikatorn infördes 2017 och bör tolkas med försiktighet p.g.a. underrapportering och regionala skillnader i definition."
+      "Indikatorn infördes 2017 och bör tolkas med försiktighet (regionala skillnader och underrapportering)."
     ),
   vid_tolkning = NULL,
   inkl_beskr_onk_beh = TRUE,

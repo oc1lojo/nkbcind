@@ -1,7 +1,7 @@
 nkbc04 <- list(
   code = "nkbc04",
   kortnamn = "nkbc_diag_mdk_innan_beh_04",
-  lab = "Multidisciplinär konferens inför behandlingsstart",
+  lab = "Multidisciplinär konferens inför behandlingstart",
   pop = "alla anmälda fall",
   filter_pop = function(x, ...) {
     dplyr::filter(x) # ingen filtrering
@@ -16,11 +16,7 @@ nkbc04 <- list(
   period_dat_var = "a_diag_dat",
   sjhkod_var = "a_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
-  om_indikatorn =
-    paste(
-      "Anger andelen fall som diskuterats på MDK där definierade specialister och professioner deltar och formulerar behandlingsrekommendationer.",
-      "Att MDK genomförs har betydelse för jämlik och kunskapsstyrd vård samt kvalitetssäkring."
-    ),
+  om_indikatorn = "Att definierade specialister och professioner deltar i MDK och formulerar behandlingsrekommendationer har betydelse för vårdprocess för jämlik vård, kunskapsstyrd vård och för kvalitetssäkring.",
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
 )

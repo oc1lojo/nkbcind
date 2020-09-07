@@ -38,22 +38,14 @@ nkbc43 <- list(
   sjhkod_var = "d_prim_beh_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv", "d_prim_beh"),
   om_indikatorn =
-    c(
-      "Preoperativ onkologisk behandling kan vara cytostatika, antikroppsbehandling, endokrin behandling eller strålbehandling.",
-      paste(
-        "Standardiserade vårdförlopp infördes 2015 för att säkra utredning och start av behandling till patienter i rimlig tid oberoende var patienten söker vård.",
-        "För bröstcancer är tiden från välgrundad misstanke till start av behandling 28 kalenderdagar.",
-        "Av patienter som diagnosticerats med bröstcancer bör 80% ha startat behandling inom denna tidsperiod.",
-        "För ett antal patienter krävs mer avancerade utredningsmetoder för att nå diagnos vilket kan förlänga tiden till behandlingsstart.",
-        "Startpunkten för SVF har tolkats olika av vårdgivare varför ledtiden skall tolkas med försiktighet."
-      )
-    ),
-  vid_tolkning =
     paste(
-      "Andelen preoperativt behandlade patienter varierar i landet.",
-      "Många patienter som startar preoperativ onkologisk behandling ingår i behandlingsstudier med krav på specificerade undersökningar före start vilket kan förlänga ledtiden.",
-      "Siffrorna skall därför tolkas med viss försiktighet."
+      "Standardiserat vårdförlopp infördes 2016 för att säkra utredning och start av behandling till patienter i rimlig tid.",
+      "För bröstcancer är tiden från välgrundad misstanke till start av behandling 28 kalenderdagar.",
+      "Av patienter som utreds för cancer bör 80% ha gjort det inom denna tidsperiod.",
+      "För ett antal patienter krävs mer avancerade utredningsmetoder för att nå diagnos vilket kan förlänga tiden till behandlingsstart.",
+      "Startpunkten för SVF har tolkats olika av vårdgivare vilket ger upphov till variation varför ledtiden skall tolkas med stor försiktighet."
     ),
+  vid_tolkning = NULL,
   inkl_beskr_missca = TRUE,
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL

@@ -23,11 +23,7 @@ nkbc08 <- list(
   period_dat_var = "op_kir_dat",
   sjhkod_var = "op_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
-  om_indikatorn =
-    paste(
-      "Om analys av den bortopererade vävnaden visar sig att tumörvävnad kan ha kvarlämnats rekommenderas som regel en omoperation.",
-      "Andelen bröstbevarande kirurgi påverkar risken för reoperation (vid högre andel primäroperation med mastektomi är risken för reoperation av naturliga skäl lägre)."
-    ),
+  om_indikatorn = "Om det vid analys av den bortopererade vävnaden visar sig att tumörvävnad kan ha kvarlämnats blir patienten ofta rekommenderad en omoperation.",
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
 )

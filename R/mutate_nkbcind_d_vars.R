@@ -52,7 +52,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
     d_trigrp = factor(
       d_trigrp_Varde,
       levels = c(3, 2, 1, 99),
-      labels = c("Trippel negativ", "HER2-positiv", "Luminal", "Uppgift saknas")
+      labels = c("Trippel negativ", "HER2 positiv", "Luminal", "Uppgift saknas")
     ),
 
     # T

@@ -36,8 +36,8 @@ nkbc11 <- list(
   other_vars_inca = c("a_pat_alder", "d_invasiv", "d_prim_beh"),
   om_indikatorn =
     paste(
-      "Ett bröstbevarande ingrepp och strålbehandling är standardingrepp för majoriteten av tidigt upptäckta bröstcancrar.",
-      "Tumörens egenskaper, form och storlek på bröstet spelar roll vid val av operationsmetod."
+      "Ett bröstbevarande ingrepp och  strålbehandling är  standradingrepp  för majoriten av tidigt upptäckta bröstcancrar.",
+      "Tumörens egenskaper, form och storlek på bröstet spelar roll för av av kirurgisk operationsmetod."
     ),
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
