@@ -3,7 +3,6 @@ nkbc53 <- list(
   kortnamn = "nkbc_kir_brostbev_op_sma_tum_inv_53",
   lab = "Bröstbevarande operation vid små invasiva tumörer",
   pop = "primärt opererade fall med invasiv cancer <=30 mm utan fjärrmetastaser vid diagnos",
-  # pop_short = "primärt opererade fall med små invasiva tumörer utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
