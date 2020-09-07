@@ -8,7 +8,7 @@ Authors@R: c(
     person("RCC", role = c("cph", "fnd"))
     )
 Description: Verktyg för kvalitetsindikatorer och populationskarakteristik från
-    Nationellt kvalitetsregister för bröstcancer (NKBC) 
+    Nationellt kvalitetsregister för bröstcancer (NKBC).
 License: GPL-3
 URL: https://cancercentrum.bitbucket.io/nkbcind/, http://bitbucket.org/cancercentrum/nkbcind
 BugReports: https://bitbucket.org/cancercentrum/nkbcind/issues
