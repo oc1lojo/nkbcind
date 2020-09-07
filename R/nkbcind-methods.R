@@ -32,21 +32,53 @@ period_dat_var <- function(x) UseMethod("period_dat_var")
 kpl_description <- function(x) UseMethod("kpl_description")
 
 # Definiera metoder för klasserna nkbcind och nkbc33 ----
+
+#' @export
 code.nkbcind <- function(x) x$code
+
+#' @export
 kortnamn.nkbcind <- function(x) x$kortnamn
+
+#' @export
 lab.nkbcind <- function(x) x$lab
+
+#' @export
 lab_short.nkbcind <- function(x) ifelse(!is.null(x$lab_short), x$lab_short, x$lab)
+
+#' @export
 lab_long.nkbcind <- function(x) ifelse(!is.null(x$lab_long), x$lab_long, x$lab)
+
+#' @export
 outcome.nkbcind <- function(x) if (!is.null(x$outcome)) x$outcome else "outcome"
+
+#' @export
 outcome_title.nkbcind <- function(x) if (!is.null(x$outcome_title)) x$outcome_title else x$lab
+
+#' @export
 pop.nkbcind <- function(x) x$pop
+
+#' @export
 pop_short.nkbcind <- function(x) ifelse(!is.null(x$pop_short), x$pop_short, x$pop)
+
+#' @export
 filter_pop.nkbcind <- function(x) x$filter_pop
+
+#' @export
 mutate_outcome.nkbcind <- function(x) x$mutate_outcome
+
+#' @export
 sjhkod_var.nkbcind <- function(x) x$sjhkod_var
+
+#' @export
 prop_within_unit.nkbcind <- function(x) x$prop_within_unit
+
+#' @export
 prop_within_value.nkbcind <- function(x) x$prop_within_value
+
+#' @export
 target_values.nkbcind <- function(x) x$target_values
+
+#' @export
 geo_units_vars.nkbcind <- function(x) {
   if (!is.null(x$geo_units_vars)) {
     x$geo_units_vars
@@ -54,7 +86,11 @@ geo_units_vars.nkbcind <- function(x) {
     c("region", "landsting", "sjukhus")
   }
 }
+
+#' @export
 other_vars.nkbcind <- function(x) x$other_vars
+
+#' @export
 other_vars_inca.nkbcind <- function(x) {
   if (!is.null(x$other_vars_inca)) {
     x$other_vars_inca
@@ -63,10 +99,12 @@ other_vars_inca.nkbcind <- function(x) {
   }
 }
 
+#' @export
 textBeforeSubtitle.nkbcind <- function(x, ...) {
   paste0("Bland ", pop_short(x), ".")
 }
 
+#' @export
 description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
   # Lägga till "(andel inom ... dagar)" för kontinuerliga variabler
   if (!is.null(prop_within_value(x))) {
@@ -147,6 +185,7 @@ description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
   )
 }
 
+#' @export
 description.nkbc33 <- function(x, report_end_year = report_end_year, ...) {
   # Anpassad för rapporteringa av täckningsgrad mot cancerregistret (nkbc33)
   c(
@@ -188,6 +227,7 @@ description.nkbc33 <- function(x, report_end_year = report_end_year, ...) {
   )
 }
 
+#' @export
 description_inca.nkbcind <- function(x, ...) {
   c(
     # Om indikatorn
@@ -261,6 +301,7 @@ description_inca.nkbcind <- function(x, ...) {
   )
 }
 
+#' @export
 description_inca.nkbc33 <- function(x, ...) {
   # Anpassad för rapporteringa av täckningsgrad mot cancerregistret (nkbc33)
   c(
@@ -302,6 +343,7 @@ description_inca.nkbc33 <- function(x, ...) {
   )
 }
 
+#' @export
 varOther.nkbcind <- function(x, varbesk = varbesk_other_vars, ...) {
   if (is.null(x$other_vars)) {
     return(NULL)
@@ -315,6 +357,7 @@ varOther.nkbcind <- function(x, varbesk = varbesk_other_vars, ...) {
   }
 }
 
+#' @export
 varOther_inca.nkbcind <- function(x, varbesk = varbesk_other_vars, ...) {
   if (is.null(x$other_vars_inca)) {
     varOther(x, varbesk = varbesk, ...)
@@ -328,8 +371,10 @@ varOther_inca.nkbcind <- function(x, varbesk = varbesk_other_vars, ...) {
   }
 }
 
+#' @export
 period_dat_var.nkbcind <- function(x, ...) x$period_dat_var
 
+#' @export
 kpl_description.nkbcind <- function(x, ...) {
   if (!is.null(prop_within_value(x))) {
     # x antas vara en ledtid
