@@ -1,9 +1,8 @@
-nkbc11 <- list(
-  code = "nkbc11",
-  kortnamn = "nkbc_kir_brostbev_op_sma_tum_11",
-  lab = "Bröstbevarande operation vid små tumörer",
-  pop = "primärt opererade fall med invasiv cancer <=30 mm eller ej invasiv cancer <=20 mm utan fjärrmetastaser vid diagnos",
-  pop_short = "primärt opererade fall med små tumörer utan fjärrmetastaser vid diagnos",
+nkbc54 <- list(
+  code = "nkbc54",
+  kortnamn = "nkbc_kir_brostbev_op_sma_tum_insitu_54",
+  lab = "Bröstbevarande operation vid små icke-invasiva tumörer",
+  pop = "primärt opererade fall med icke-invasiv cancer <=20 mm utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -19,9 +18,11 @@ nkbc11 <- list(
       # Exkludera fall som ej op i bröstet eller missing
       op_kir_brost_Varde %in% c(1, 2, 4),
 
-      # Extent <= 30mm (invasiv) resp 20mm (in situ)
-      (d_max_extent <= 30 & d_invasiv == "Invasiv cancer" |
-        d_max_extent <= 20 & d_invasiv == "Enbart cancer in situ")
+      # Enbart cancer in situ
+      d_invasiv %in% "Enbart cancer in situ",
+
+      # Extent <= 20mm
+      d_max_extent <= 20
     )
   },
   mutate_outcome = function(x, ...) {
@@ -29,11 +30,11 @@ nkbc11 <- list(
       outcome = ifelse(op_kir_brost_Varde == 1, TRUE, FALSE)
     )
   },
-  target_values = c(70, 80),
+  target_values = c(80, 90),
   period_dat_var = "op_kir_dat",
   sjhkod_var = "op_inr_sjhkod",
-  other_vars = c("a_pat_alder", "d_invasiv"),
-  other_vars_inca = c("a_pat_alder", "d_invasiv", "d_prim_beh"),
+  other_vars = "a_pat_alder",
+  other_vars_inca = c("a_pat_alder", "d_prim_beh"),
   om_indikatorn =
     paste(
       "Ett bröstbevarande ingrepp och strålbehandling är standardingrepp för majoriteten av tidigt upptäckta bröstcancrar.",
@@ -42,4 +43,4 @@ nkbc11 <- list(
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
 )
-class(nkbc11) <- "nkbcind"
+class(nkbc54) <- "nkbcind"

@@ -32,8 +32,8 @@ nkbc28 <- list(
   other_vars = "a_pat_alder",
   om_indikatorn =
     paste(
-      "Strålbehandling efter bröstbevarande operation minskar risk för återfall.",
-      "I de fall där samsjuklighet föreligger får nyttan med strålbehandling avvägas med hänsyn till övriga medicinska faktorer."
+      "Strålbehandling efter bröstbevarande operation minskar risken för lokalt återfall.",
+      "Vid betydande samsjuklighet får nyttan med strålbehandling vägas mot potentiella nackdelar."
     ),
   vid_tolkning = NULL,
   inkl_beskr_onk_beh = TRUE,

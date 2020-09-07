@@ -1,7 +1,7 @@
 nkbc30 <- list(
   code = "nkbc30",
   kortnamn = "nkbc_overlevnad_5ar_30",
-  lab = "Observerad 5 års överlevnad",
+  lab = "Observerad 5-årsöverlevnad",
   pop = "alla anmälda fall",
   filter_pop = function(x, ...) {
     dplyr::filter(
@@ -25,8 +25,8 @@ nkbc30 <- list(
     paste(
       "Total överlevnad betraktas som det viktigaste utfallsmåttet.",
       "Dödsorsakerna kan vara andra än bröstcancer.",
-      "Observerad överlevnad anger de bröstcancerfall som överlevt 5 år efter diagnos.",
-      "Observera att analysen inte är justerad för skillnader i population."
+      "Observerad 5-årsöverlevnad anger de bröstcancerfall som överlevt 5 år efter diagnos.",
+      "Observera att analysen inte är justerad för skillnader i case-mix."
     ),
   vid_tolkning = NULL,
   inkl_beskr_overlevnad_5ar = TRUE,
