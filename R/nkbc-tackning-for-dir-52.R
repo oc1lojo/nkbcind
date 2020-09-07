@@ -1,3 +1,4 @@
+#' @export
 nkbc52 <- list(
   code = "nkbc52",
   kortnamn = "nkbc_tackning_for_dir_52",

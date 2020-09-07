@@ -1,3 +1,4 @@
+#' @export
 add_sjhdata <- function(x,
                         sjukhuskoder = sjukhuskoder,
                         sjhkod_var = "a_inr_sjhkod",

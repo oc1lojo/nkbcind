@@ -3,32 +3,80 @@
 # TODO Designa om detta rudimentära S3-system för kvalitetsindikatorer i NKBC
 
 # Definiera generiska funktioner ----
+
+#' @export
 code <- function(x) UseMethod("code")
+
+#' @export
 kortnamn <- function(x) UseMethod("kortnamn")
+
+#' @export
 lab <- function(x) UseMethod("lab")
+
+#' @export
 lab_short <- function(x) UseMethod("lab_short")
+
+#' @export
 lab_long <- function(x) UseMethod("lab_long")
+
+#' @export
 outcome <- function(x) UseMethod("outcome")
+
+#' @export
 outcome_title <- function(x) UseMethod("outcome_title")
+
+#' @export
 pop <- function(x) UseMethod("pop")
+
+#' @export
 pop_short <- function(x) UseMethod("pop_short")
+
+#' @export
 filter_pop <- function(x) UseMethod("filter_pop")
+
+#' @export
 mutate_outcome <- function(x) UseMethod("mutate_outcome")
+
+#' @export
 prop_within_unit <- function(x) UseMethod("prop_within_unit")
+
+#' @export
 prop_within_value <- function(x) UseMethod("prop_within_value")
+
+#' @export
 target_values <- function(x) UseMethod("target_values")
+
+#' @export
 sjhkod_var <- function(x) UseMethod("sjhkod_var")
+
+#' @export
 other_vars <- function(x) UseMethod("other_vars")
+
+#' @export
 other_vars_inca <- function(x) UseMethod("other_vars_inca")
+
+#' @export
 geo_units_vars <- function(x) UseMethod("geo_units_vars")
 
+#' @export
 textBeforeSubtitle <- function(x) UseMethod("textBeforeSubtitle")
+
+#' @export
 description <- function(x, report_end_year = report_end_year) UseMethod("description")
+
+#' @export
 description_inca <- function(x) UseMethod("description_inca")
+
+#' @export
 varOther <- function(x, varbesk, ...) UseMethod("varOther")
+
+#' @export
 varOther_inca <- function(x, varbesk, ...) UseMethod("varOther_inca")
 
+#' @export
 period_dat_var <- function(x) UseMethod("period_dat_var")
+
+#' @export
 kpl_description <- function(x) UseMethod("kpl_description")
 
 # Definiera metoder för klasserna nkbcind och nkbc33 ----

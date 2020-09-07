@@ -1,3 +1,4 @@
+#' @export
 varbesk_other_vars <- tibble::enframe(
   c(
     a_pat_alder = "Ålder vid diagnos",

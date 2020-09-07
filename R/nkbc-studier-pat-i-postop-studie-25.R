@@ -1,5 +1,6 @@
 # Jfr https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny/src/2017.1/nkbc25.R
 
+#' @export
 nkbc25 <- list(
   code = "nkbc25",
   kortnamn = "nkbc_studier_pat_i_postop_studie_25",

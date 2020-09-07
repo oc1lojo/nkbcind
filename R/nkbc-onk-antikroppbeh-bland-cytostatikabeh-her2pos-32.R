@@ -1,3 +1,4 @@
+#' @export
 nkbc32 <- list(
   code = "nkbc32",
   kortnamn = "nkbc_onk_antikroppbeh_bland_cytostatikabeh_her2pos_32",

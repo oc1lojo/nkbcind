@@ -1,3 +1,4 @@
+#' @export
 nkbc09c <- list(
   code = "nkbc09c",
   kortnamn = "nkbc_pop_invasiv_09c",

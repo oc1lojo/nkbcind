@@ -1,3 +1,4 @@
+#' @export
 nkbc43 <- list(
   code = "nkbc43",
   kortnamn = "nkbc_ledtid_misstanke_till_prim_beh_43",

@@ -1,3 +1,4 @@
+#' @export
 mutate_nkbcind_d_vars <- function(x, ...) {
   dplyr::mutate(x,
 
