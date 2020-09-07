@@ -1,4 +1,4 @@
-NAME <- "nkbc09g2"
+#' @export
 nkbc09g <- list(
   code = "nkbc09g",
   kortnamn = "nkbc_pop_n_09g",

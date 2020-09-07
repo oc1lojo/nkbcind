@@ -1,3 +1,4 @@
+#' @export
 nkbc22 <- list(
   code = "nkbc22",
   kortnamn = "nkbc_ledtid_op_till_cytostatikabeh_22",

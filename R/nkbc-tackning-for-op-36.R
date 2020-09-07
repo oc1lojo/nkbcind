@@ -1,5 +1,6 @@
 # Jfr https://bitbucket.org/cancercentrum/nkbc-onlinerapporter/src/2018-05-19/nkbc36.R#lines-193
 
+#' @export
 nkbc36 <- list(
   code = "nkbc36",
   kortnamn = "nkbc_tackning_for_op_36",

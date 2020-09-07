@@ -1,5 +1,6 @@
 # Jfr https://bitbucket.org/cancercentrum/nkbc-onlinerapporter/src/2018-05-19/nkbc38.R#lines-194
 
+#' @export
 nkbc38 <- list(
   code = "nkbc38",
   kortnamn = "nkbc_onk_fullfoljt_cytbeh_enl_behplan_38",
