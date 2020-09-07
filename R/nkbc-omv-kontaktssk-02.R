@@ -21,7 +21,10 @@ nkbc02 <- list(
   period_dat_var = "a_diag_dat",
   sjhkod_var = "a_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
-  om_indikatorn = "Enligt den Nationella  Cancerstrategin (SOU 2009:11) ska alla cancerpatienter erbjudas en kontaktsjuksköterska.",
+  om_indikatorn = paste(
+    "Enligt den Nationella  Cancerstrategin (SOU 2009:11) ska alla cancerpatienter erbjudas en kontaktsjuksköterska.",
+    "RCC i samverkan publicerade 2019 en nationell beskrivning av kontaktsjuksköterskans uppdrag."
+  ),
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
 )

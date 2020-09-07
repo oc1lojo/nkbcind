@@ -37,7 +37,17 @@ nkbc51 <- list(
   target_values = 80,
   sjhkod_var = "d_prim_beh_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv", "d_prim_beh"),
-  om_indikatorn = "Standardiserat vårdförlopp infördes 2016 för att säkra utredning och vård till patienter i rimlig och säker tid.",
+  om_indikatorn =
+    c(
+      "Preoperativ onkologisk behandling kan vara cytostatika, antikroppsbehandling, endokrin behandling eller strålbehandling.",
+      "Standardiserade vårdförlopp infördes 2015 för att säkra utredning och start av behandling till patienter i rimlig tid oberoende var patienten söker vård."
+    ),
+  vid_tolkning =
+    paste(
+      "Andelen preoperativt behandlade patienter varierar i landet.",
+      "Många patienter som startar preoperativ onkologisk behandling ingår i behandlingsstudier med krav på specificerade undersökningar före start vilket kan förlänga ledtiden.",
+      "Siffrorna skall därför tolkas med viss försiktighet."
+    ),
   inkl_beskr_onk_beh = TRUE,
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL

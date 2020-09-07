@@ -3,7 +3,7 @@ nkbc09d <- list(
   kortnamn = "nkbc_pop_subtyp_09d",
   lab = "Biologisk subtyp vid diagnos",
   lab_short = "Biologisk subtyp",
-  pop = "invasiva fall",
+  pop = "alla anmälda invasiva fall",
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -20,10 +20,14 @@ nkbc09d <- list(
   other_vars = "a_pat_alder",
   om_indikatorn =
     c(
-      "Invasiv bröstcancer delas in i grupper, subtyper, enligt tumörens biologiska egenskaper, Luminal, HER2-positiv och trippelnegativ. De olika subtyperna är känsliga för olika behandlingar.",
-      "Luminal – tumörer som uttrycker östrogenreceptorer (ER) och/eller progesteronreceptorer (PgR), det vill säga, är ER-positiva och/ eller PgR positiva.",
-      "HER2-positiva – tumörer har många kopior av HER2-genen (amplifiering) vilket leder till en ökning av antalet HER2-receptorer på cellytan. Detta i sin tur stimulerar till snabb tillväxt.",
-      "Trippelnegativ – tumörer saknar östrogenreceptorer (ER) och progesteronreceptorer (PgR) och överuttrycker inte HER2. Den är varken hormonkänslig eller känslig för behandling riktad mot HER2-receptorn."
+      paste(
+        "Invasiv bröstcancer kan delas in i subtyper utefter tumörens biologiska egenskaper.",
+        "I klinisk vardag baseras indelningen på analys av biomarkörerna ER, PgR, Ki67 och HER2 i tumörvävnaden.",
+        "Olika subtyper är känsliga för olika typer av behandlingar."
+      ),
+      "Luminala – tumörer som uttrycker östrogenreceptorer (ER-positiva) och/eller progesteronreceptorer (PgR-positiva), men saknar amplifiering av HER2-genen (HER2-negativa).",
+      "HER2-positiva – tumörer med ett överuttryck av tillväxtfaktorreceptorn HER2 eller ett ökat antal kopior av HER2-genen (amplifiering).",
+      "Trippelnegativa – tumörer som saknar receptorer för östrogen (ER), progesteron (PgR) och HER2."
     ),
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL

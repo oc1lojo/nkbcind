@@ -35,8 +35,8 @@ nkbc26 <- list(
   other_vars = "a_pat_alder",
   om_indikatorn =
     paste(
-      "Kännedom om tumörspridning till axillens lymfkörtlar vägleder behandlingsrekommendationer.",
-      "Sentinelnodetekniken minskar risken för armbesvär då endast ett fåtal (1–4) körtlar tas bort."
+      "Kännedom om tumörspridning till armhålans lymfkörtlar föreligger påverkar de postoperativa behandlingsrekommendationerna.",
+      "Sentinel node-tekniken minskar risken för armbesvär då endast ett fåtal (1–4) körtlar tas bort."
     ),
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL

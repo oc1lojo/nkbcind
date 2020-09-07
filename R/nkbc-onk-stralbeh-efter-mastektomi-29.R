@@ -38,11 +38,10 @@ nkbc29 <- list(
   om_indikatorn =
     paste(
       "Då hela bröstet opereras bort (mastektomi) behövs ofta inte strålbehandling.",
-      "Vid spridning till lymfkörtlarna (makrometastas) bör dock strålbehandling ges både mot bröstkorgsvägg och lymfkörtlar.",
-      "Lokoregional strålbehandling rekommenderas inte vid endast mikrometastas."
+      "Vid spridning till lymfkörtlarna (makrometastas) bör dock strålbehandling ges både mot bröstkorgsvägg och lymfkörtlar."
     ),
   vid_tolkning =
-    "Spridning till lymfkörtlar är definerat som metastas > 0.2 mm i axillen (fall med enbart mikrometastas är exkluderade).",
+    "Spridning till lymfkörtlar definieras som metastas >0.2 mm i axillen (fall med enbart mikrometastas är exkluderade).",
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL
 )
