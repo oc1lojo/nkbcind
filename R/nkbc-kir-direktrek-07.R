@@ -2,8 +2,8 @@
 nkbc07 <- list(
   code = "nkbc07",
   kortnamn = "nkbc_kir_direktrek_07",
-  lab_long = "Omedelbara rekonstruktioner vid mastektomi",
   lab = "Omedelbara rekonstruktioner",
+  lab_short_w_pop = "Omedelbara rekonstruktioner vid mastektomi",
   pop = "fall med mastektomi eller subkutan mastektomi utan fjärrmetastaser vid diagnos",
   pop_short = "mastektomerade fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {

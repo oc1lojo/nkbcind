@@ -17,7 +17,7 @@ lab <- function(x) UseMethod("lab")
 lab_short <- function(x) UseMethod("lab_short")
 
 #' @export
-lab_long <- function(x) UseMethod("lab_long")
+lab_short_w_pop <- function(x) UseMethod("lab_short_w_pop")
 
 #' @export
 outcome <- function(x) UseMethod("outcome")
@@ -94,7 +94,7 @@ lab.nkbcind <- function(x) x$lab
 lab_short.nkbcind <- function(x) ifelse(!is.null(x$lab_short), x$lab_short, x$lab)
 
 #' @export
-lab_long.nkbcind <- function(x) ifelse(!is.null(x$lab_long), x$lab_long, x$lab)
+lab_short_w_pop.nkbcind <- function(x) ifelse(!is.null(x$lab_short_w_pop), x$lab_short_w_pop, lab_short(x))
 
 #' @export
 outcome.nkbcind <- function(x) if (!is.null(x$outcome)) x$outcome else "outcome"

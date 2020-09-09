@@ -2,8 +2,8 @@
 nkbc32 <- list(
   code = "nkbc32",
   kortnamn = "nkbc_onk_antikroppbeh_bland_cytostatikabeh_her2pos_32",
-  lab_long = "Antikroppsbehandling bland cytostatikabehandlade",
   lab = "Antikroppsbehandling",
+  lab_short_w_pop = "Antikroppsbehandling bland cytostatikabehandlade",
   pop = "opererade, cytostatikabehandlade HER2-positiva invasiva fall utan fjärrmetastaser vid diagnos",
   pop_short = "opererade, cytostatikabehandlade HER2+ invasiva fall utan fjärrmetastaser vid diagnos",
   filter_pop = function(x, ...) {
