@@ -156,7 +156,7 @@ textBeforeSubtitle.nkbcind <- function(x, ...) {
 description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
   # Lägga till "(andel inom ... dagar)" för kontinuerliga variabler
   if (!is.null(prop_within_value(x))) {
-    target_levels_extra_txt <- paste("Andel inom", prop_within_value(nkbcind), ifelse(!is.null(prop_within_unit(nkbcind)), prop_within_unit(nkbcind), "dagar "))
+    target_levels_extra_txt <- paste("Andel inom", prop_within_value(x), ifelse(!is.null(prop_within_unit(x)), prop_within_unit(x), "dagar"))
   } else {
     target_levels_extra_txt <- NULL
   }
