@@ -17,7 +17,7 @@ lab <- function(x) UseMethod("lab")
 lab_short <- function(x) UseMethod("lab_short")
 
 #' @export
-lab_long <- function(x) UseMethod("lab_long")
+lab_short_w_pop <- function(x) UseMethod("lab_short_w_pop")
 
 #' @export
 outcome <- function(x) UseMethod("outcome")
@@ -91,22 +91,22 @@ kortnamn.nkbcind <- function(x) x$kortnamn
 lab.nkbcind <- function(x) x$lab
 
 #' @export
-lab_short.nkbcind <- function(x) ifelse(!is.null(x$lab_short), x$lab_short, x$lab)
+lab_short.nkbcind <- function(x) ifelse(!is.null(x$lab_short), x$lab_short, lab(x))
 
 #' @export
-lab_long.nkbcind <- function(x) ifelse(!is.null(x$lab_long), x$lab_long, x$lab)
+lab_short_w_pop.nkbcind <- function(x) ifelse(!is.null(x$lab_short_w_pop), x$lab_short_w_pop, lab_short(x))
 
 #' @export
 outcome.nkbcind <- function(x) if (!is.null(x$outcome)) x$outcome else "outcome"
 
 #' @export
-outcome_title.nkbcind <- function(x) if (!is.null(x$outcome_title)) x$outcome_title else x$lab
+outcome_title.nkbcind <- function(x) if (!is.null(x$outcome_title)) x$outcome_title else lab(x)
 
 #' @export
 pop.nkbcind <- function(x) x$pop
 
 #' @export
-pop_short.nkbcind <- function(x) ifelse(!is.null(x$pop_short), x$pop_short, x$pop)
+pop_short.nkbcind <- function(x) ifelse(!is.null(x$pop_short), x$pop_short, pop(x))
 
 #' @export
 filter_pop.nkbcind <- function(x) x$filter_pop
@@ -143,7 +143,7 @@ other_vars_inca.nkbcind <- function(x) {
   if (!is.null(x$other_vars_inca)) {
     x$other_vars_inca
   } else {
-    x$other_vars
+    other_vars(x)
   }
 }
 
@@ -156,7 +156,7 @@ textBeforeSubtitle.nkbcind <- function(x, ...) {
 description.nkbcind <- function(x, report_end_year = report_end_year, ...) {
   # Lägga till "(andel inom ... dagar)" för kontinuerliga variabler
   if (!is.null(prop_within_value(x))) {
-    target_levels_extra_txt <- paste("Andel inom", prop_within_value(nkbcind), ifelse(!is.null(prop_within_unit(nkbcind)), prop_within_unit(nkbcind), "dagar "))
+    target_levels_extra_txt <- paste("Andel inom", prop_within_value(x), ifelse(!is.null(prop_within_unit(x)), prop_within_unit(x), "dagar"))
   } else {
     target_levels_extra_txt <- NULL
   }
