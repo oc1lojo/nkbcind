@@ -11,6 +11,9 @@ nkbc11 <- list(
       # Extent infördes mitten av 2014
       lubridate::year(a_diag_dat) >= 2015,
 
+      # Opererade fall
+      !is.na(op_kir_dat),
+
       # Endast primär opereration (planerad om utförd ej finns)
       d_prim_beh_Varde == 1,
 

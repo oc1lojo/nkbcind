@@ -8,7 +8,7 @@ nkbc42 <- list(
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
-      # Endast opererade
+      # Opererade fall
       !is.na(op_kir_dat),
 
       # Exkludera enbart axillkirurgi eller missing
