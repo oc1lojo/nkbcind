@@ -8,6 +8,9 @@ nkbc08 <- list(
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
+      # Opererade fall
+      !is.na(op_kir_dat),
+
       # Ej fjärrmetastaser vid diagnos
       !a_tnm_mklass_Varde %in% 10
     )
