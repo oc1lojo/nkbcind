@@ -2,8 +2,14 @@
 nkbc17 <- list(
   code = "nkbc17",
   kortnamn = "nkbc_ledtid_misstanke_till_besok_spec_17",
-  lab = "Välgrundad misstanke om cancer till första besök i specialiserad vård",
-  pop = "alla anmälda fall",
+  lab = c(
+    sv = "Välgrundad misstanke om cancer till första besök i specialiserad vård",
+    en = "Suspicion of cancer to first specialized care visit"
+  ),
+  pop = c(
+    sv = "alla anmälda fall",
+    en = "all reported cases"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -24,11 +30,16 @@ nkbc17 <- list(
   sjhkod_var = "a_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
   other_vars_inca = c("a_pat_alder", "d_invasiv", "d_a_planbeh_typ"),
-  om_indikatorn =
-    paste(
+  om_indikatorn = list(
+    sv = paste(
       "Standardiserade vårdförlopp infördes 2015 för att säkra utredning och start av behandling till patienter i rimlig tid oberoende var patienten söker vård.",
       "Startpunkten för SVF har tolkats olika av vårdgivare varför ledtiden skall tolkas med försiktighet."
     ),
+    en = paste(
+      "Standardized care processes were introduced in 2015 to ensure investigation and start of treatment for patients in a reasonable time, regardless of where the patient seeks care.",
+      "Different caregivers have defined start of the standardized care process differently which should be remembered at interpretation."
+    )
+  ),
   vid_tolkning = NULL,
   inkl_beskr_missca = TRUE,
   teknisk_beskrivning = NULL

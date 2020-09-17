@@ -2,9 +2,15 @@
 nkbc27 <- list(
   code = "nkbc27",
   kortnamn = "nkbc_onk_postop_cytostatikabeh_bland_erneg_27",
-  lab = "Postoperativ cytostatikabehandling",
-  pop = "primärt opererade östrogenreceptornegativa invasiva fall med tumörstorlek >10 mm eller spridning till lymfkörtlar utan fjärrmetastaser vid diagnos",
-  pop_short = "primärt opererade ER- invasiva fall med större tumörer eller spridning till lymfkörtlar utan fjärrmetastaser vid diagnos",
+  lab = c(
+    sv = "Postoperativ cytostatikabehandling"
+  ),
+  pop = c(
+    sv = "primärt opererade östrogenreceptornegativa invasiva fall med tumörstorlek >10 mm eller spridning till lymfkörtlar utan fjärrmetastaser vid diagnos"
+  ),
+  pop_short = c(
+    sv = "primärt opererade ER- invasiva fall med större tumörer eller spridning till lymfkörtlar utan fjärrmetastaser vid diagnos"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -39,13 +45,16 @@ nkbc27 <- list(
   target_values = c(80, 90),
   sjhkod_var = "post_inr_sjhkod",
   other_vars = "a_pat_alder",
-  om_indikatorn = "Cytostatikabehandling rekommenderas i allmänhet vid bröstcancer med spridning till axillens lymfkörtlar, men även om tumören har svag hormonell känslighet och/eller då det föreligger riskfaktorer.",
-  vid_tolkning =
-    c(
+  om_indikatorn = list(
+    sv = "Cytostatikabehandling rekommenderas i allmänhet vid bröstcancer med spridning till axillens lymfkörtlar, men även om tumören har svag hormonell känslighet och/eller då det föreligger riskfaktorer."
+  ),
+  vid_tolkning = list(
+    sv = c(
       "Enbart postoperativ cytostatikabehandling är medtaget i beräkningen, vilket innebär att andelen är mindre för de sjukhus där cytostatika i högre utsträckning ges preoperativt.",
       "Tumörstorlek är definierat som storlek på den största invasiva tumören, vilket innebär att vissa multifokala fall med total utbredning >10 mm inte finns med i urvalet.",
       "Spridning till lymfkörtlar i armhålan definieras som metastas >0.2 mm."
-    ),
+    )
+  ),
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL
 )

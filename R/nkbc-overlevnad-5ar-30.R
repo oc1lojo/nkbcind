@@ -2,8 +2,14 @@
 nkbc30 <- list(
   code = "nkbc30",
   kortnamn = "nkbc_overlevnad_5ar_30",
-  lab = "Observerad 5-årsöverlevnad",
-  pop = "alla anmälda fall",
+  lab = c(
+    sv = "Observerad 5-årsöverlevnad",
+    en = "Observed 5-year survival"
+  ),
+  pop = c(
+    sv = "alla anmälda fall",
+    en = "all reported cases"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -22,13 +28,20 @@ nkbc30 <- list(
   geo_units_vars = "region", # OBS Enbart redovisning på sjukvårdsregionsnivå
   other_vars = c("a_pat_alder", "d_invasiv", "d_trigrp"),
   other_vars_inca = c("a_pat_alder", "d_invasiv", "d_trigrp", "d_tstad", "d_nstad", "d_mstad"),
-  om_indikatorn =
-    paste(
+  om_indikatorn = list(
+    sv = paste(
       "Total överlevnad betraktas som det viktigaste utfallsmåttet.",
       "Dödsorsakerna kan vara andra än bröstcancer.",
       "Observerad 5-årsöverlevnad anger de bröstcancerfall som överlevt 5 år efter diagnos.",
       "Observera att analysen inte är justerad för skillnader i case-mix."
     ),
+    en = paste(
+      "Overall survival is considered the most important outcome measure.",
+      "The causes of death can be other than breast cancer.",
+      "Observed 5-year survival indicates the breast cancer cases that survived 5 years after diagnosis.",
+      "Note that the analysis is not adjusted for differences in case mix."
+    )
+  ),
   vid_tolkning = NULL,
   inkl_beskr_overlevnad_5ar = TRUE,
   teknisk_beskrivning = NULL

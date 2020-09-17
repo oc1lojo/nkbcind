@@ -4,8 +4,12 @@
 nkbc24 <- list(
   code = "nkbc24",
   kortnamn = "nkbc_studier_pat_i_preop_studie_24",
-  lab = "Patienten ingår i preoperativ studie",
-  pop = "fall utan fjärrmetastaser vid diagnos med preoperativ onkologisk behandling",
+  lab = c(
+    sv = "Patienten ingår i preoperativ studie"
+  ),
+  pop = c(
+    sv = "fall utan fjärrmetastaser vid diagnos med preoperativ onkologisk behandling"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -31,12 +35,13 @@ nkbc24 <- list(
   sjhkod_var = "pre_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
   other_vars_inca = c("a_pat_alder", "d_invasiv", "d_vitalstatus"),
-  om_indikatorn =
-    paste(
+  om_indikatorn = list(
+    sv = paste(
       "Ett övergripande mål är att erbjuda alla bröstcancerpatienter medverkan i studier för att utveckla nya behandlingar och arbetssätt.",
       "Indikatorn gäller alla typer av studier (t.ex. kliniska studier, omvårdnadsstudier, fysioterapi-studier).",
       "Indikatorn infördes 2017 och bör tolkas med försiktighet p.g.a. underrapportering och regionala skillnader i definition."
-    ),
+    )
+  ),
   vid_tolkning = NULL,
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL

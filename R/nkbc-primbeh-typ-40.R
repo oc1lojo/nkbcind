@@ -2,8 +2,12 @@
 nkbc40 <- list(
   code = "nkbc40",
   kortnamn = "nkbc_primbeh_typ_40",
-  lab = "Typ av primär behandling",
-  pop = "opererade fall utan fjärrmetastaser vid diagnos",
+  lab = c(
+    sv = "Typ av primär behandling"
+  ),
+  pop = c(
+    sv = "opererade fall utan fjärrmetastaser vid diagnos"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -28,12 +32,15 @@ nkbc40 <- list(
   },
   sjhkod_var = "op_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_trigrp", "d_nstad"),
-  om_indikatorn =
-    paste(
+  om_indikatorn = list(
+    sv = paste(
       "Preoperativ (neoadjuvant) onkologisk behandling är aktuellt när reduktion av primärtumören önskas inför kirurgi och/eller utvärdering av behandlingseffekten med tumören kvar är en fördel.",
       "Tumörstorlek, spridning till lymfkörtlarna liksom biologisk subtyp påverkar val av preoperativ behandling eller ej, liksom typ av preoperativ behandling."
-    ),
-  vid_tolkning = "För fall med preoperativ onkologisk behandling är östrogenreceptoruttryck hämtat från nålsbiopsi innan behandling, i övriga fall från operation.",
+    )
+  ),
+  vid_tolkning = list(
+    sv = "För fall med preoperativ onkologisk behandling är östrogenreceptoruttryck hämtat från nålsbiopsi innan behandling, i övriga fall från operation."
+  ),
   inkl_beskr_onk_beh = FALSE, # Använder inte uppgifter från onkologi-formulär
   teknisk_beskrivning = NULL
 )

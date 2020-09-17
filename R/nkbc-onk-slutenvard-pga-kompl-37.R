@@ -4,9 +4,15 @@
 nkbc37 <- list(
   code = "nkbc37",
   kortnamn = "nkbc_onk_slutenvard_pga_kompl_37",
-  lab = "Slutenvård p.g.a. behandlingskomplikationer av pre- och/eller postoperativ cytostatikabehandling",
-  lab_short = "Slutenvård p.g.a. behandlingskomplikationer av cytostatikabehandling",
-  pop = "opererade, cytostatikabehandlade fall utan fjärrmetastaser vid diagnos",
+  lab = c(
+    sv = "Slutenvård p.g.a. behandlingskomplikationer av pre- och/eller postoperativ cytostatikabehandling"
+  ),
+  lab_short = c(
+    sv = "Slutenvård p.g.a. behandlingskomplikationer av cytostatikabehandling"
+  ),
+  pop = c(
+    sv = "opererade, cytostatikabehandlade fall utan fjärrmetastaser vid diagnos"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,

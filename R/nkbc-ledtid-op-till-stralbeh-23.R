@@ -2,8 +2,14 @@
 nkbc23 <- list(
   code = "nkbc23",
   kortnamn = "nkbc_ledtid_op_till_stralbeh_23",
-  lab = "Operation till strålbehandling",
-  pop = "primärt opererade fall utan fjärrmetastaser vid diagnos som inte fått postoperativ cytostatikabehandling",
+  lab = c(
+    sv = "Operation till strålbehandling",
+    en = "Surgery to radiation therapy"
+  ),
+  pop = c(
+    sv = "primärt opererade fall utan fjärrmetastaser vid diagnos som inte fått postoperativ cytostatikabehandling",
+    en = "primarily operated cases without distant metastasis at diagnosis who did not receive postoperative chemotherapy"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -33,13 +39,22 @@ nkbc23 <- list(
   target_values = 80,
   sjhkod_var = "post_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
-  om_indikatorn =
-    paste(
+  om_indikatorn = list(
+    sv = paste(
       "Handläggningstiden från operation och PAD-svar till start av postoperativ strålbehandling bör vara rimlig och oberoende av var patienten söker vård.",
       "Ledtidens start och slut är tydliga och väl definierade vilket underlättar vid jämförelse.",
       "Vid postoperativ cytostatikabehandling ges denna oftast före strålbehandling."
     ),
-  vid_tolkning = "Operationsdatum är datum för första operation, vilket innebär att tiden från sista operation till start av strålbehandling kan vara kortare än den som redovisas.",
+    en = paste(
+      "The processing time from surgery and pathology report to the start of postoperative radiotherapy should be kept within reasonable time limit and independent of where the patient seeks care.",
+      "The start and end of the lead time are clear and well defined, which facilitates comparison.",
+      "In postoperative chemotherapy, this is usually given before radiation treatment."
+    )
+  ),
+  vid_tolkning = list(
+    sv = "Operationsdatum är datum för första operation, vilket innebär att tiden från sista operation till start av strålbehandling kan vara kortare än den som redovisas.",
+    en = "The operation date is the date of the first operation, which means that the time from the last operation to the start of radiation treatment may be shorter than that reported."
+  ),
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL
 )

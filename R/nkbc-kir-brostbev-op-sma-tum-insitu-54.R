@@ -2,8 +2,14 @@
 nkbc54 <- list(
   code = "nkbc54",
   kortnamn = "nkbc_kir_brostbev_op_sma_tum_insitu_54",
-  lab = "Bröstbevarande operation vid små icke-invasiva tumörer",
-  pop = "primärt opererade fall med icke-invasiv cancer <=20 mm utan fjärrmetastaser vid diagnos",
+  lab = c(
+    sv = "Bröstbevarande operation vid små icke-invasiva tumörer",
+    en = "Breast-conserving surgery for small non-invasive tumours"
+  ),
+  pop = c(
+    sv = "primärt opererade fall med icke-invasiv cancer <=20 mm utan fjärrmetastaser vid diagnos",
+    en = "primarily operated cases with non-invasive cancer <=20 mm without distant metastasis at diagnosis"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -39,11 +45,16 @@ nkbc54 <- list(
   sjhkod_var = "op_inr_sjhkod",
   other_vars = "a_pat_alder",
   other_vars_inca = c("a_pat_alder", "d_prim_beh"),
-  om_indikatorn =
-    paste(
+  om_indikatorn = list(
+    sv = paste(
       "Ett bröstbevarande ingrepp och strålbehandling är standardingrepp för majoriteten av tidigt upptäckta bröstcancrar.",
       "Tumörens egenskaper, form och storlek på bröstet spelar roll vid val av operationsmetod."
     ),
+    en = paste(
+      "Breast-conserving surgery and radiation therapy are standard procedures for the majority of early-detected breast cancers.",
+      "The size and location of the tumour as well as the size of the breast affects the choice of type of surgery."
+    )
+  ),
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
 )

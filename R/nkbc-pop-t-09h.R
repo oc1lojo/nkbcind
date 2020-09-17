@@ -2,9 +2,18 @@
 nkbc09h <- list(
   code = "nkbc09h",
   kortnamn = "nkbc_pop_t_09h",
-  lab = "Tumörstorlek vid operation",
-  lab_short = "Tumörstorlek",
-  pop = "primärt opererade invasiva fall utan fjärrmetastaser vid diagnos",
+  lab = c(
+    sv = "Tumörstorlek vid operation",
+    en = "Tumour size at surgery"
+  ),
+  lab_short = c(
+    sv = "Tumörstorlek",
+    en = "Tumour size"
+  ),
+  pop = c(
+    sv = "primärt opererade invasiva fall utan fjärrmetastaser vid diagnos",
+    en = "primarily operated cases without distant metastasis at diagnosis"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -22,16 +31,29 @@ nkbc09h <- list(
   mutate_outcome = function(x, ...) {
     dplyr::mutate(x,
       outcome1 = as.numeric(op_pad_invstl),
-      outcome2 = d_op_pad_invstl_kat
+      outcome2 = d_op_pad_invstl_kat,
+      outcome2_en = d_op_pad_invstl_kat_en
     )
   },
   outcome = c("outcome1", "outcome2"),
-  outcome_title = c("Tumörstorlek", "Tumörstorlek, kategorier"),
+  outcome_title = list(
+    sv = c("Tumörstorlek", "Tumörstorlek, kategorier"),
+    en = c("Tumour size", "Tumour size, categories")
+  ),
   prop_within_unit = "mm",
   prop_within_value = 20,
   sjhkod_var = "op_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_trigrp"),
-  om_indikatorn = "Tumörstorlek baserad på mikroskopisk analys av preparat från primär operation, dvs operation utan föregående onkologisk behandling. Uppgiften om tumörstorlek ger prognostisk information inför val av postoperativ onkologisk behandling",
+  om_indikatorn = list(
+    sv = paste(
+      "Tumörstorlek baserad på mikroskopisk analys av preparat från primär operation, d.v.s. operation utan föregående onkologisk behandling.",
+      "Uppgiften om tumörstorlek ger prognostisk information inför val av postoperativ onkologisk behandling"
+    ),
+    en = paste(
+      "Tumour size based on microscopical analysis after primary surgery, i.e. surgery without prior oncological treatment.",
+      "Provides prognostic information for the decision of postoperative oncological treatment."
+    )
+  ),
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
 )

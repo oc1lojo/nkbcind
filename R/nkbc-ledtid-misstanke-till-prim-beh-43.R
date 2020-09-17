@@ -2,8 +2,12 @@
 nkbc43 <- list(
   code = "nkbc43",
   kortnamn = "nkbc_ledtid_misstanke_till_prim_beh_43",
-  lab = "Välgrundad misstanke om cancer till primär behandling",
-  pop = "opererade fall utan fjärrmetastaser vid diagnos",
+  lab = c(
+    sv = "Välgrundad misstanke om cancer till primär behandling"
+  ),
+  pop = c(
+    sv = "opererade fall utan fjärrmetastaser vid diagnos"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -38,8 +42,8 @@ nkbc43 <- list(
   target_values = 80,
   sjhkod_var = "d_prim_beh_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv", "d_prim_beh"),
-  om_indikatorn =
-    c(
+  om_indikatorn = list(
+    sv = c(
       "Preoperativ onkologisk behandling kan vara cytostatika, antikroppsbehandling, endokrin behandling eller strålbehandling.",
       paste(
         "Standardiserade vårdförlopp infördes 2015 för att säkra utredning och start av behandling till patienter i rimlig tid oberoende var patienten söker vård.",
@@ -48,13 +52,15 @@ nkbc43 <- list(
         "För ett antal patienter krävs mer avancerade utredningsmetoder för att nå diagnos vilket kan förlänga tiden till behandlingsstart.",
         "Startpunkten för SVF har tolkats olika av vårdgivare varför ledtiden skall tolkas med försiktighet."
       )
-    ),
-  vid_tolkning =
-    paste(
+    )
+  ),
+  vid_tolkning = list(
+    sv = paste(
       "Andelen preoperativt behandlade patienter varierar i landet.",
       "Många patienter som startar preoperativ onkologisk behandling ingår i behandlingsstudier med krav på specificerade undersökningar före start vilket kan förlänga ledtiden.",
       "Siffrorna skall därför tolkas med viss försiktighet."
-    ),
+    )
+  ),
   inkl_beskr_missca = TRUE,
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL

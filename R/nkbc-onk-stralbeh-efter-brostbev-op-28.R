@@ -2,8 +2,14 @@
 nkbc28 <- list(
   code = "nkbc28",
   kortnamn = "nkbc_onk_stralbeh_efter_brostbev_op_28",
-  lab = "Strålbehandling efter bröstbevarande operation",
-  pop = "invasiva fall med bröstbevarande operation utan fjärrmetastaser vid diagnos",
+  lab = c(
+    sv = "Strålbehandling efter bröstbevarande operation",
+    en = "Radiotherapy after breast-conserving surgery"
+  ),
+  pop = c(
+    sv = "invasiva fall med bröstbevarande operation utan fjärrmetastaser vid diagnos",
+    en = "invasive cases with breast-conserving surgery without distant metastasis at diagnosis"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -31,11 +37,16 @@ nkbc28 <- list(
   target_values = c(90, 95),
   sjhkod_var = "post_inr_sjhkod",
   other_vars = "a_pat_alder",
-  om_indikatorn =
-    paste(
+  om_indikatorn = list(
+    sv = paste(
       "Strålbehandling efter bröstbevarande operation minskar risken för lokalt återfall.",
       "Vid betydande samsjuklighet får nyttan med strålbehandling vägas mot potentiella nackdelar."
     ),
+    en = paste(
+      "Radiotherapy after breast-conserving surgery reduces the risk of local recurrence.",
+      "In case of significant comorbidity, the benefits of radiotherapy should be weighed against potential harm."
+    )
+  ),
   vid_tolkning = NULL,
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL

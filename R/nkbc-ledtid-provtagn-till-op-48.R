@@ -2,8 +2,14 @@
 nkbc48 <- list(
   code = "nkbc48",
   kortnamn = "nkbc_ledtid_provtagn_till_op_48",
-  lab = "Provtagningsdatum till operation",
-  pop = "primärt opererade fall utan fjärrmetastaser vid diagnos",
+  lab = c(
+    sv = "Provtagningsdatum till operation",
+    en = "Biopsy date to surgery"
+  ),
+  pop = c(
+    sv = "primärt opererade fall utan fjärrmetastaser vid diagnos",
+    en = "primarily operated cases without distant metastasis at diagnosis"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -29,12 +35,17 @@ nkbc48 <- list(
   period_dat_var = "op_kir_dat",
   sjhkod_var = "op_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
-  om_indikatorn =
-    paste(
+  om_indikatorn = list(
+    sv = paste(
       "Handläggningstiden från provtagning som ger cancerdiagnos till operation bör vara kort och oberoende av var patienten söker vård.",
       "Indikatorn provtagningsdatum till operation har funnits sedan registrets start och före införandet av standardiserade vårdförlopp.",
       "Både ledtidens start och slut är tydliga och väl definierade vilket underlättar vid jämförelse."
     ),
+    en = paste(
+      "The processing time from tissue biopsy and confirmation of cancer diagnosis to surgery should be short and independent of where the patient seeks care.",
+      "Both the start and end of the lead time are clear and well defined, which facilitates comparison."
+    )
+  ),
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
 )
