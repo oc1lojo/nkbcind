@@ -4,9 +4,18 @@
 nkbc36 <- list(
   code = "nkbc36",
   kortnamn = "nkbc_tackning_for_op_36",
-  lab = "Täckningsgrad för rapportering av operation",
-  pop = "anmälda fall utan fjärrmetastas vid diagnos där planerad åtgärd är primär operation, preoperativ onkologisk behandling eller konservativ behandling",
-  pop_short = "fall med planerad operation (eller konservativ behandling) och utan fjärrmetastas vid diagnos",
+  lab = c(
+    sv = "Täckningsgrad för rapportering av operation",
+    en = "Coverage for reporting surgery"
+  ),
+  pop = c(
+    sv = "anmälda fall utan fjärrmetastas vid diagnos där planerad åtgärd är primär operation, preoperativ onkologisk behandling eller konservativ behandling",
+    en = "reported cases without distant metastasis at diagnosis where the planned action is primary surgery, preoperative oncological treatment or conservative treatment"
+  ),
+  pop_short = c(
+    sv = "fall med planerad operation (eller konservativ behandling) och utan fjärrmetastas vid diagnos",
+    en = "cases with planned surgery (or conservative treatment) and without distant metastasis at diagnosis"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -27,7 +36,10 @@ nkbc36 <- list(
   },
   sjhkod_var = "d_opans_sjhkod",
   other_vars = c("a_pat_alder", "d_a_planbeh_typ"),
-  om_indikatorn = "Rapportering av operationsuppgifter sker på ett eget formulär till kvalitetsregistret, separat från anmälan.",
+  om_indikatorn = list(
+    sv = "Rapportering av operationsuppgifter sker på ett eget formulär till kvalitetsregistret, separat från anmälan.",
+    en = "Information about surgery is reported on a separate form in NKBC, separately from the notification form."
+  ),
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
 )

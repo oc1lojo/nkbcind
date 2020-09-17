@@ -2,8 +2,12 @@
 nkbc20 <- list(
   code = "nkbc20",
   kortnamn = "nkbc_ledtid_behdisk_till_preop_beh_20",
-  lab = "Första behandlingsdiskussion till preoperativ onkologisk behandling",
-  pop = "opererade fall utan fjärrmetastaser vid diagnos med preoperativ onkologisk behandling",
+  lab = c(
+    sv = "Första behandlingsdiskussion till preoperativ onkologisk behandling"
+  ),
+  pop = c(
+    sv = "opererade fall utan fjärrmetastaser vid diagnos med preoperativ onkologisk behandling"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -36,17 +40,19 @@ nkbc20 <- list(
   target_values = 80,
   sjhkod_var = "pre_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
-  om_indikatorn =
-    c(
+  om_indikatorn = list(
+    sv = c(
       "Preoperativ onkologisk behandling kan vara cytostatika, antikroppsbehandling, endokrin behandling eller strålbehandling.",
       "Standardiserade vårdförlopp infördes 2015 för att säkra utredning och start av behandling till patienter i rimlig tid oberoende var patienten söker vård."
-    ),
-  vid_tolkning =
-    paste(
+    )
+  ),
+  vid_tolkning = list(
+    sv = paste(
       "Andelen preoperativt behandlade patienter varierar i landet.",
       "Många patienter som startar preoperativ onkologisk behandling ingår i behandlingsstudier med krav på specificerade undersökningar före start vilket kan förlänga ledtiden.",
       "Siffrorna skall därför tolkas med viss försiktighet."
-    ),
+    )
+  ),
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL
 )

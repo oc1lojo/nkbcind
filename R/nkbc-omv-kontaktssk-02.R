@@ -2,9 +2,18 @@
 nkbc02 <- list(
   code = "nkbc02",
   kortnamn = "nkbc_omv_kontaktssk_02",
-  lab = "Patienten har erbjudits, i journalen dokumenterad, kontaktsjuksköterska",
-  lab_short = "Kontaktsjuksköterska",
-  pop = "alla anmälda fall",
+  lab = c(
+    sv = "Patienten har erbjudits, i journalen dokumenterad, kontaktsjuksköterska",
+    en = "The patient was offered, as documented in the medical record, a contact nurse"
+  ),
+  lab_short = c(
+    sv = "Kontaktsjuksköterska",
+    en = "Contact nurse"
+  ),
+  pop = c(
+    sv = "alla anmälda fall",
+    en = "all reported cases"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -22,9 +31,15 @@ nkbc02 <- list(
   period_dat_var = "a_diag_dat",
   sjhkod_var = "a_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
-  om_indikatorn = paste(
-    "Enligt den Nationella  Cancerstrategin (SOU 2009:11) ska alla cancerpatienter erbjudas en kontaktsjuksköterska.",
-    "RCC i samverkan publicerade 2019 en nationell beskrivning av kontaktsjuksköterskans uppdrag."
+  om_indikatorn = list(
+    sv = paste(
+      "Enligt den Nationella  Cancerstrategin (SOU 2009:11) ska alla cancerpatienter erbjudas en kontaktsjuksköterska.",
+      "RCC i samverkan publicerade 2019 en nationell beskrivning av kontaktsjuksköterskans uppdrag."
+    ),
+    en = paste(
+      "According to the National Cancer Strategy, all cancer patients should be offered a contact nurse.",
+      "In 2019, the Regional Cancer Centres published a national description of the contact nurse’s assignment."
+    )
   ),
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL

@@ -2,9 +2,18 @@
 nkbc29 <- list(
   code = "nkbc29",
   kortnamn = "nkbc_onk_stralbeh_efter_mastektomi_29",
-  lab = "Strålbehandling efter mastektomi",
-  pop = "invasiva fall med spridning till lymfkörtlarna (fall med enbart mikrometastas exkluderade) och utan fjärrmetastaser vid diagnos, opererade med mastektomi",
-  pop_short = "invasiva fall med mastektomi, spridning till lymfkörtlarna och utan fjärrmetastaser vid diagnos",
+  lab = c(
+    sv = "Strålbehandling efter mastektomi",
+    en = "Radiotherapy after mastectomy"
+  ),
+  pop = c(
+    sv = "invasiva fall med spridning till lymfkörtlarna (fall med enbart mikrometastas exkluderade) och utan fjärrmetastaser vid diagnos, opererade med mastektomi",
+    en = "invasive cases  with lymph node metastase (cases with only micrometastases excluded) and without distant metastasis at diagnosis, operated with mastectomy"
+  ),
+  pop_short = c(
+    sv = "invasiva fall med mastektomi, spridning till lymfkörtlarna och utan fjärrmetastaser vid diagnos",
+    en = "invasive cases with mastectomy with lymph node metastases and without distant metastasis at diagnosis"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -36,13 +45,22 @@ nkbc29 <- list(
   period_dat_var = "a_diag_dat",
   sjhkod_var = "post_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_pn"),
-  om_indikatorn =
-    paste(
+  om_indikatorn = list(
+    sv = paste(
       "Då hela bröstet opereras bort (mastektomi) behövs ofta inte strålbehandling.",
       "Vid spridning till lymfkörtlarna (makrometastas) bör dock strålbehandling ges både mot bröstkorgsvägg och lymfkörtlar."
     ),
-  vid_tolkning =
-    "Spridning till lymfkörtlar definieras som metastas >0.2 mm i axillen (fall med enbart mikrometastas är exkluderade).",
+    en = paste(
+      "After mastectomy radiotherapy is indicated in case of axillary lymph node involvement (macrometastasis).",
+      "Radiotherapy is then directed to both chest wall and regional lymph nodes."
+    )
+  ),
+  vid_tolkning = list(
+    sv =
+      "Spridning till lymfkörtlar definieras som metastas >0.2 mm i axillen (fall med enbart mikrometastas är exkluderade).",
+    en =
+      "A metastatic lymph node is defined as a pathologic lymph node of more than 2 mm in size."
+  ),
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL
 )

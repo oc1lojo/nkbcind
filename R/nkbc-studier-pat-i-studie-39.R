@@ -2,8 +2,12 @@
 nkbc39 <- list(
   code = "nkbc39",
   kortnamn = "nkbc_studier_pat_i_studie_39",
-  lab = "Patienten ingår i studie",
-  pop = "opererade fall utan fjärrmetastaser vid diagnos",
+  lab = c(
+    sv = "Patienten ingår i studie"
+  ),
+  pop = c(
+    sv = "opererade fall utan fjärrmetastaser vid diagnos"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -34,12 +38,13 @@ nkbc39 <- list(
   sjhkod_var = "post_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
   other_vars_inca = c("a_pat_alder", "d_invasiv", "d_vitalstatus"),
-  om_indikatorn =
-    paste(
+  om_indikatorn = list(
+    sv = paste(
       "Ett övergripande mål är att erbjuda alla bröstcancerpatienter medverkan i studier för att utveckla nya behandlingar och arbetssätt.",
       "Indikatorn gäller alla typer av studier (t.ex. kliniska studier, omvårdnadsstudier, fysioterapi-studier).",
       "Indikatorn infördes 2017 och bör tolkas med försiktighet p.g.a. underrapportering och regionala skillnader i definition."
-    ),
+    )
+  ),
   vid_tolkning = NULL,
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL

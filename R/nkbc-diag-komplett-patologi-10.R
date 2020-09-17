@@ -2,9 +2,18 @@
 nkbc10 <- list(
   code = "nkbc10",
   kortnamn = "nkbc_diag_komplett_patologi_10",
-  lab = "Fullständig patologirapport (innehållande grad, ER, PR, HER2, Ki67)",
-  lab_short = "Fullständig patologirapport",
-  pop = "primärt opererade invasiva fall utan fjärrmetastaser vid diagnos",
+  lab = c(
+    sv = "Fullständig patologirapport (innehållande grad, ER, PR, HER2, Ki67)",
+    en = "Complete pathology report (including all standard biomarkers)"
+  ),
+  lab_short = c(
+    sv = "Fullständig patologirapport",
+    en = "Complete pathology report"
+  ),
+  pop = c(
+    sv = "primärt opererade invasiva fall utan fjärrmetastaser vid diagnos",
+    en = "primarly operated invasive cases without distant metastasis at diagnosis"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -36,12 +45,20 @@ nkbc10 <- list(
   target_values = c(95, 98),
   sjhkod_var = "op_inr_sjhkod",
   other_vars = "a_pat_alder",
-  om_indikatorn =
-    paste(
+  om_indikatorn = list(
+    sv = paste(
       "Patologirapporten grundas i mikroskopiska vävnadsanalyser.",
       "Biomarkörerna utgör grunden för beslut om den postoperativa onkologiska behandlingen av bröstcancer (endokrin-, cytostatika- och antikroppsbehandling)."
     ),
-  vid_tolkning = "Ki67 tillkom som nationell variabel 2014 och ingår ej i beräkningen före detta år.",
+    en = paste(
+      "The pathology report is based on microscopical analysis of the surgical specimen.",
+      "The biomarkers form the basis for decisions on the postoperative oncological treatment of breast cancer (endocrine, chemotherapy and antibody treatment)."
+    )
+  ),
+  vid_tolkning = list(
+    sv = "Ki67 tillkom som nationell variabel 2014 och ingår ej i beräkningen före detta år.",
+    en = "Ki67 was added as a variable with national coverage in 2014, and is not included in the calculation of proportion with complete pathology report before this year."
+  ),
   teknisk_beskrivning = NULL
 )
 class(nkbc10) <- "nkbcind"

@@ -2,9 +2,18 @@
 nkbc26 <- list(
   code = "nkbc26",
   kortnamn = "nkbc_kir_sentinel_node_26",
-  lab = "Sentinel node operation",
-  pop = "invasiva fall utan spridning till lymfkörtlar (klinisk diagnos) eller fjärrmetastaser vid diagnos",
-  pop_short = "invasiva fall utan spridning till lymfkörtlar eller fjärrmetastaser vid diagnos",
+  lab = c(
+    sv = "Sentinel node operation",
+    en = "Sentinel node biopsy"
+  ),
+  pop = c(
+    sv = "invasiva fall utan spridning till lymfkörtlar (klinisk diagnos) eller fjärrmetastaser vid diagnos",
+    en = "invasive cases without spread to lymph nodes (clinical diagnosis) and without distant metastasis at diagnosis"
+  ),
+  pop_short = c(
+    sv = "invasiva fall utan spridning till lymfkörtlar eller fjärrmetastaser vid diagnos",
+    en = "invasive cases without spread to lymph nodes and without distant metastasis at diagnosis"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -34,11 +43,16 @@ nkbc26 <- list(
   target_values = c(90, 95),
   sjhkod_var = "op_inr_sjhkod",
   other_vars = "a_pat_alder",
-  om_indikatorn =
-    paste(
+  om_indikatorn = list(
+    sv = paste(
       "Kännedom om tumörspridning till armhålans lymfkörtlar föreligger påverkar de postoperativa behandlingsrekommendationerna.",
       "Sentinel node-tekniken minskar risken för armbesvär då endast ett fåtal (1–4) körtlar tas bort."
     ),
+    en = paste(
+      "Knowledge about tumour spread to the axillary lymph nodes provides guidance for postoperative treatment decisions.",
+      "The sentinel node biopsy technique reduces the risk of arm problems as only few (1–4) glands are removed."
+    )
+  ),
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
 )

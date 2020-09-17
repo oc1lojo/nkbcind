@@ -2,8 +2,12 @@
 nkbc19 <- list(
   code = "nkbc19",
   kortnamn = "nkbc_ledtid_behdisk_till_op_19",
-  lab = "Första behandlingsdiskussion till operation",
-  pop = "primärt opererade fall utan fjärrmetastaser vid diagnos",
+  lab = c(
+    sv = "Första behandlingsdiskussion till operation"
+  ),
+  pop = c(
+    sv = "primärt opererade fall utan fjärrmetastaser vid diagnos"
+  ),
   filter_pop = function(x, ...) {
     dplyr::filter(
       x,
@@ -28,7 +32,9 @@ nkbc19 <- list(
   target_values = 80,
   sjhkod_var = "op_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
-  om_indikatorn = "Standardiserade vårdförlopp infördes 2015 för att säkra utredning och start av behandling till patienter i rimlig tid oberoende var patienten söker vård.",
+  om_indikatorn = list(
+    sv = "Standardiserade vårdförlopp infördes 2015 för att säkra utredning och start av behandling till patienter i rimlig tid oberoende var patienten söker vård."
+  ),
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
 )
