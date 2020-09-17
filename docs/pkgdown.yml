@@ -1,8 +1,8 @@
 pandoc: 2.10.1
-pkgdown: 1.6.0
+pkgdown: 1.6.1
 pkgdown_sha: ~
-articles: []
-last_built: 2020-09-10T07:06Z
+articles: {}
+last_built: 2020-09-17T08:05Z
 urls:
   reference: https://cancercentrum.bitbucket.io/nkbcind//reference
   article: https://cancercentrum.bitbucket.io/nkbcind//articles
