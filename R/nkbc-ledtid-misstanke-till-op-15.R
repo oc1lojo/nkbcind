@@ -4,7 +4,7 @@ nkbc15 <- list(
   kortnamn = "nkbc_ledtid_misstanke_till_op_15",
   lab = c(
     sv = "Välgrundad misstanke om cancer till operation",
-    en = "Lead time from suspicion of cancer to surgery"
+    en = "Well-founded suspicion of cancer to surgery"
   ),
   pop = c(
     sv = "primärt opererade fall utan fjärrmetastaser vid diagnos",

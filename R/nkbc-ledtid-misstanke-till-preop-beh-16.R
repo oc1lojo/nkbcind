@@ -4,7 +4,7 @@ nkbc16 <- list(
   kortnamn = "nkbc_ledtid_misstanke_till_preop_beh_16",
   lab = c(
     sv = "Välgrundad misstanke om cancer till preoperativ onkologisk behandling",
-    en = "Suspicion of cancer to preoperative oncological treatment"
+    en = "Well-founded suspicion of cancer to preoperative oncological treatment"
   ),
   pop = c(
     sv = "opererade fall utan fjärrmetastaser vid diagnos med preoperativ onkologisk behandling",

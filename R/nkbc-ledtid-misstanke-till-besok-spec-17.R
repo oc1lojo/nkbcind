@@ -4,7 +4,7 @@ nkbc17 <- list(
   kortnamn = "nkbc_ledtid_misstanke_till_besok_spec_17",
   lab = c(
     sv = "Välgrundad misstanke om cancer till första besök i specialiserad vård",
-    en = "Suspicion of cancer to first specialized care visit"
+    en = "Well-founded suspicion of cancer to first specialized care visit"
   ),
   pop = c(
     sv = "alla anmälda fall",
