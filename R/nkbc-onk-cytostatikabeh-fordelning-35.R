@@ -65,7 +65,7 @@ nkbc35 <- list(
   other_vars = c("a_pat_alder", "d_tstad", "d_nstad", "d_trigrp"),
   om_indikatorn = list(
     sv = "Pre- eller postoperativ cytostatikabehandling rekommenderas i allmänhet vid bröstcancer med spridning till axillens lymfkörtlar, om tumören har svag hormonell känslighet och/eller andra riskfaktorer.",
-    en = "Pre- or postoperative chemotherapy is generally recommended in breast cancer with lymph node metastases, if the tumour has weak hormonal sensitivity and/or if other risk factors are present."
+    en = "Pre- or postoperative chemotherapy is generally recommended in breast cancer with lymph node metastasis, if the tumour has weak hormonal sensitivity and/or if other risk factors are present."
   ),
   vid_tolkning = list(
     sv = c(

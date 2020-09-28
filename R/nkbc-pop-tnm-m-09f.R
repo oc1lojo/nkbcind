@@ -4,7 +4,7 @@ nkbc09f <- list(
   kortnamn = "nkbc_pop_tnm_m_09f",
   lab = c(
     sv = "Fjärrmetastaser vid diagnos",
-    en = "Distant metastases at diagnosis"
+    en = "Distant metastasis at diagnosis"
   ),
   pop = c(
     sv = "alla anmälda fall",

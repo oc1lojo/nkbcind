@@ -38,7 +38,7 @@ nkbc47 <- list(
       "Tumörstorlek, spridning till lymfkörtlarna liksom biologisk subtyp påverkar val av preoperativ behandling eller ej."
     ),
     en = paste(
-      "Preoperative (neoadjuvant) oncological treatment is indicated when shrinkage of primary tumour or lymph node metastases is desired before surgery and/or evaluation of the treatment effect is desired.",
+      "Preoperative (neoadjuvant) oncological treatment is indicated when shrinkage of primary tumour or lymph node metastasis is desired before surgery and/or evaluation of the treatment effect is desired.",
       "Tumour size, spread to the lymph nodes as well as tumour subtype affect the choice of preoperative treatment or not."
     )
   ),

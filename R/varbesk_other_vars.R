@@ -39,7 +39,7 @@ varbesk_other_vars <-
     ),
     d_mstad = c(
       sv = "Fjärrmetastas vid diagnos",
-      en = "Distant metastases at diagnosis"
+      en = "Distant metastasis at diagnosis"
     ),
     d_invasiv = c(
       sv = "Invasivitet vid diagnos",
