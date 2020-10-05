@@ -8,11 +8,11 @@ nkbc29 <- list(
   ),
   pop = c(
     sv = "invasiva fall med spridning till lymfkörtlarna (fall med enbart mikrometastas exkluderade) och utan fjärrmetastaser vid diagnos, opererade med mastektomi",
-    en = "invasive cases  with lymph node metastase (cases with only micrometastases excluded) and without distant metastasis at diagnosis, operated with mastectomy"
+    en = "invasive cases  with lymph node metastase (cases with only micrometastasis excluded) and without distant metastasis at diagnosis, operated with mastectomy"
   ),
   pop_short = c(
     sv = "invasiva fall med mastektomi, spridning till lymfkörtlarna och utan fjärrmetastaser vid diagnos",
-    en = "invasive cases with mastectomy with lymph node metastases and without distant metastasis at diagnosis"
+    en = "invasive cases with mastectomy with lymph node metastasis and without distant metastasis at diagnosis"
   ),
   filter_pop = function(x, ...) {
     dplyr::filter(

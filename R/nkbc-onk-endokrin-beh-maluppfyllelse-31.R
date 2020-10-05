@@ -51,7 +51,7 @@ nkbc31 <- list(
     ),
     en = paste(
       "Endocrine therapy should be offered to all patients with oestrogen receptor positive (ER+) breast cancer.",
-      "For patients with a very low risk of recurrence (tumour <= 10 mm of luminal A-type without axillary metastases), endocrine therapy may be refrained provided the patient is informed of the balance between benefits and potential harm."
+      "For patients with a very low risk of recurrence (tumour <= 10 mm of luminal A-type without axillary metastasis), endocrine therapy may be refrained provided the patient is informed of the balance between benefits and potential harm."
     )
   ),
   vid_tolkning = list(

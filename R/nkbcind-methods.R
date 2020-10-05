@@ -547,15 +547,15 @@ varOther_inca.nkbcind <- function(x, varbesk = varbesk_other_vars, ...) {
 kpl_description.nkbcind <- function(x, ...) {
   if (!is.null(prop_within_value(x))) {
     # x antas vara en ledtid
-    lab_mod <- paste("Tid från", tolower(lab(x)), "inom", prop_within_value(x), "dagar")
+    lab_mod <- paste("Tid från", tolower(lab(x)["sv"]), "inom", prop_within_value(x), "dagar")
   } else {
-    lab_mod <- lab(x) %>%
+    lab_mod <- lab(x)["sv"] %>%
       stringr::str_replace(", måluppfyllelse", "")
   }
 
   paste(
     c(
-      paste0("Andel med ", tolower(lab_mod), " bland ", pop(x), ".") %>%
+      paste0("Andel med ", tolower(lab_mod), " bland ", pop(x)["sv"], ".") %>%
         # stringr::str_to_sentence(locale = "sv") %>%
         stringr::str_replace_all("min vårdplan", "Min Vårdplan"),
       if (!is.null(x$inkl_beskr_missca) && x$inkl_beskr_missca == TRUE) {
