@@ -1,6 +1,3 @@
-```{=html}
-<!-- README.md är genererad från README.Rmd. Vänligen redigera den filen. -->
-```
 nkbcind
 =======
 
