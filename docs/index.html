@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">nkbcind</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.3</span>
       </span>
     </div>
 
@@ -104,20 +104,20 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">requireNamespace</span>(<span class="st">"remotes"</span>)) {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>  <span class="kw">install.packages</span>(<span class="st">"remotes"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>}</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>remotes<span class="op">::</span><span class="kw">install_bitbucket</span>(<span class="st">"cancercentrum/nkbcind"</span>)</span></code></pre></div>
+<pre class="{.r}"><code>if (!requireNamespace("remotes")) {
+  install.packages("remotes")
+}
+
+remotes::install_bitbucket("cancercentrum/nkbcind")</code></pre>
 </div>
 <div id="användning" class="section level2">
 <h2 class="hasAnchor">
 <a href="#anv%C3%A4ndning" class="anchor"></a>Användning</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">library</span>(tidyr)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">library</span>(lubridate)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="kw">library</span>(nkbcgeneral) <span class="co"># https://cancercentrum.bitbucket.io/nkbcgeneral/</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="kw">library</span>(nkbcind) <span class="co"># https://cancercentrum.bitbucket.io/nkbcind/</span></span></code></pre></div>
+<pre class="{.r}"><code><a href="https://dplyr.tidyverse.org">library(dplyr)
+library(tidyr)
+library(lubridate)
+library(nkbcgeneral) # https://cancercentrum.bitbucket.io/nkbcgeneral/
+library(nkbcind) # https://cancercentrum.bitbucket.io/nkbcind/</a></code></pre>
 <p>TODO Lägg till exempel.</p>
 <p>Tills vidare:</p>
 <ul>
@@ -125,7 +125,8 @@
 </li>
 <li>…som använder definitionen (här nkbc01 som exempel) <a href="https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbc-diag-screening-01.R" class="uri">https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbc-diag-screening-01.R</a>
 </li>
-<li>…och metoderna<br><a href="https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbcind-methods.R" class="uri">https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbcind-methods.R</a>
+<li>…och metoderna
+<a href="https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbcind-methods.R" class="uri">https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbcind-methods.R</a>
 </li>
 </ul>
 </div>
