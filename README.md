@@ -1,6 +1,6 @@
-
+```{=html}
 <!-- README.md är genererad från README.Rmd. Vänligen redigera den filen. -->
-
+```
 nkbcind
 =======
 
@@ -21,43 +21,47 @@ populationskarakteristik** från NKBC i **alla** utdata-kanaler.
     [nkbcgeneral](https://cancercentrum.bitbucket.io/nkbcgeneral)
     -   NKBC onlinerapporter innanför inloggning på INCA med R-paketet
         [rccShiny](https://cancercentrum.bitbucket.io/rccshiny)
-        -   <a href="https://bitbucket.org/cancercentrum/nkbc-onlinerapporter/" class="uri">https://bitbucket.org/cancercentrum/nkbc-onlinerapporter/</a>
+        -   <https://bitbucket.org/cancercentrum/nkbc-onlinerapporter/>
             (RCC-internt kodförråd)
     -   NKBC Koll på läget (KPL), med R-paketet
         [rccKPL](https://bitbucket.org/cancercentrum/rcckpl)
-        -   <a href="https://bitbucket.org/cancercentrum/nkbc-kpl/" class="uri">https://bitbucket.org/cancercentrum/nkbc-kpl/</a>
-            (RCC-internt kodförråd)
+        -   <https://bitbucket.org/cancercentrum/nkbc-kpl/> (RCC-internt
+            kodförråd)
     -   NKBC Vården i siffror, med R-paketet
         [incavis](https://bitbucket.org/cancercentrum/incavis)
-        -   <a href="https://bitbucket.org/cancercentrum/nkbc-vis/" class="uri">https://bitbucket.org/cancercentrum/nkbc-vis/</a>
-            (RCC-internt kodförråd)
+        -   <https://bitbucket.org/cancercentrum/nkbc-vis/> (RCC-internt
+            kodförråd)
 -   Användning lokalt på RCC Stockholm-Gotland tillsammans med R-paketet
     [nkbcgeneral](https://cancercentrum.bitbucket.io/nkbcgeneral)
     -   Framtagande av NKBC Interaktiva Årsrapport med R-paketet
         [rccShiny](https://cancercentrum.bitbucket.io/rccshiny)
-        -   <a href="https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny" class="uri">https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny</a>
+        -   <https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny>
             (publikt kodförråd)
 
 Jfr
-<a href="https://www.cancercentrum.se/samverkan/vara-uppdrag/statistik/kvalitetsregisterstatistik/" class="uri">https://www.cancercentrum.se/samverkan/vara-uppdrag/statistik/kvalitetsregisterstatistik/</a>
+<https://www.cancercentrum.se/samverkan/vara-uppdrag/statistik/kvalitetsregisterstatistik/>
 
 Installation
 ------------
 
-    if (!requireNamespace("remotes")) {
-      install.packages("remotes")
-    }
+``` {.r}
+if (!requireNamespace("remotes")) {
+  install.packages("remotes")
+}
 
-    remotes::install_bitbucket("cancercentrum/nkbcind")
+remotes::install_bitbucket("cancercentrum/nkbcind")
+```
 
 Användning
 ----------
 
-    library(dplyr)
-    library(tidyr)
-    library(lubridate)
-    library(nkbcgeneral) # https://cancercentrum.bitbucket.io/nkbcgeneral/
-    library(nkbcind) # https://cancercentrum.bitbucket.io/nkbcind/
+``` {.r}
+library(dplyr)
+library(tidyr)
+library(lubridate)
+library(nkbcgeneral) # https://cancercentrum.bitbucket.io/nkbcgeneral/
+library(nkbcind) # https://cancercentrum.bitbucket.io/nkbcind/
+```
 
 TODO Lägg till exempel.
 
@@ -66,8 +70,8 @@ Tills vidare:
 -   För att skapa en interaktiv rapport så börjar jag alltså med allmän
     bearbetning av NKBC-data för att sedan skapa själva
     Shiny-webbapplikationerna,
-    <a href="https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny/src/develop/main.R" class="uri">https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny/src/develop/main.R</a>
--   …som använder definitionen (här nkbc01 som exempel)
-    <a href="https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbc-diag-screening-01.R" class="uri">https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbc-diag-screening-01.R</a>
--   …och metoderna  
-    <a href="https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbcind-methods.R" class="uri">https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbcind-methods.R</a>
+    <https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny/src/develop/main.R>
+-   ...som använder definitionen (här nkbc01 som exempel)
+    <https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbc-diag-screening-01.R>
+-   ...och metoderna\
+    <https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbcind-methods.R>

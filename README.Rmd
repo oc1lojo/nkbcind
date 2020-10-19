@@ -1,5 +1,7 @@
 ---
-output: github_document
+output:
+  md_document:
+    variant: markdown
 ---
 
 <!-- README.md är genererad från README.Rmd. Vänligen redigera den filen. -->
