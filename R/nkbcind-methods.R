@@ -159,10 +159,10 @@ outcomeTitle.nkbcind <- function(x, locale = "sv", ...) {
 
 #' @export
 textBeforeSubtitle.nkbcind <- function(x, locale = "sv", ...) {
-  list(
+  c(
     sv = paste0("Bland ", pop_short(x)["sv"], "."),
     en = paste0("Among ", pop_short(x)["en"], ".")
-  )[locale]
+  )
 }
 
 #' @export
@@ -239,6 +239,8 @@ description.nkbcind <- function(x, report_end_year = report_end_year, locale = "
               "opererande sjukhus",
               x$sjhkod_var %in% "d_opans_sjhkod" ~
               "opererande sjukhus, och om detta saknas, anmälande sjukhus",
+              x$sjhkod_var %in% "d_pat_sjhkod" ~
+              "opererande sjukhus för primärt opererade fall, annars anmälande sjukhus",
               x$sjhkod_var %in% "d_prim_beh_sjhkod" ~
               "sjukhus ansvarig för primär behandling",
               x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
@@ -309,6 +311,8 @@ description.nkbcind <- function(x, report_end_year = report_end_year, locale = "
               "hospital performing surgery",
               x$sjhkod_var %in% "d_opans_sjhkod" ~
               "hospital performing surgery and, if missing, notifying hospital",
+              x$sjhkod_var %in% "d_pat_sjhkod" ~
+              "hospital performing surgery for cases with primary surgery, otherwise notifying hospital",
               x$sjhkod_var %in% "d_prim_beh_sjhkod" ~
               "hospital responsible for primary treatment",
               x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
@@ -468,6 +472,8 @@ description_inca.nkbcind <- function(x, ...) {
             "opererande sjukhus",
             x$sjhkod_var %in% "d_opans_sjhkod" ~
             "opererande sjukhus, och om detta saknas, anmälande sjukhus",
+            x$sjhkod_var %in% "d_pat_sjhkod" ~
+            "opererande sjukhus för primärt opererade fall, annars anmälande sjukhus",
             x$sjhkod_var %in% "d_prim_beh_sjhkod" ~
             "sjukhus ansvarig för primär behandling",
             x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
@@ -553,9 +559,27 @@ kpl_description.nkbcind <- function(x, ...) {
       stringr::str_replace(", måluppfyllelse", "")
   }
 
+  # Adopted from https://stackoverflow.com/a/56125845
+  str_to_lower2 <- function(x) {
+    str_keep_upper <- c(
+      "ER",
+      "ER-positivitet",
+      "PR",
+      "PR-positivitet",
+      "HER2",
+      "HER2-positivitet",
+      "IHC",
+      "ISH",
+      "(ISH)",
+      "Ki67",
+      "NHG"
+    )
+    paste(lapply(strsplit(x, " "), function(y) ifelse(y %in% str_keep_upper, y, tolower(y)))[[1]], collapse = " ")
+  }
+
   paste(
     c(
-      paste0("Andel med ", tolower(lab_mod), " bland ", pop(x)["sv"], ".") %>%
+      paste0("Andel med ", str_to_lower2(lab_mod), " bland ", pop(x)["sv"], ".") %>%
         # stringr::str_to_sentence(locale = "sv") %>%
         stringr::str_replace_all("min vårdplan", "Min Vårdplan"),
       if (!is.null(x$inkl_beskr_missca) && x$inkl_beskr_missca == TRUE) {
@@ -576,6 +600,8 @@ kpl_description.nkbcind <- function(x, ...) {
           "opererande sjukhus",
           x$sjhkod_var %in% "d_opans_sjhkod" ~
           "opererande sjukhus, och om detta saknas, anmälande sjukhus",
+          x$sjhkod_var %in% "d_pat_sjhkod" ~
+          "opererande sjukhus för primärt opererade fall, annars anmälande sjukhus",
           x$sjhkod_var %in% "d_prim_beh_sjhkod" ~
           "sjukhus ansvarig för primär behandling",
           x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~

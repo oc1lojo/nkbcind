@@ -260,6 +260,34 @@ mutate_nkbcind_d_vars <- function(x, ...) {
     d_vitalstatus_en = factor(VITALSTATUS,
       levels = c(0, 1, 2),
       labels = c("Alive", "Diseased", "Missing")
+    ),
+
+    # Opererande sjukhus vid primär operation, annars anmälande sjukhus
+    d_pat_sjhkod = dplyr::case_when(
+      d_prim_beh_Varde == 1 ~ op_inr_sjhkod,
+      d_prim_beh_Varde %in% c(2, 3) ~ a_inr_sjhkod,
+      TRUE ~ NA_integer_
+    ),
+
+    # HER2 IHC
+    d_her2ihc_Varde = dplyr::case_when(
+      d_prim_beh_Varde == 1 ~ op_pad_her2_Varde,
+      d_prim_beh_Varde %in% c(2, 3) ~ a_pad_her2_Varde,
+      TRUE ~ NA_integer_
+    ),
+
+    # HER2 ISH
+    d_her2ish_Varde = dplyr::case_when(
+      d_prim_beh_Varde == 1 ~ op_pad_her2ish_Varde,
+      d_prim_beh_Varde %in% c(2, 3) ~ a_pad_her2ish_Varde,
+      TRUE ~ NA_integer_
+    ),
+
+    # Ki67
+    d_pad_ki67proc = dplyr::case_when(
+      d_prim_beh_Varde == 1 ~ op_pad_ki67proc,
+      d_prim_beh_Varde %in% c(2, 3) ~ a_pad_ki67proc,
+      TRUE ~ NA_integer_
     )
   )
 }
