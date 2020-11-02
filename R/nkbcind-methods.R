@@ -559,9 +559,27 @@ kpl_description.nkbcind <- function(x, ...) {
       stringr::str_replace(", måluppfyllelse", "")
   }
 
+  # Adopted from https://stackoverflow.com/a/56125845
+  str_to_lower2 <- function(x) {
+    str_keep_upper <- c(
+      "ER",
+      "ER-positivitet",
+      "PR",
+      "PR-positivitet",
+      "HER2",
+      "HER2-positivitet",
+      "IHC",
+      "ISH",
+      "(ISH)",
+      "Ki67",
+      "NHG"
+    )
+    paste(lapply(strsplit(x, " "), function(y) ifelse(y %in% str_keep_upper, y, tolower(y)))[[1]], collapse = " ")
+  }
+
   paste(
     c(
-      paste0("Andel med ", tolower(lab_mod), " bland ", pop(x)["sv"], ".") %>%
+      paste0("Andel med ", str_to_lower2(lab_mod), " bland ", pop(x)["sv"], ".") %>%
         # stringr::str_to_sentence(locale = "sv") %>%
         stringr::str_replace_all("min vårdplan", "Min Vårdplan"),
       if (!is.null(x$inkl_beskr_missca) && x$inkl_beskr_missca == TRUE) {
