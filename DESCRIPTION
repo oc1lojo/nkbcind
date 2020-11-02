@@ -1,7 +1,7 @@
 Package: nkbcind
 Type: Package
 Title: Verktyg för kvalitetsindikatorer och populationskarakteristik från NKBC
-Version: 0.4.3.9000
+Version: 0.5.0
 Authors@R: c(
     person("John", "Lövrot", , "john.lovrot@sll.se", c("aut", "cre"), c(ORCID = "0000-0002-9339-8059")),
     person("Lina", "Benson", , , c("aut"), c(ORCID = "0000-0002-5393-0055")),
