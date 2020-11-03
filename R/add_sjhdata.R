@@ -5,6 +5,11 @@ add_sjhdata <- function(x,
                         samredovisning_skaraborg = TRUE,
                         samredovisning_lund_malmo = TRUE,
                         samredovisning_lund_malmo_onkbeh = TRUE,
+                        samredovisning_halmstad_varberg = FALSE,
+                        samredovisning_kalmar_vastervik = FALSE,
+                        samredovisning_skelleftea_umea = FALSE,
+                        samredovisning_falun_mora = FALSE,
+                        samredovisning_nu_sjukvarden = FALSE,
                         ...) {
   if (!samredovisning_lund_malmo_onkbeh & samredovisning_lund_malmo) {
     stop("Arguments samredovisning_lund_malmo_onkbeh and samredovisning_lund_malmo are not consistent")
@@ -61,6 +66,16 @@ add_sjhdata <- function(x,
             "d_prim_beh_sjhkod"
           ) &
           sjukhus %in% c("Lund", "Malmö") ~ "Lund/Malmö",
+        samredovisning_halmstad_varberg &
+          sjukhus %in% c("Halmstad", "Varberg") ~ "Halmstad/Varberg",
+        samredovisning_kalmar_vastervik &
+          sjukhus %in% c("Kalmar", "Västervik") ~ "Kalmar/Västervik",
+        samredovisning_skelleftea_umea &
+          sjukhus %in% c("Umeå", "Skellefteå") ~ "Umeå/Skellefteå",
+        samredovisning_falun_mora &
+          sjukhus %in% c("Falun", "Mora") ~ "Falun/Mora",
+        samredovisning_nu_sjukvarden &
+          sjukhus %in% c("Trollhättan", "Uddevalla") ~ "NU-sjukvården",
         TRUE ~ sjukhus
       )
     )
