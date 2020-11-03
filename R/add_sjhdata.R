@@ -5,7 +5,16 @@ add_sjhdata <- function(x,
                         samredovisning_skaraborg = TRUE,
                         samredovisning_lund_malmo = TRUE,
                         samredovisning_lund_malmo_onkbeh = TRUE,
+                        samredovisning_halmstad_varberg = FALSE,
+                        samredovisning_kalmar_vastervik = FALSE,
+                        samredovisning_skelleftea_umea = FALSE,
+                        samredovisning_falun_mora = FALSE,
+                        samredovisning_nu_sjukvarden = FALSE,
                         ...) {
+  if (!samredovisning_lund_malmo_onkbeh & samredovisning_lund_malmo) {
+    stop("Arguments samredovisning_lund_malmo_onkbeh and samredovisning_lund_malmo are not consistent")
+  }
+
   names(x)[names(x) == sjhkod_var] <- "sjhkod"
 
   x <- x %>%
@@ -42,35 +51,34 @@ add_sjhdata <- function(x,
       )
     )
 
-  # Ev. samredovisning av Skaraborg
-  if (samredovisning_skaraborg) {
-    x <- x %>%
-      dplyr::mutate(
-        sjukhus = dplyr::if_else(
-          sjukhus %in% c("Skövde", "Lidköping"), "Skaraborg", sjukhus
-        )
+  # Ev. samredovisning av sjukhus
+  x <- x %>%
+    dplyr::mutate(
+      sjukhus = dplyr::case_when(
+        samredovisning_skaraborg &
+          sjukhus %in% c("Lidköping", "Skövde") ~ "Skaraborg",
+        samredovisning_lund_malmo &
+          sjukhus %in% c("Lund", "Malmö") ~ "Lund/Malmö",
+        samredovisning_lund_malmo_onkbeh &
+          sjhkod_var %in% c(
+            "post_inr_sjhkod", "pre_inr_sjhkod",
+            "d_onk_sjhkod", "d_onkpreans_sjhkod", "d_onkpostans_sjhkod",
+            "d_prim_beh_sjhkod"
+          ) &
+          sjukhus %in% c("Lund", "Malmö") ~ "Lund/Malmö",
+        samredovisning_halmstad_varberg &
+          sjukhus %in% c("Halmstad", "Varberg") ~ "Halmstad/Varberg",
+        samredovisning_kalmar_vastervik &
+          sjukhus %in% c("Kalmar", "Västervik") ~ "Kalmar/Västervik",
+        samredovisning_skelleftea_umea &
+          sjukhus %in% c("Umeå", "Skellefteå") ~ "Umeå/Skellefteå",
+        samredovisning_falun_mora &
+          sjukhus %in% c("Falun", "Mora") ~ "Falun/Mora",
+        samredovisning_nu_sjukvarden &
+          sjukhus %in% c("Trollhättan", "Uddevalla") ~ "NU-sjukvården",
+        TRUE ~ sjukhus
       )
-  }
-
-  # Ev. samredovisning av Lund och Malmö
-  if (samredovisning_lund_malmo) {
-    x <- x %>%
-      dplyr::mutate(
-        sjukhus = dplyr::if_else(
-          sjukhus %in% c("Malmö", "Lund"), "Lund/Malmö", sjukhus
-        )
-      )
-  } else if (samredovisning_lund_malmo_onkbeh) {
-    # Ev. samredovisning av Lund och Malmö enbart avseende onkologisk behandling
-    x <- x %>%
-      dplyr::mutate(
-        sjukhus = dplyr::if_else(
-          sjukhus %in% c("Malmö", "Lund") &
-            sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod", "d_onkpreans_sjhkod", "d_onkpostans_sjhkod", "d_prim_beh_sjhkod"),
-          "Lund/Malmö", sjukhus
-        )
-      )
-  }
+    )
 
   return(x)
 }
