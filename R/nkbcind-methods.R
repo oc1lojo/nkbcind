@@ -159,7 +159,7 @@ outcomeTitle.nkbcind <- function(x, locale = "sv", ...) {
 
 #' @export
 textBeforeSubtitle.nkbcind <- function(x, locale = "sv", ...) {
-  list(
+  c(
     sv = paste0("Bland ", pop_short(x)["sv"], "."),
     en = paste0("Among ", pop_short(x)["en"], ".")
   )[locale]
