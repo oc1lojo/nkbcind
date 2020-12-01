@@ -38,6 +38,7 @@ nkbc13 <- list(
   target_values = c(70, 85),
   period_dat_var = "a_diag_dat",
   sjhkod_var = "d_onkpreans_sjhkod",
+  other_vars_inca = "d_invasiv",
   om_indikatorn = list(
     sv = paste(
       "Rapportering av given onkologisk behandling sker på ett eget formulär till kvalitetsregistret, separat från anmälan.",
