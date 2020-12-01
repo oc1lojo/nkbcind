@@ -1,5 +1,4 @@
-nkbcind
-=======
+# nkbcind
 
 [![Build
 Status](https://travis-ci.com/oc1lojo/nkbcind.svg?branch=master)](https://travis-ci.com/oc1lojo/nkbcind)
@@ -38,8 +37,7 @@ populationskarakteristik** från NKBC i **alla** utdata-kanaler.
 Jfr
 <https://www.cancercentrum.se/samverkan/vara-uppdrag/statistik/kvalitetsregisterstatistik/>
 
-Installation
-------------
+## Installation
 
 ``` {.r}
 if (!requireNamespace("remotes")) {
@@ -49,8 +47,7 @@ if (!requireNamespace("remotes")) {
 remotes::install_bitbucket("cancercentrum/nkbcind")
 ```
 
-Användning
-----------
+## Användning
 
 ``` {.r}
 library(dplyr)
