@@ -205,6 +205,11 @@ description.nkbcind <- function(x, report_end_year = report_end_year, locale = "
           if (!is.null(x$inkl_beskr_missca) && x$inkl_beskr_missca == TRUE) {
             "Datum för välgrundad misstanke om cancer tillkom som variabel 2016 och innan detta har datum för första kontakt använts."
           },
+          if (x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod")) {
+            paste(
+            "Uppgifterna redovisas uppdelat på sjukhus där onkologisk behandling ges, vilket i vissa fall kan innebära en annan enhet än anmälande/opererande enhet.",
+            "När antalet behandlade fall skiljer sig kraftigt från antalet anmälda fall vid en enhet kan starka selektionsmekanismer på basen av patient- och tumördata styra vilken enhet som ger onkologisk behandling.")
+          },
           if (!is.null(x$inkl_beskr_onk_beh) && x$inkl_beskr_onk_beh == TRUE) {
             paste(
               "Uppgifter som rör given onkologisk behandling redovisas enbart t.o.m.",
@@ -437,6 +442,11 @@ description_inca.nkbcind <- function(x, ...) {
         x$vid_tolkning$sv,
         if (!is.null(x$inkl_beskr_missca) && x$inkl_beskr_missca == TRUE) {
           "Datum för välgrundad misstanke om cancer tillkom som variabel 2016 och innan detta har datum för första kontakt använts."
+        },
+        if (x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod")) {
+          paste(
+            "Uppgifterna redovisas uppdelat på sjukhus där onkologisk behandling ges, vilket i vissa fall kan innebära en annan enhet än anmälande/opererande enhet.",
+            "När antalet behandlade fall skiljer sig kraftigt från antalet anmälda fall vid en enhet kan starka selektionsmekanismer på basen av patient- och tumördata styra vilken enhet som ger onkologisk behandling.")
         },
         if (!is.null(x$inkl_beskr_onk_beh) && x$inkl_beskr_onk_beh == TRUE) {
           paste(
