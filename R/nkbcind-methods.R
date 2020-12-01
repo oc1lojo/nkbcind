@@ -207,8 +207,9 @@ description.nkbcind <- function(x, report_end_year = report_end_year, locale = "
           },
           if (x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod")) {
             paste(
-            "Uppgifterna redovisas uppdelat på sjukhus där onkologisk behandling ges, vilket i vissa fall kan innebära en annan enhet än anmälande/opererande enhet.",
-            "När antalet behandlade fall skiljer sig kraftigt från antalet anmälda fall vid en enhet kan starka selektionsmekanismer på basen av patient- och tumördata styra vilken enhet som ger onkologisk behandling.")
+              "Uppgifterna redovisas uppdelat på sjukhus där onkologisk behandling ges, vilket i vissa fall kan innebära en annan enhet än anmälande/opererande enhet.",
+              "När antalet behandlade fall skiljer sig kraftigt från antalet anmälda fall vid en enhet kan starka selektionsmekanismer på basen av patient- och tumördata styra vilken enhet som ger onkologisk behandling."
+            )
           },
           if (!is.null(x$inkl_beskr_onk_beh) && x$inkl_beskr_onk_beh == TRUE) {
             paste(
@@ -286,7 +287,7 @@ description.nkbcind <- function(x, report_end_year = report_end_year, locale = "
             paste(
               "The information is presented per hospital where oncological treatment is given, which in some cases may be a unit other than the notifying unit/unit performing surgery.",
               "When the number of treated cases differs greatly from the number of reported cases at a unit, strong selection mechanisms based on patient and tumor data can direct which unit provides oncological treatment."
-              )
+            )
           },
           if (!is.null(x$inkl_beskr_onk_beh) && x$inkl_beskr_onk_beh == TRUE) {
             paste(
@@ -452,7 +453,8 @@ description_inca.nkbcind <- function(x, ...) {
         if (x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod")) {
           paste(
             "Uppgifterna redovisas uppdelat på sjukhus där onkologisk behandling ges, vilket i vissa fall kan innebära en annan enhet än anmälande/opererande enhet.",
-            "När antalet behandlade fall skiljer sig kraftigt från antalet anmälda fall vid en enhet kan starka selektionsmekanismer på basen av patient- och tumördata styra vilken enhet som ger onkologisk behandling.")
+            "När antalet behandlade fall skiljer sig kraftigt från antalet anmälda fall vid en enhet kan starka selektionsmekanismer på basen av patient- och tumördata styra vilken enhet som ger onkologisk behandling."
+          )
         },
         if (!is.null(x$inkl_beskr_onk_beh) && x$inkl_beskr_onk_beh == TRUE) {
           paste(
