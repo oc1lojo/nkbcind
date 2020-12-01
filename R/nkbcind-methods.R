@@ -282,6 +282,12 @@ description.nkbcind <- function(x, report_end_year = report_end_year, locale = "
           if (!is.null(x$inkl_beskr_missca) && x$inkl_beskr_missca == TRUE) {
             "The date of well-founded suspicion of cancer was added as a variable in 2016 and before this date the date of first contact was used."
           },
+          if (x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod")) {
+            paste(
+              "The information is presented per hospital where oncological treatment is given, which in some cases may be a unit other than the notifying unit/unit performing surgery.",
+              "When the number of treated cases differs greatly from the number of reported cases at a unit, strong selection mechanisms based on patient and tumor data can direct which unit provides oncological treatment."
+              )
+          },
           if (!is.null(x$inkl_beskr_onk_beh) && x$inkl_beskr_onk_beh == TRUE) {
             paste(
               "Information relating to given oncological treatment is presented only up to",
