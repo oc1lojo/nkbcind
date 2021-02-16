@@ -40,6 +40,7 @@ nkbc50 <- list(
   period_dat_var = "a_diag_dat",
   sjhkod_var = "d_onk_sjhkod",
   other_vars = "a_pat_alder",
+  other_vars_inca = c("a_pat_alder", "d_pnstat", "d_er"),
   om_indikatorn = list(
     sv = paste(
       "Vid HER2-positiv invasiv bröstcancer rekommenderas behandling med monoklonal antikropp riktad mot de Her2-receptorer som då finns i ökad mängd på tumörcellernas yta.",

@@ -50,6 +50,7 @@ nkbc32 <- list(
   period_dat_var = "a_diag_dat",
   sjhkod_var = "d_onk_sjhkod",
   other_vars = "a_pat_alder",
+  other_vars_inca = c("a_pat_alder", "d_pnstat", "d_er"),
   om_indikatorn = list(
     sv = "Vid HER2-positiv invasiv bröstcancer rekommenderas antikroppsbehandling i kombination med cytostatika, under förutsättning att patienten kan tolerera det sistnämnda.",
     en = "In HER2 positive invasive breast cancer, anti-HER2 treatment in combination with chemotherapy is recommended, provided that the patient can tolerate the latter."

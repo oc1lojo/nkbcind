@@ -37,6 +37,10 @@ varbesk_other_vars <-
       sv = "Spridning till lymfkörtlar",
       en = "Spread to lymph nodes"
     ),
+    d_pnstat = c(
+      sv = "Spridning till lymfkörtlar",
+      en = "Spread to lymph nodes"
+    ),
     d_mstad = c(
       sv = "Fjärrmetastas vid diagnos",
       en = "Distant metastasis at diagnosis"
