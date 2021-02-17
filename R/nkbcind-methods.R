@@ -499,7 +499,7 @@ description_inca.nkbcind <- function(x, ...) {
             x$sjhkod_var %in% c("d_onkpreans_sjhkod", "d_onkpostans_sjhkod") ~
             "rapporterande sjukhus där onkologisk behandling ges, och om detta saknas, sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus"
           ),
-          "."
+          " eller patientens hemortslän vid diagnos."
         )
       ),
       collapse = "\n<p></p>\n"
