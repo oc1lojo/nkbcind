@@ -193,14 +193,14 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       cut(
         dplyr::if_else(d_prim_beh_Varde %in% 1, op_pad_invstl, NA_integer_),
         breaks = c(-Inf, 20, 50, Inf),
-        labels = c("<=20 mm", "20-50 mm", ">50 mm")
+        labels = c("<=20 mm", "21-50 mm", ">50 mm")
       ) %>%
         forcats::fct_explicit_na(na_level = "Uppgift saknas"),
     d_op_pad_invstl_kat_en =
       cut(
         dplyr::if_else(d_prim_beh_Varde %in% 1, op_pad_invstl, NA_integer_),
         breaks = c(-Inf, 20, 50, Inf),
-        labels = c("<=20 mm", "20-50 mm", ">50 mm")
+        labels = c("<=20 mm", "21-50 mm", ">50 mm")
       ) %>%
         forcats::fct_explicit_na(na_level = "Missing"),
 
