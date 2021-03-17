@@ -115,7 +115,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
         TRUE ~ NA_real_
       ),
       levels = c(1, 2, 99),
-      labels = c("<=20mm (T0/T1)", ">20mm (T2-T4)", "Uppgift saknas")
+      labels = c("<=20mm (T0/Tis/T1)", ">20mm (T2-T4)", "Uppgift saknas")
     ),
     d_tstad_en = factor(
       dplyr::case_when(
@@ -133,7 +133,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
         TRUE ~ NA_real_
       ),
       levels = c(1, 2, 99),
-      labels = c("<=20mm (T0/T1)", ">20mm (T2-T4)", "Missing")
+      labels = c("<=20mm (T0/Tis/T1)", ">20mm (T2-T4)", "Missing")
     ),
 
     # N
