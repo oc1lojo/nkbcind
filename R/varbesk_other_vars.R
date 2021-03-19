@@ -17,6 +17,10 @@ varbesk_other_vars <-
       sv = "Tumörstorlek",
       en = "Tumour size"
     ),
+    d_screening = c(
+      sv = "Upptäckssätt",
+      en = "Detection"
+    ),
     d_tstad = c(
       sv = "Tumörstorlek",
       en =  "Tumour size"

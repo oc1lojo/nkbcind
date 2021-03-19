@@ -44,6 +44,7 @@ nkbc09h <- list(
   prop_within_value = 20,
   sjhkod_var = "op_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_trigrp"),
+  other_vars_inca = c("a_pat_alder", "d_screening", "d_trigrp"),
   om_indikatorn = list(
     sv = paste(
       "Tumörstorlek baserad på mikroskopisk analys av preparat från primär operation, d.v.s. operation utan föregående onkologisk behandling.",

@@ -27,6 +27,7 @@ nkbc09i <- list(
   },
   sjhkod_var = "a_inr_sjhkod",
   other_vars = c("a_pat_alder", "d_invasiv"),
+  other_vars_inca = c("a_pat_alder", "d_screening", "d_invasiv"),
   om_indikatorn = list(
     sv = paste(
       "Kännedom om tumörens utbredning i bröstet påverkar val av primär behandling, typ av kirurgi och val av postoperativ onkologisk behandling.",

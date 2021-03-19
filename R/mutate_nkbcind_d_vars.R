@@ -98,6 +98,13 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       labels = c("Triple negative", "HER2 positive", "Luminal", "Missing")
     ),
 
+    # Upptäckssätt
+    d_screening = factor(
+      tidyr::replace_na(a_diag_screening_Varde, 99),
+      levels = c(1, 0, 99),
+      labels = c("Screeningupptäckt", "Icke-screening", "Uppgift saknas")
+    ),
+
     # T
     d_tstad = factor(
       dplyr::case_when(

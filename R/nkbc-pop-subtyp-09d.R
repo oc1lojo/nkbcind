@@ -29,6 +29,7 @@ nkbc09d <- list(
   },
   sjhkod_var = "a_inr_sjhkod",
   other_vars = "a_pat_alder",
+  other_vars_inca = c("a_pat_alder", "d_screening"),
   om_indikatorn = list(
     sv = c(
       paste(
