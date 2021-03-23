@@ -86,6 +86,30 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       labels = c("Positive", "Negative", "Missing")
     ),
 
+    # PR
+    d_pr = factor(
+      tidyr::replace_na(d_pr_Varde, 99),
+      levels = c(1, 2, 99),
+      labels = c("Positiv", "Negativ", "Uppgift saknas")
+    ),
+    d_pr_en = factor(
+      tidyr::replace_na(d_pr_Varde, 99),
+      levels = c(1, 2, 99),
+      labels = c("Positive", "Negative", "Missing")
+    ),
+
+    # HER2
+    d_her2 = factor(
+      tidyr::replace_na(d_her2_Varde, 99),
+      levels = c(1, 2, 99),
+      labels = c("Positiv", "Negativ", "Uppgift saknas")
+    ),
+    d_her2_en = factor(
+      tidyr::replace_na(d_her2_Varde, 99),
+      levels = c(1, 2, 99),
+      labels = c("Positive", "Negative", "Missing")
+    ),
+
     # Biologisk subtyp
     d_trigrp = factor(
       d_trigrp_Varde,

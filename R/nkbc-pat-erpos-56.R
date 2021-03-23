@@ -25,6 +25,7 @@ nkbc56 <- list(
   period_dat_var = "a_diag_dat",
   sjhkod_var = "d_pat_sjhkod",
   other_vars = "a_pat_alder",
+  other_vars_inca = c("a_pat_alder", "d_pr", "d_her2"),
   om_indikatorn = NULL,
   vid_tolkning = NULL,
   teknisk_beskrivning = NULL
