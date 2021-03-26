@@ -169,14 +169,14 @@ textBeforeSubtitle.nkbcind <- function(x, locale = "sv", ...) {
 description.nkbcind <- function(x, report_end_year = report_end_year, locale = "sv", ...) {
   # Lägga till "(andel inom ... dagar)" för kontinuerliga variabler
   if (!is.null(prop_within_value(x))) {
-    target_levels_extra_txt_sv <- paste("Andel inom", prop_within_value(x), ifelse(!is.null(prop_within_unit(x)), prop_within_unit(x), "dagar"))
+    target_levels_extra_txt_sv <- paste0("Andel inom ", prop_within_value(x), " ", ifelse(!is.null(prop_within_unit(x)), prop_within_unit(x), "dagar"), " ")
   } else {
     target_levels_extra_txt_sv <- NULL
   }
 
   # Lägga till "for proportion within ... days)" för kontinuerliga variabler
   if (!is.null(prop_within_value(x))) {
-    target_levels_extra_txt_en <- paste("Proportion within", prop_within_value(x), "days")
+    target_levels_extra_txt_en <- paste0("Proportion within ", prop_within_value(x), " days ")
   } else {
     target_levels_extra_txt_en <- NULL
   }
@@ -355,9 +355,9 @@ description.nkbc33 <- function(x, report_end_year = report_end_year, locale = "s
           if (!is.null(x$target_values)) {
             dplyr::case_when(
               length(x$target_values) == 1 ~
-              paste0("Målnivå: ", x$target_values[1], "%"),
+              paste0("Målnivå: ", target_levels_extra_txt_sv, x$target_values[1], "%"),
               length(x$target_values) == 2 ~
-              paste0("Målnivåer: ", x$target_values[1], "% (låg) ", x$target_values[2], "% (hög)")
+              paste0("Målnivåer: ", target_levels_extra_txt_sv, x$target_values[1], "% (låg) ", x$target_values[2], "% (hög)")
             )
           }
         ),
@@ -427,6 +427,13 @@ description.nkbc33 <- function(x, report_end_year = report_end_year, locale = "s
 
 #' @export
 description_inca.nkbcind <- function(x, ...) {
+  # Lägga till "(andel inom ... dagar)" för kontinuerliga variabler
+  if (!is.null(prop_within_value(x))) {
+    target_levels_extra_txt_sv <- paste0("Andel inom ", prop_within_value(x), " ", ifelse(!is.null(prop_within_unit(x)), prop_within_unit(x), "dagar"), " ")
+  } else {
+    target_levels_extra_txt_sv <- NULL
+  }
+
   c(
     # Om indikatorn
     paste(
@@ -435,9 +442,9 @@ description_inca.nkbcind <- function(x, ...) {
         if (!is.null(x$target_values)) {
           dplyr::case_when(
             length(x$target_values) == 1 ~
-            paste0("Målnivå: ", x$target_values[1], "%"),
+            paste0("Målnivå: ", target_levels_extra_txt_sv, x$target_values[1], "%"),
             length(x$target_values) == 2 ~
-            paste0("Målnivåer: ", x$target_values[1], "% (låg) ", x$target_values[2], "% (hög)")
+            paste0("Målnivåer: ", target_levels_extra_txt_sv, x$target_values[1], "% (låg) ", x$target_values[2], "% (hög)")
           )
         }
       ),
