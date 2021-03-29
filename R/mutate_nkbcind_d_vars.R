@@ -126,7 +126,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
     d_screening = factor(
       tidyr::replace_na(a_diag_screening_Varde, 99),
       levels = c(1, 0, 99),
-      labels = c("Screeningupptäckt", "Icke-screening", "Uppgift saknas")
+      labels = c("Screeningupptäckt", "Kliniskt upptäckt", "Uppgift saknas")
     ),
 
     # T
