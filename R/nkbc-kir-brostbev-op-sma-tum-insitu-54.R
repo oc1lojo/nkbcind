@@ -44,7 +44,6 @@ nkbc54 <- list(
   period_dat_var = "op_kir_dat",
   sjhkod_var = "op_inr_sjhkod",
   other_vars = "a_pat_alder",
-  other_vars_inca = c("a_pat_alder", "d_prim_beh"),
   om_indikatorn = list(
     sv = paste(
       "Ett bröstbevarande ingrepp och strålbehandling är standardingrepp för majoriteten av tidigt upptäckta bröstcancrar.",
