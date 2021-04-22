@@ -17,11 +17,17 @@ nkbc30 <- list(
     )
   },
   mutate_outcome = function(x, ...) {
-    dplyr::mutate(x,
-      # lastdate = lubridate::ymd(paste0(report_end_year, "-12-31")),
-      lastdate = lubridate::ymd(paste0(year(lubridate::today()) - 1, "-12-31")),
-      surv_time = lubridate::ymd(VITALSTATUSDATUM_ESTIMAT) - lubridate::ymd(a_diag_dat),
-      outcome = surv_time >= 365.25 * 5
+    dplyr::mutate(
+      x,
+      surv_time = lubridate::interval(a_diag_dat, VITALSTATUSDATUM_ESTIMAT) / lubridate::years(1),
+
+      # Dikotomt utfall för (naiv) skattning av överlevnadsfunktionen
+      outcome = dplyr::case_when(
+        surv_time > 5 ~ TRUE,
+        surv_time <= 5 & VITALSTATUS %in% 1 ~ FALSE,
+        surv_time <= 5 & VITALSTATUS %in% c(0, 2) ~ NA,
+        TRUE ~ NA
+      )
     )
   },
   sjhkod_var = "a_inr_sjhkod",
