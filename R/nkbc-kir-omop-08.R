@@ -28,7 +28,6 @@ nkbc08 <- list(
     dplyr::mutate(x,
       # Hantera missing
       outcome = ifelse(op_kir_sekbrost_Varde %in% c(0, 1), op_kir_sekbrost_Varde, NA),
-
       outcome = as.logical(!outcome)
     )
   },

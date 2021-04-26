@@ -31,7 +31,6 @@ nkbc20 <- list(
         as.Date(pre_endo_dat),
         na.rm = TRUE
       ),
-
       outcome = as.numeric(lubridate::ymd(d_pre_onk_dat) - lubridate::ymd(a_planbeh_infopatdat)),
       outcome = ifelse(outcome < 0, 0, outcome)
     )

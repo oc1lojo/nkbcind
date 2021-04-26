@@ -34,9 +34,7 @@ nkbc16 <- list(
         lubridate::ymd(pre_endo_dat),
         na.rm = TRUE
       ),
-
       outcome = as.numeric(lubridate::ymd(d_pre_onk_dat) - d_a_diag_misscadat),
-
       outcome = ifelse(outcome < 0, 0, outcome)
     )
   },

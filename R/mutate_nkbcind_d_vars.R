@@ -260,7 +260,6 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       right = FALSE,
       labels = c("1-3 metastases", "=> 4 metastases")
     ),
-
     d_pnstat =
       factor(
         dplyr::case_when(
@@ -279,7 +278,6 @@ mutate_nkbcind_d_vars <- function(x, ...) {
         ),
         levels = c("No (pN-)", "Yes (pN+)", "Missing")
       ),
-
     d_opans_sjhkod = dplyr::coalesce(
       op_inr_sjhkod,
       a_inr_sjhkod
@@ -324,11 +322,8 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       REGION_NAMN == "Region Norr" ~ 6L,
       TRUE ~ NA_integer_
     ),
-
     d_max_extent = pmax(op_pad_extentx, op_pad_extenty, na.rm = TRUE),
-
     d_kemo = as.logical(pmax(post_kemo_Varde, pre_kemo_Varde, na.rm = TRUE)),
-
     d_vitalstatus = factor(VITALSTATUS,
       levels = c(0, 1, 2),
       labels = c("Levande", "Avlidna", "Uppgift saknas")
