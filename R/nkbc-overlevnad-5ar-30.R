@@ -34,6 +34,11 @@ nkbc30 <- list(
   geo_units_vars = "region", # OBS Enbart redovisning på sjukvårdsregionsnivå
   other_vars = c("a_pat_alder", "d_invasiv", "d_trigrp"),
   other_vars_inca = c("a_pat_alder", "d_invasiv", "d_trigrp", "d_tstad", "d_nstad", "d_mstad"),
+  comment =
+    c(
+      sv = "Observera att analysen inte är justerad för skillnader i case-mix, socioekonomi, samsjuklighet etc.",
+      en = "Note that the analysis is not adjusted for differences in case mix, socioeconomics, comorbidity, etc."
+    ),
   om_indikatorn = list(
     sv = paste(
       "Total överlevnad betraktas som det viktigaste utfallsmåttet.",

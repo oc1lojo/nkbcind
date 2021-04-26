@@ -65,6 +65,9 @@ outcomeTitle <- function(x, locale, ...) UseMethod("outcomeTitle")
 textBeforeSubtitle <- function(x, locale, ...) UseMethod("textBeforeSubtitle")
 
 #' @export
+comment <- function(x, locale, ...) UseMethod("comment")
+
+#' @export
 description <- function(x, report_end_year, locale, ...) UseMethod("description")
 
 #' @export
@@ -163,6 +166,15 @@ textBeforeSubtitle.nkbcind <- function(x, locale = "sv", ...) {
     sv = paste0("Bland ", pop_short(x)["sv"], "."),
     en = paste0("Among ", pop_short(x)["en"], ".")
   )[locale]
+}
+
+#' @export
+comment.nkbcind <- function(x, locale = "sv", ...) {
+  if (!is.null(x$comment)) {
+    x$comment[locale]
+  } else {
+    ""
+  }
 }
 
 #' @export
