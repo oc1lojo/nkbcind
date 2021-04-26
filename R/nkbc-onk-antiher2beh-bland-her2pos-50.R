@@ -1,9 +1,9 @@
 #' @export
 nkbc50 <- list(
   code = "nkbc50",
-  kortnamn = "nkbc_onk_antikroppbeh_bland_her2pos_50",
+  kortnamn = "nkbc_onk_antiher2beh_bland_her2pos_50",
   lab = c(
-    sv = "Antikroppsbehandling"
+    sv = "Anti-HER2-riktad behandling"
   ),
   pop = c(
     sv = "opererade HER2-positiva invasiva fall utan fjärrmetastaser vid diagnos"
@@ -44,11 +44,11 @@ nkbc50 <- list(
   om_indikatorn = list(
     sv = paste(
       "Vid HER2-positiv invasiv bröstcancer rekommenderas behandling med monoklonal antikropp riktad mot de Her2-receptorer som då finns i ökad mängd på tumörcellernas yta.",
-      "Som regel ges antikroppsbehandlingen i kombination med cytostatika, under förutsättning att patienten kan tolerera det sistnämnda."
+      "Som regel ges anti-HER2-riktad behandlingen i kombination med cytostatika, under förutsättning att patienten kan tolerera det sistnämnda."
     )
   ),
   vid_tolkning = list(
-    sv = "Både preoperativ och postoperativ antikroppsbehandling är medtaget i beräkningen."
+    sv = "Både preoperativ och postoperativ anti-HER2-riktad behandling är medtaget i beräkningen."
   ),
   inkl_beskr_onk_beh = TRUE,
   teknisk_beskrivning = NULL
