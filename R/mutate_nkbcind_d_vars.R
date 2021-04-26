@@ -112,12 +112,12 @@ mutate_nkbcind_d_vars <- function(x, ...) {
 
     # Biologisk subtyp
     d_trigrp = factor(
-      d_trigrp_Varde,
+      tidyr::replace_na(d_trigrp_Varde, 99),
       levels = c(3, 2, 1, 99),
       labels = c("Trippel negativ", "HER2-positiv", "Luminal", "Uppgift saknas")
     ),
     d_trigrp_en = factor(
-      d_trigrp_Varde,
+      tidyr::replace_na(d_trigrp_Varde, 99),
       levels = c(3, 2, 1, 99),
       labels = c("Triple negative", "HER2 positive", "Luminal", "Missing")
     ),
