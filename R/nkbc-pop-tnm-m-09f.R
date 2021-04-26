@@ -26,8 +26,7 @@ nkbc09f <- list(
     )
   },
   sjhkod_var = "a_inr_sjhkod",
-  other_vars = "a_pat_alder",
-  other_vars_inca = c("a_pat_alder", "d_screening"),
+  other_vars = c("a_pat_alder", "d_screening"),
   om_indikatorn = list(
     sv = "Fjärrmetastas vid diagnos definieras som fjärrmetastaserande sjukdom diagnosticerad inom 3 månader från bröstcancerdiagnos (cytdatum).",
     en = "Distant metastasis at diagnosis is defined as distant metastatic disease diagnosed within 3 months of breast cancer diagnosis (cytology/biopsy date)."
