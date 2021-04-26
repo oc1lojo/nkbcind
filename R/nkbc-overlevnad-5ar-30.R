@@ -44,13 +44,13 @@ nkbc30 <- list(
       "Total överlevnad betraktas som det viktigaste utfallsmåttet.",
       "Dödsorsakerna kan vara andra än bröstcancer.",
       "Observerad 5-årsöverlevnad anger de bröstcancerfall som överlevt 5 år efter diagnos.",
-      "Observera att analysen inte är justerad för skillnader i case-mix."
+      "Observera att analysen inte är justerad för skillnader i case-mix, socioeconomics, comorbidity, etc."
     ),
     en = paste(
       "Overall survival is considered the most important outcome measure.",
       "The causes of death can be other than breast cancer.",
       "Observed 5-year survival indicates the breast cancer cases that survived 5 years after diagnosis.",
-      "Note that the analysis is not adjusted for differences in case mix."
+      "Note that the analysis is not adjusted for differences in case mix, socioeconomics, comorbidity, etc."
     )
   ),
   vid_tolkning = NULL,

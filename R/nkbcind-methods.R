@@ -230,7 +230,7 @@ description.nkbcind <- function(x, report_end_year = report_end_year, locale = "
             )
           },
           if (!is.null(x$inkl_beskr_overlevnad_5ar) && x$inkl_beskr_overlevnad_5ar == TRUE) {
-            paste0("Uppgifter som rör 5-årsöverlevnad redovisas enbart t.o.m. ", report_end_year - 5, ".")
+            paste0("Uppgifter som rör 5-årsöverlevnad redovisas t.o.m. diagnosår ", report_end_year - 5, ".")
           },
           paste(
             "Ett fall per bröst kan rapporterats till Nationellt kvalitetsregister för bröstcancer (NKBC).",
@@ -308,7 +308,7 @@ description.nkbcind <- function(x, report_end_year = report_end_year, locale = "
             )
           },
           if (!is.null(x$inkl_beskr_overlevnad_5ar) && x$inkl_beskr_overlevnad_5ar == TRUE) {
-            paste0("Information relating to 5-year survival is presented only up to ", report_end_year - 5, ".")
+            paste0("Information relating to 5-year survival is presented up to diagnosis year ", report_end_year - 5, ".")
           },
           paste(
             "One case per breast can be reported to the National Quality Registry for Breast Cancer (NKBC).",
