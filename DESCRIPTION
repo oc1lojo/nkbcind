@@ -20,7 +20,6 @@ Imports:
     forcats,
     lubridate,
     stringr,
-    tibble,
     tidyr
 Suggests:
     knitr,
