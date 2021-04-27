@@ -309,9 +309,6 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       TRUE ~ NA_integer_
     ),
 
-    # Patientens hemortslän vid diagnos
-    d_pat_lkfdia_lan = decoder::decode(a_pat_lkfdia, "lan"),
-
     # LKF-region för att imputera om region för sjukhus saknas
     d_region_lkf = dplyr::case_when(
       REGION_NAMN == "Region Sthlm/Gotland" ~ 1L,
