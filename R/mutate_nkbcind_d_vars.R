@@ -2,6 +2,13 @@
 mutate_nkbcind_d_vars <- function(x, ...) {
   dplyr::mutate(x,
 
+    # Upptäckssätt
+    d_screening = factor(
+      tidyr::replace_na(a_diag_screening_Varde, 99),
+      levels = c(1, 0, 99),
+      labels = c("Screeningupptäckt", "Kliniskt upptäckt", "Uppgift saknas")
+    ),
+
     # Primär behandling
     d_prim_beh = factor(
       tidyr::replace_na(d_prim_beh_Varde, 99),
@@ -110,6 +117,20 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       labels = c("Positive", "Negative", "Missing")
     ),
 
+    # HER2 IHC
+    d_her2ihc_Varde = dplyr::case_when(
+      d_prim_beh_Varde == 1 ~ op_pad_her2_Varde,
+      d_prim_beh_Varde %in% c(2, 3) ~ a_pad_her2_Varde,
+      TRUE ~ NA_integer_
+    ),
+
+    # HER2 ISH
+    d_her2ish_Varde = dplyr::case_when(
+      d_prim_beh_Varde == 1 ~ op_pad_her2ish_Varde,
+      d_prim_beh_Varde %in% c(2, 3) ~ a_pad_her2ish_Varde,
+      TRUE ~ NA_integer_
+    ),
+
     # Biologisk subtyp
     d_trigrp = factor(
       tidyr::replace_na(d_trigrp_Varde, 99),
@@ -122,14 +143,14 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       labels = c("Triple negative", "HER2 positive", "Luminal", "Missing")
     ),
 
-    # Upptäckssätt
-    d_screening = factor(
-      tidyr::replace_na(a_diag_screening_Varde, 99),
-      levels = c(1, 0, 99),
-      labels = c("Screeningupptäckt", "Kliniskt upptäckt", "Uppgift saknas")
+    # Ki67
+    d_pad_ki67proc = dplyr::case_when(
+      d_prim_beh_Varde == 1 ~ op_pad_ki67proc,
+      d_prim_beh_Varde %in% c(2, 3) ~ a_pad_ki67proc,
+      TRUE ~ NA_integer_
     ),
 
-    # T
+    # Klinisk T-stadium (TNM), dikotomiserad
     d_tstad = factor(
       dplyr::case_when(
         a_tnm_tklass_Varde == 0 ~ 1,
@@ -167,7 +188,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       labels = c("<=20mm (T0/Tis/T1)", ">20mm (T2-T4)", "Missing")
     ),
 
-    # N
+    # Klinisk N-stadium (TNM), dikotomiserad
     d_nstad = factor(
       dplyr::case_when(
         a_tnm_nklass_Varde == 0 ~ 1,
@@ -195,7 +216,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       labels = c("No (cN-)", "Yes (cN+)", "Missing")
     ),
 
-    # M
+    # Klinisk M-stadium (TNM)
     d_mstad = factor(
       dplyr::case_when(
         a_tnm_mklass_Varde == 0 ~ 1,
@@ -249,17 +270,10 @@ mutate_nkbcind_d_vars <- function(x, ...) {
     ) %>%
       forcats::fct_explicit_na(na_level = "Missing"),
 
-    # pN
-    d_pn = cut(op_pad_lglmetant, c(1, 4, 100),
-      include.lowest = TRUE,
-      right = FALSE,
-      labels = c("1-3 metastaser", "=> 4 metastaser")
-    ),
-    d_pn_en = cut(op_pad_lglmetant, c(1, 4, 100),
-      include.lowest = TRUE,
-      right = FALSE,
-      labels = c("1-3 metastases", "=> 4 metastases")
-    ),
+    # Max extent
+    d_max_extent = pmax(op_pad_extentx, op_pad_extenty, na.rm = TRUE),
+
+    # Patologisk N-stadium
     d_pnstat =
       factor(
         dplyr::case_when(
@@ -278,11 +292,44 @@ mutate_nkbcind_d_vars <- function(x, ...) {
         ),
         levels = c("No (pN-)", "Yes (pN+)", "Missing")
       ),
+    d_pn = cut(op_pad_lglmetant, c(1, 4, 100),
+      include.lowest = TRUE,
+      right = FALSE,
+      labels = c("1-3 metastaser", "=> 4 metastaser")
+    ),
+    d_pn_en = cut(op_pad_lglmetant, c(1, 4, 100),
+      include.lowest = TRUE,
+      right = FALSE,
+      labels = c("1-3 metastases", "=> 4 metastases")
+    ),
+
+    # Opererande sjukhus, och om detta saknas, anmälande sjukhus
     d_opans_sjhkod = dplyr::coalesce(
       op_inr_sjhkod,
       a_inr_sjhkod
     ),
-    # fix 1.sjukhus ansvarigt för rapportering av onkologisk behandling/2.onkologiskt sjukhus/3.anmälande sjukhus
+
+    # Opererande sjukhus för primärt opererade fall, annars anmälande sjukhus
+    d_pat_sjhkod = dplyr::case_when(
+      d_prim_beh_Varde == 1 ~ op_inr_sjhkod,
+      d_prim_beh_Varde %in% c(2, 3) ~ a_inr_sjhkod,
+      TRUE ~ NA_integer_
+    ),
+
+    # Sjukhus ansvarigt för primär behandling
+    d_prim_beh_sjhkod = dplyr::case_when(
+      d_prim_beh_Varde == 1 ~ op_inr_sjhkod,
+      d_prim_beh_Varde == 2 ~ pre_inr_sjhkod,
+      TRUE ~ NA_integer_
+    ),
+
+    # Sjukhus där onkologisk behandling ges
+    d_onk_sjhkod = dplyr::coalesce(
+      post_inr_sjhkod,
+      pre_inr_sjhkod
+    ),
+
+    # Rapporterande sjukhus där onkologisk behandling ges, och om detta saknas, sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus
     d_onkpostans_sjhkod = dplyr::coalesce(
       post_inr_sjhkod,
       op_onk_sjhkod,
@@ -297,17 +344,9 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       a_onk_sjhkod,
       a_inr_sjhkod
     ),
-    # fix 1) post onk sjukhus 2) pre onk sjukhus
-    d_onk_sjhkod = dplyr::coalesce(
-      post_inr_sjhkod,
-      pre_inr_sjhkod
-    ),
-    # Sjukhus ansvarig för primär behandling
-    d_prim_beh_sjhkod = dplyr::case_when(
-      d_prim_beh_Varde == 1 ~ op_inr_sjhkod,
-      d_prim_beh_Varde == 2 ~ pre_inr_sjhkod,
-      TRUE ~ NA_integer_
-    ),
+
+    # Kemoterapi
+    d_kemo = as.logical(pmax(post_kemo_Varde, pre_kemo_Varde, na.rm = TRUE)),
 
     # LKF-region för att imputera om region för sjukhus saknas
     d_region_lkf = dplyr::case_when(
@@ -319,8 +358,8 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       REGION_NAMN == "Region Norr" ~ 6L,
       TRUE ~ NA_integer_
     ),
-    d_max_extent = pmax(op_pad_extentx, op_pad_extenty, na.rm = TRUE),
-    d_kemo = as.logical(pmax(post_kemo_Varde, pre_kemo_Varde, na.rm = TRUE)),
+
+    # Vitalstatus
     d_vitalstatus = factor(VITALSTATUS,
       levels = c(0, 1, 2),
       labels = c("Levande", "Avlidna", "Uppgift saknas")
@@ -328,34 +367,6 @@ mutate_nkbcind_d_vars <- function(x, ...) {
     d_vitalstatus_en = factor(VITALSTATUS,
       levels = c(0, 1, 2),
       labels = c("Alive", "Diseased", "Missing")
-    ),
-
-    # Opererande sjukhus vid primär operation, annars anmälande sjukhus
-    d_pat_sjhkod = dplyr::case_when(
-      d_prim_beh_Varde == 1 ~ op_inr_sjhkod,
-      d_prim_beh_Varde %in% c(2, 3) ~ a_inr_sjhkod,
-      TRUE ~ NA_integer_
-    ),
-
-    # HER2 IHC
-    d_her2ihc_Varde = dplyr::case_when(
-      d_prim_beh_Varde == 1 ~ op_pad_her2_Varde,
-      d_prim_beh_Varde %in% c(2, 3) ~ a_pad_her2_Varde,
-      TRUE ~ NA_integer_
-    ),
-
-    # HER2 ISH
-    d_her2ish_Varde = dplyr::case_when(
-      d_prim_beh_Varde == 1 ~ op_pad_her2ish_Varde,
-      d_prim_beh_Varde %in% c(2, 3) ~ a_pad_her2ish_Varde,
-      TRUE ~ NA_integer_
-    ),
-
-    # Ki67
-    d_pad_ki67proc = dplyr::case_when(
-      d_prim_beh_Varde == 1 ~ op_pad_ki67proc,
-      d_prim_beh_Varde %in% c(2, 3) ~ a_pad_ki67proc,
-      TRUE ~ NA_integer_
     )
   )
 }
