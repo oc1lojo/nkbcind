@@ -24,7 +24,6 @@ BugReports: https://bitbucket.org/cancercentrum/nkbcind/issues
 Depends:
     R (>= 3.0.0)
 Imports:
-    decoder,
     dplyr,
     forcats,
     lubridate,
