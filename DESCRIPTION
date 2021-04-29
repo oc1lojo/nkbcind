@@ -1,7 +1,5 @@
-Type: Package
 Package: nkbcind
-Title: Verktyg för kvalitetsindikatorer och populationskarakteristik från
-    NKBC
+Title: Verktyg för kvalitetsindikatorer och populationskarakteristik från NKBC
 Version: 0.8.1.9000
 Authors@R: 
     c(person(given = "John",
@@ -15,8 +13,8 @@ Authors@R:
              comment = c(ORCID = "0000-0002-5393-0055")),
       person(given = "RCC",
              role = c("cph", "fnd")))
-Description: Verktyg för kvalitetsindikatorer och populationskarakteristik
-    från Nationellt kvalitetsregister för bröstcancer (NKBC).
+Description: Verktyg för kvalitetsindikatorer och populationskarakteristik från
+    Nationellt kvalitetsregister för bröstcancer (NKBC).
 License: GPL-3
 URL: https://cancercentrum.bitbucket.io/nkbcind/,
     http://bitbucket.org/cancercentrum/nkbcind
