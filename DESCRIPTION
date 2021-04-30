@@ -1,6 +1,6 @@
 Package: nkbcind
 Title: Verktyg för kvalitetsindikatorer och populationskarakteristik från NKBC
-Version: 0.8.1.9000
+Version: 0.9.0
 Authors@R: 
     c(person(given = "John",
              family = "Lövrot",
