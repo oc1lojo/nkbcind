@@ -81,7 +81,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       labels = c("Grade 1", "Grade 2", "Grade 3", "Missing")
     ),
 
-    # ER
+    # ER-status
     d_er = factor(
       tidyr::replace_na(d_er_Varde, 99),
       levels = c(1, 2, 99),
@@ -93,7 +93,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       labels = c("Positive", "Negative", "Missing")
     ),
 
-    # PR
+    # PgR-status
     d_pr = factor(
       tidyr::replace_na(d_pr_Varde, 99),
       levels = c(1, 2, 99),
@@ -105,7 +105,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       labels = c("Positive", "Negative", "Missing")
     ),
 
-    # HER2
+    # HER2-status
     d_her2 = factor(
       tidyr::replace_na(d_her2_Varde, 99),
       levels = c(1, 2, 99),
@@ -240,7 +240,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       labels = c("No (M0)", "Yes (M1)", "Missing")
     ),
 
-    # Tumörstorlek vid operation, kategorier
+    # Tumörstorlek vid (primär) operation, kategorier
     d_op_pad_invstl_kat =
       cut(
         dplyr::if_else(d_prim_beh_Varde %in% 1, op_pad_invstl, NA_integer_),
@@ -256,7 +256,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       ) %>%
         forcats::fct_explicit_na(na_level = "Missing"),
 
-    # Tumörstorlek vid operation, dikotomiserad med brytpunkt 10 mm
+    # Tumörstorlek vid (primär) operation, dikotomiserad med brytpunkt 10 mm
     d_op_pad_invstl_diko10 = cut(
       dplyr::if_else(d_prim_beh_Varde %in% 1, op_pad_invstl, NA_integer_),
       breaks = c(-Inf, 10, Inf),
