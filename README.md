@@ -1,5 +1,6 @@
 # nkbcind
 
+[![R-CMD-check](https://github.com/oc1lojo/nkbcind/workflows/R-CMD-check/badge.svg)](https://github.com/oc1lojo/nkbcind/actions)
 [![Build
 status](https://ci.appveyor.com/api/projects/status/ebayuxjb2vr1u2vw/branch/master?svg=true)](https://ci.appveyor.com/project/oc1lojo/nkbcind/branch/master)
 

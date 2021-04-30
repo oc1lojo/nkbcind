@@ -27,7 +27,8 @@ nkbc09g <- list(
     )
   },
   sjhkod_var = "op_inr_sjhkod",
-  other_vars = c("a_pat_alder", "d_invasiv"),
+  other_vars = c("a_pat_alder", "d_screening", "d_invasiv"),
+  other_vars_inca = c("a_pat_alder", "d_screening", "d_invasiv", "d_prim_beh"),
   om_indikatorn = list(
     sv = paste(
       "Kännedom om tumörspridning till armhålans lymfkörtlar ger prognostisk information inför val av postoperativ onkologisk behandling.",

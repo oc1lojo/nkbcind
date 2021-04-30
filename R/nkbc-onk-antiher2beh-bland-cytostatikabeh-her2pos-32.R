@@ -1,13 +1,13 @@
 #' @export
 nkbc32 <- list(
   code = "nkbc32",
-  kortnamn = "nkbc_onk_antikroppbeh_bland_cytostatikabeh_her2pos_32",
+  kortnamn = "nkbc_onk_antiher2beh_bland_cytostatikabeh_her2pos_32",
   lab = c(
-    sv = "Antikroppsbehandling",
+    sv = "Anti-HER2-riktad behandling",
     en = "Anti-HER2 treatment"
   ),
   lab_short_w_pop = c(
-    sv = "Antikroppsbehandling bland cytostatikabehandlade",
+    sv = "Anti-HER2-riktad behandling bland cytostatikabehandlade",
     en = "Anti-HER2 treatment mong chemotherapy-treated"
   ),
   pop = c(
@@ -52,11 +52,11 @@ nkbc32 <- list(
   other_vars = "a_pat_alder",
   other_vars_inca = c("a_pat_alder", "d_pnstat", "d_er"),
   om_indikatorn = list(
-    sv = "Vid HER2-positiv invasiv bröstcancer rekommenderas antikroppsbehandling i kombination med cytostatika, under förutsättning att patienten kan tolerera det sistnämnda.",
+    sv = "Vid HER2-positiv invasiv bröstcancer rekommenderas anti-HER2-riktad behandling i kombination med cytostatika, under förutsättning att patienten kan tolerera det sistnämnda.",
     en = "In HER2 positive invasive breast cancer, anti-HER2 treatment in combination with chemotherapy is recommended, provided that the patient can tolerate the latter."
   ),
   vid_tolkning = list(
-    sv = "Både preoperativ och postoperativ antikropps- och cytostatikabehandling är medtaget i beräkningen.",
+    sv = "Både preoperativ och postoperativ anti-HER2-riktad och cytostatikabehandling är medtaget i beräkningen.",
     en = "Both preoperative and postoperative anti-HER2 treatment/chemotherapy are included in the calculation."
   ),
   inkl_beskr_onk_beh = TRUE,

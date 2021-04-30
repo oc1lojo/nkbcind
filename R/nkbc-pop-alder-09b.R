@@ -25,7 +25,7 @@ nkbc09b <- list(
   prop_within_unit = c("år", "years"),
   prop_within_value = 65,
   sjhkod_var = "a_inr_sjhkod",
-  other_vars = "d_invasiv",
+  other_vars = c("d_screening", "d_invasiv"),
   om_indikatorn = list(
     sv = "Bröstcancer förekommer i alla åldrar, men är vanligare i hög ålder.",
     en = "Breast cancer occurs at all ages but is more common in old age."

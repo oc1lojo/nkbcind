@@ -24,7 +24,6 @@ nkbc19 <- list(
   mutate_outcome = function(x, ...) {
     dplyr::mutate(x,
       outcome = as.numeric(lubridate::ymd(op_kir_dat) - lubridate::ymd(a_planbeh_infopatdat)),
-
       outcome = ifelse(outcome < 0, 0, outcome)
     )
   },

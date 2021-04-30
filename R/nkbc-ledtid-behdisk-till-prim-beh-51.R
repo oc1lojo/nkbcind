@@ -34,7 +34,6 @@ nkbc51 <- list(
         TRUE ~ lubridate::ymd(NA_character_)
       ),
       outcome = as.numeric(d_prim_beh_dat - lubridate::ymd(a_planbeh_infopatdat)),
-
       outcome = ifelse(outcome < 0, 0, outcome)
     )
   },

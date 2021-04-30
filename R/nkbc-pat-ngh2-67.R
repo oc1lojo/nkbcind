@@ -19,7 +19,6 @@ nkbc67 <- list(
       x,
       # Endast invasiv cancer
       d_invasiv_Varde %in% 1,
-
       d_prim_beh_Varde %in% 1,
 
 

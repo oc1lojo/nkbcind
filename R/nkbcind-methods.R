@@ -65,6 +65,9 @@ outcomeTitle <- function(x, locale, ...) UseMethod("outcomeTitle")
 textBeforeSubtitle <- function(x, locale, ...) UseMethod("textBeforeSubtitle")
 
 #' @export
+comment <- function(x, locale, ...) UseMethod("comment")
+
+#' @export
 description <- function(x, report_end_year, locale, ...) UseMethod("description")
 
 #' @export
@@ -166,17 +169,26 @@ textBeforeSubtitle.nkbcind <- function(x, locale = "sv", ...) {
 }
 
 #' @export
+comment.nkbcind <- function(x, locale = "sv", ...) {
+  if (!is.null(x$comment)) {
+    x$comment[locale]
+  } else {
+    ""
+  }
+}
+
+#' @export
 description.nkbcind <- function(x, report_end_year = report_end_year, locale = "sv", ...) {
   # Lägga till "(andel inom ... dagar)" för kontinuerliga variabler
   if (!is.null(prop_within_value(x))) {
-    target_levels_extra_txt_sv <- paste("Andel inom", prop_within_value(x), ifelse(!is.null(prop_within_unit(x)), prop_within_unit(x), "dagar"))
+    target_levels_extra_txt_sv <- paste0("Andel inom ", prop_within_value(x), " ", ifelse(!is.null(prop_within_unit(x)), prop_within_unit(x), "dagar"), " ")
   } else {
     target_levels_extra_txt_sv <- NULL
   }
 
   # Lägga till "for proportion within ... days)" för kontinuerliga variabler
   if (!is.null(prop_within_value(x))) {
-    target_levels_extra_txt_en <- paste("Proportion within", prop_within_value(x), "days")
+    target_levels_extra_txt_en <- paste0("Proportion within ", prop_within_value(x), " days ")
   } else {
     target_levels_extra_txt_en <- NULL
   }
@@ -218,7 +230,10 @@ description.nkbcind <- function(x, report_end_year = report_end_year, locale = "
             )
           },
           if (!is.null(x$inkl_beskr_overlevnad_5ar) && x$inkl_beskr_overlevnad_5ar == TRUE) {
-            paste0("Uppgifter som rör 5-årsöverlevnad redovisas enbart t.o.m. ", report_end_year - 5, ".")
+            paste0("Uppgifter som rör 5-årsöverlevnad redovisas t.o.m. diagnosår ", report_end_year - 5, ".")
+          },
+          if (!is.null(x$inkl_beskr_overlevnad_10ar) && x$inkl_beskr_overlevnad_10ar == TRUE) {
+            paste0("Uppgifter som rör 10-årsöverlevnad redovisas t.o.m. diagnosår ", report_end_year - 10, ".")
           },
           paste(
             "Ett fall per bröst kan rapporterats till Nationellt kvalitetsregister för bröstcancer (NKBC).",
@@ -296,7 +311,10 @@ description.nkbcind <- function(x, report_end_year = report_end_year, locale = "
             )
           },
           if (!is.null(x$inkl_beskr_overlevnad_5ar) && x$inkl_beskr_overlevnad_5ar == TRUE) {
-            paste0("Information relating to 5-year survival is presented only up to ", report_end_year - 5, ".")
+            paste0("Information relating to 5-year survival is presented up to diagnosis year ", report_end_year - 5, ".")
+          },
+          if (!is.null(x$inkl_beskr_overlevnad_10ar) && x$inkl_beskr_overlevnad_10ar == TRUE) {
+            paste0("Information relating to 10-year survival is presented up to diagnosis year ", report_end_year - 10, ".")
           },
           paste(
             "One case per breast can be reported to the National Quality Registry for Breast Cancer (NKBC).",
@@ -427,6 +445,13 @@ description.nkbc33 <- function(x, report_end_year = report_end_year, locale = "s
 
 #' @export
 description_inca.nkbcind <- function(x, ...) {
+  # Lägga till "(andel inom ... dagar)" för kontinuerliga variabler
+  if (!is.null(prop_within_value(x))) {
+    target_levels_extra_txt_sv <- paste0("Andel inom ", prop_within_value(x), " ", ifelse(!is.null(prop_within_unit(x)), prop_within_unit(x), "dagar"), " ")
+  } else {
+    target_levels_extra_txt_sv <- NULL
+  }
+
   c(
     # Om indikatorn
     paste(
@@ -435,9 +460,9 @@ description_inca.nkbcind <- function(x, ...) {
         if (!is.null(x$target_values)) {
           dplyr::case_when(
             length(x$target_values) == 1 ~
-            paste0("Målnivå: ", x$target_values[1], "%"),
+            paste0("Målnivå: ", target_levels_extra_txt_sv, x$target_values[1], "%"),
             length(x$target_values) == 2 ~
-            paste0("Målnivåer: ", x$target_values[1], "% (låg) ", x$target_values[2], "% (hög)")
+            paste0("Målnivåer: ", target_levels_extra_txt_sv, x$target_values[1], "% (låg) ", x$target_values[2], "% (hög)")
           )
         }
       ),

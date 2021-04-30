@@ -17,6 +17,10 @@ varbesk_other_vars <-
       sv = "Tumörstorlek",
       en = "Tumour size"
     ),
+    d_screening = c(
+      sv = "Upptäckssätt",
+      en = "Detection"
+    ),
     d_tstad = c(
       sv = "Tumörstorlek",
       en =  "Tumour size"
@@ -56,6 +60,14 @@ varbesk_other_vars <-
     d_er = c(
       sv = "Östrogenreceptor (ER)",
       en = "Oestrogen receptor (ER)"
+    ),
+    d_pr = c(
+      sv = "Progesteronreceptor (PR)",
+      en = "Progesterone receptor (PR)"
+    ),
+    d_her2 = c(
+      sv = "HER2-status",
+      en = "HER2 status"
     ),
     d_trigrp = c(
       sv = "Biologisk subtyp",

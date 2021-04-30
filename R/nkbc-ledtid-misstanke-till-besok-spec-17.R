@@ -21,7 +21,6 @@ nkbc17 <- list(
     dplyr::mutate(x,
       d_a_diag_misscadat = lubridate::ymd(coalesce(a_diag_misscadat, a_diag_kontdat)),
       outcome = as.numeric(lubridate::ymd(a_diag_besdat) - d_a_diag_misscadat),
-
       outcome = ifelse(outcome < 0, 0, outcome)
     )
   },
