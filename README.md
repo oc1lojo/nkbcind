@@ -51,20 +51,92 @@ remotes::install_bitbucket("cancercentrum/nkbcind")
 ``` {.r}
 library(dplyr)
 library(tidyr)
+library(stringr)
 library(lubridate)
-library(nkbcgeneral) # https://cancercentrum.bitbucket.io/nkbcgeneral/
-library(nkbcind) # https://cancercentrum.bitbucket.io/nkbcind/
+library(nkbcgeneral)
+library(nkbcind)
 ```
 
-TODO Lägg till exempel.
+Läs in ögonblicksbild av NKBC exporterad från INCA.
 
-Tills vidare:
+``` {.r}
+load(
+  file.path(Sys.getenv("BRCA_DATA_DIR"), "2021-05-04", "nkbc_nat_avid 2021-05-04 08-25-25.RData")
+)
+```
 
--   För att skapa en interaktiv rapport så börjar jag alltså med allmän
-    bearbetning av NKBC-data för att sedan skapa själva
-    Shiny-webbapplikationerna,
-    <https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny/src/develop/main.R>
--   ...som använder definitionen (här nkbc01 som exempel)
-    <https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbc-diag-screening-01.R>
--   ...och metoderna\
-    <https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbcind-methods.R>
+Generell förbearbetning av NKBC-data.
+
+``` {.r}
+df_main <- df %>%
+  mutate(across(where(is.factor), as.character)) %>%
+  rename_with(
+    str_replace, ends_with("_Värde"),
+    pattern = "_Värde", replacement = "_Varde"
+  ) %>%
+  nkbcgeneral::clean_nkbc_data() %>%
+  nkbcgeneral::mutate_nkbc_d_vars() %>%
+  mutate(period = lubridate::year(a_diag_dat)) %>%
+  filter(period %in% 2008:2020)
+```
+
+### Exempel: Screeningupptäckt bröstcancer
+
+``` {.r}
+outcomeTitle(nkbc01)
+#> $sv
+#> [1] "Screeningupptäckt bröstcancer"
+textBeforeSubtitle(nkbc01)
+#>                                               sv 
+#> "Bland kvinnor i åldrarna 40–74 år vid diagnos."
+```
+
+Specifik databearbetning för kvalitetsindikatorn "Screeningupptäckt
+bröstcancer" (nkbc01).
+
+``` {.r}
+df_tmp <- df_main %>%
+  filter_pop(nkbc01)() %>%
+  mutate_outcome(nkbc01)()
+```
+
+Titta på bearbeatad data.
+
+``` {.r}
+df_tmp %>%
+  mutate(across(any_of("KON_VALUE"), as.factor)) %>%
+  mutate(across(ends_with("_Varde"), as.factor)) %>%
+  select(KON_VALUE, a_pat_alder, a_diag_screening_Varde, outcome) %>%
+  summary()
+#>  KON_VALUE  a_pat_alder    a_diag_screening_Varde  outcome       
+#>  2:83651   Min.   :40.00   0   :31327             Mode :logical  
+#>            1st Qu.:52.00   1   :51996             FALSE:31327    
+#>            Median :62.00   98  :  230             TRUE :51996    
+#>            Mean   :59.98   NA's:   98             NA's :328      
+#>            3rd Qu.:68.00                                         
+#>            Max.   :74.00
+```
+
+``` {.r}
+df_tmp %>%
+  select(period, outcome) %>%
+  table(useNA = "ifany")
+#>       outcome
+#> period FALSE TRUE <NA>
+#>   2008  2551 3124   37
+#>   2009  2428 3243   39
+#>   2010  2389 3832   45
+#>   2011  2529 3917   32
+#>   2012  2337 4091   27
+#>   2013  2352 4265   36
+#>   2014  2399 4355   42
+#>   2015  2380 4205   19
+#>   2016  2392 4098   16
+#>   2017  2367 4394   10
+#>   2018  2355 4259    9
+#>   2019  2477 4454    6
+#>   2020  2371 3759   10
+```
+
+Jfr <https://statistik.incanet.se/brostcancer/> \> Diagnostik \>
+Screeningupptäckt bröstcancer
