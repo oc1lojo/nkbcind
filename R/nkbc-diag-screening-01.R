@@ -7,8 +7,8 @@ nkbc01 <- list(
     en = "Screening-detected breast cancer"
   ),
   pop = c(
-    sv = "kvinnor i åldrarna 40–74 år vid diagnos",
-    en = "women aged 40–74 years at diagnosis"
+    sv = "kvinnliga fall i åldrarna 40–74 år vid diagnos",
+    en = "femal cases aged 40–74 years at diagnosis"
   ),
   filter_pop = function(x, ...) {
     dplyr::filter(
