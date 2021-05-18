@@ -87,7 +87,7 @@ Jämför med generell förbearbetning i utdata-kanalerna
 -   NKBC onlinerapporter innanför inloggning på INCA
     -   <https://bitbucket.org/cancercentrum/nkbc-onlinerapporter/src/2021-04-27/d_nkbc_nat_avid.R#lines-28>
 -   NKBC Koll på läget (KPL)
-    -   <https://bitbucket.org/cancercentrum/nkbc-kpl/src/2021-04-06/nkbc_kpl_onk.R#lines-64>\
+    -   <https://bitbucket.org/cancercentrum/nkbc-kpl/src/2021-04-06/nkbc_kpl_omvkir.R#lines-64>\
         som använder cashat resultat av sub/basmallen d_nkbc_nat_avid,
         se ovan
 -   NKBC Vården i siffror
@@ -115,14 +115,14 @@ df_tmp <- df_main %>%
   mutate_outcome(nkbc01)()
 ```
 
-Jämför med generell förbearbetning i utdata-kanalerna
+Jämför med specifik databearbetning i utdata-kanalerna
 
 -   NKBC interaktiva årsrapport
     -   <https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny/src/2020.1/main.R#lines-147>
 -   NKBC onlinerapporter innanför inloggning på INCA
     -   <https://bitbucket.org/cancercentrum/nkbc-onlinerapporter/src/2021-04-27/nkbc-rccShiny-generisk-dm.R#lines-116>
 -   NKBC Koll på läget (KPL)
-    -   <https://bitbucket.org/cancercentrum/nkbc-kpl/src/2021-04-06/nkbc_kpl_onk.R#lines-153>
+    -   <https://bitbucket.org/cancercentrum/nkbc-kpl/src/2021-04-06/nkbc_kpl_omvkir.R#lines-130>
 -   NKBC Vården i siffror
     -   <https://bitbucket.org/cancercentrum/nkbc-vis/src/2021-03-31/nkbc_vis_diag_screening_01.R#lines-44>
 
