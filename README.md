@@ -87,8 +87,8 @@ outcomeTitle(nkbc01)
 #> $sv
 #> [1] "Screeningupptäckt bröstcancer"
 textBeforeSubtitle(nkbc01)
-#>                                               sv 
-#> "Bland kvinnor i åldrarna 40–74 år vid diagnos."
+#>                                                      sv 
+#> "Bland kvinnliga fall i åldrarna 40–74 år vid diagnos."
 ```
 
 Specifik databearbetning för kvalitetsindikatorn "Screeningupptäckt
