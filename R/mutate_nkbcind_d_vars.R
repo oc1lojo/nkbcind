@@ -345,6 +345,19 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       a_inr_sjhkod
     ),
 
+    # Sjukhus ansvarigt för rapportering av uppföljning, och om detta saknas,
+    # sjukhus för onkologisk behandling, sjukhus ansvarigt för rapportering av
+    # onkologisk behandling, opererande sjukhus, anmälande sjukhus
+    d_uppfans_sjhkod = dplyr::coalesce(
+      op_uppf_sjhkod,
+      a_uppf_sjhkod,
+      a_onk_sjhkod,
+      op_onk_sjhkod,
+      a_onk_rappsjhkod,
+      a_kir_sjhkod,
+      a_inr_sjhkod
+    ),
+
     # Kemoterapi
     d_kemo = as.logical(pmax(post_kemo_Varde, pre_kemo_Varde, na.rm = TRUE)),
 
