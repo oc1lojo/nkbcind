@@ -32,21 +32,31 @@ mutate_nkbcind_d_vars <- function(x, ...) {
     # Planerad åtgärd
     d_a_planbeh_typ = factor(
       tidyr::replace_na(a_planbeh_typ_Varde, 99),
-      levels = c(1, 2, 3, 99),
+      levels = c(1:8, 99),
       labels = c(
         "Primär operation",
         "Preoperativ onkologisk behandling eller konservativ behandling",
         "Ej operation eller fjärrmetastaser vid diagnos",
+        "Preoperativ onkologisk behandling, cytostatika + ev. annan behandling (operation planeras)",
+        "Preoperativ onkologisk behandling, endast endokrin terapi (operation planeras)",
+        "Konservativ behandling (oklart om operation blir aktuell/ operation planeras ej)",
+        "Fjärrmetastaserande sjukdom",
+        "Ingen behandling (patienten avböjt/ annat skäl)",
         "Uppgift saknas"
       )
     ),
     d_a_planbeh_typ_en = factor(
       tidyr::replace_na(a_planbeh_typ_Varde, 99),
-      levels = c(1, 2, 3, 99),
+      levels = c(1:8, 99),
       labels = c(
         "Primary surgery",
         "Preoperative oncological treatment or conservative treatment",
         "No surgery or distant metastasis at diagnosis",
+        "Preoperative oncological treatment, chemotherapy + any other treatment (surgery is planned)",
+        "Preoperative oncological treatment, endocrine treatment only (surgery is planned)",
+        "Conservative treatment (unclear if surgery becomes relevant/ surgery is not planned)",
+        "Metastatic disease",
+        "No treatment (patient declined/ other reason)",
         "Missing"
       )
     ),
