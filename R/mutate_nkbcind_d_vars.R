@@ -130,15 +130,13 @@ mutate_nkbcind_d_vars <- function(x, ...) {
     # HER2 IHC
     d_her2ihc_Varde = dplyr::case_when(
       d_prim_beh_Varde == 1 ~ op_pad_her2_Varde,
-      d_prim_beh_Varde %in% c(2, 3) ~ a_pad_her2_Varde,
-      TRUE ~ NA_integer_
+      d_prim_beh_Varde %in% c(2, 3) ~ a_pad_her2_Varde
     ),
 
     # HER2 ISH
     d_her2ish_Varde = dplyr::case_when(
       d_prim_beh_Varde == 1 ~ op_pad_her2ish_Varde,
-      d_prim_beh_Varde %in% c(2, 3) ~ a_pad_her2ish_Varde,
-      TRUE ~ NA_integer_
+      d_prim_beh_Varde %in% c(2, 3) ~ a_pad_her2ish_Varde
     ),
 
     # Biologisk subtyp
@@ -156,8 +154,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
     # Ki67
     d_pad_ki67proc = dplyr::case_when(
       d_prim_beh_Varde == 1 ~ op_pad_ki67proc,
-      d_prim_beh_Varde %in% c(2, 3) ~ a_pad_ki67proc,
-      TRUE ~ NA_integer_
+      d_prim_beh_Varde %in% c(2, 3) ~ a_pad_ki67proc
     ),
 
     # Klinisk T-stadium (TNM), dikotomiserad
@@ -173,8 +170,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
         a_tnm_tklass_Varde == 45 ~ 2,
         a_tnm_tklass_Varde == 46 ~ 2,
         a_tnm_tklass_Varde == 50 ~ 99,
-        is.na(a_tnm_tklass_Varde) ~ 99,
-        TRUE ~ NA_real_
+        is.na(a_tnm_tklass_Varde) ~ 99
       ),
       levels = c(1, 2, 99),
       labels = c("<=20mm (T0/Tis/T1)", ">20mm (T2-T4)", "Uppgift saknas")
@@ -191,8 +187,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
         a_tnm_tklass_Varde == 45 ~ 2,
         a_tnm_tklass_Varde == 46 ~ 2,
         a_tnm_tklass_Varde == 50 ~ 99,
-        is.na(a_tnm_tklass_Varde) ~ 99,
-        TRUE ~ NA_real_
+        is.na(a_tnm_tklass_Varde) ~ 99
       ),
       levels = c(1, 2, 99),
       labels = c("<=20mm (T0/Tis/T1)", ">20mm (T2-T4)", "Missing")
@@ -206,8 +201,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
         a_tnm_nklass_Varde == 20 ~ 2,
         a_tnm_nklass_Varde == 30 ~ 2,
         a_tnm_nklass_Varde == 40 ~ 99,
-        is.na(a_tnm_nklass_Varde) ~ 99,
-        TRUE ~ NA_real_
+        is.na(a_tnm_nklass_Varde) ~ 99
       ),
       levels = c(1, 2, 99),
       labels = c("Nej (cN-)", "Ja (cN+)", "Uppgift saknas")
@@ -219,8 +213,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
         a_tnm_nklass_Varde == 20 ~ 2,
         a_tnm_nklass_Varde == 30 ~ 2,
         a_tnm_nklass_Varde == 40 ~ 99,
-        is.na(a_tnm_nklass_Varde) ~ 99,
-        TRUE ~ NA_real_
+        is.na(a_tnm_nklass_Varde) ~ 99
       ),
       levels = c(1, 2, 99),
       labels = c("No (cN-)", "Yes (cN+)", "Missing")
@@ -232,8 +225,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
         a_tnm_mklass_Varde == 0 ~ 1,
         a_tnm_mklass_Varde == 10 ~ 2,
         a_tnm_mklass_Varde == 20 ~ 99,
-        is.na(a_tnm_mklass_Varde) ~ 99,
-        TRUE ~ NA_real_
+        is.na(a_tnm_mklass_Varde) ~ 99
       ),
       levels = c(1, 2, 99),
       labels = c("Nej (M0)", "Ja (M1)", "Uppgift saknas")
@@ -243,8 +235,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
         a_tnm_mklass_Varde == 0 ~ 1,
         a_tnm_mklass_Varde == 10 ~ 2,
         a_tnm_mklass_Varde == 20 ~ 99,
-        is.na(a_tnm_mklass_Varde) ~ 99,
-        TRUE ~ NA_real_
+        is.na(a_tnm_mklass_Varde) ~ 99
       ),
       levels = c(1, 2, 99),
       labels = c("No (M0)", "Yes (M1)", "Missing")
@@ -322,15 +313,13 @@ mutate_nkbcind_d_vars <- function(x, ...) {
     # Opererande sjukhus för primärt opererade fall, annars anmälande sjukhus
     d_pat_sjhkod = dplyr::case_when(
       d_prim_beh_Varde == 1 ~ op_inr_sjhkod,
-      d_prim_beh_Varde %in% c(2, 3) ~ a_inr_sjhkod,
-      TRUE ~ NA_integer_
+      d_prim_beh_Varde %in% c(2, 3) ~ a_inr_sjhkod
     ),
 
     # Sjukhus ansvarigt för primär behandling
     d_prim_beh_sjhkod = dplyr::case_when(
       d_prim_beh_Varde == 1 ~ op_inr_sjhkod,
-      d_prim_beh_Varde == 2 ~ pre_inr_sjhkod,
-      TRUE ~ NA_integer_
+      d_prim_beh_Varde == 2 ~ pre_inr_sjhkod
     ),
 
     # Sjukhus där onkologisk behandling ges
@@ -378,8 +367,7 @@ mutate_nkbcind_d_vars <- function(x, ...) {
       REGION_NAMN == "Region Sydöstra" ~ 3L,
       REGION_NAMN == "Region Syd" ~ 4L,
       REGION_NAMN == "Region Väst" ~ 5L,
-      REGION_NAMN == "Region Norr" ~ 6L,
-      TRUE ~ NA_integer_
+      REGION_NAMN == "Region Norr" ~ 6L
     ),
 
     # Vitalstatus
