@@ -25,9 +25,9 @@ nkbc36 <- list(
       # version < 2.5 (2021-06-09):
       # Planerad åtgräd är primär operation, preoperativ onkologisk behandling eller konservativ behandling
       a_planbeh_typ_Varde %in% c(1, 2) |
-      # version >= 2.5 (2021-06-09):
-      # Planerad åtgräd är primär operation eller preoperativ onkologisk behandling
-      a_planbeh_typ_Varde %in% c(1, 4, 5),
+        # version >= 2.5 (2021-06-09):
+        # Planerad åtgräd är primär operation eller preoperativ onkologisk behandling
+        a_planbeh_typ_Varde %in% c(1, 4, 5),
 
       # Ej fjärrmetastaser vid diagnos
       !a_tnm_mklass_Varde %in% 10
