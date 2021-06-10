@@ -267,7 +267,9 @@ description.nkbcind <- function(x, report_end_year = report_end_year, locale = "
               x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
               "sjukhus där onkologisk behandling ges",
               x$sjhkod_var %in% c("d_onkpreans_sjhkod", "d_onkpostans_sjhkod") ~
-              "rapporterande sjukhus där onkologisk behandling ges, och om detta saknas, sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus"
+              "rapporterande sjukhus där onkologisk behandling ges, och om detta saknas, sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus",
+              x$sjhkod_var %in% "d_uppfans_sjhkod" ~
+              "sjukhus ansvarigt för rapportering av uppföljning, och om detta saknas, sjukhus för onkologisk behandling, sjukhus ansvarigt för rapportering av onkologisk behandling, opererande sjukhus, anmälande sjukhus"
             ),
             "."
           )
@@ -348,7 +350,9 @@ description.nkbcind <- function(x, report_end_year = report_end_year, locale = "
               x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
               "hospital where oncological treatment is given",
               x$sjhkod_var %in% c("d_onkpreans_sjhkod", "d_onkpostans_sjhkod") ~
-              "reporting hospital where oncological treatment is given and if missing, hospital responsible for reporting oncological treatment, hospital for oncological treatment, reporting hospital"
+              "reporting hospital where oncological treatment is given and if missing, hospital responsible for reporting oncological treatment, hospital for oncological treatment, reporting hospital",
+              x$sjhkod_var %in% "d_uppfans_sjhkod" ~
+              "hospital responsible for reporting follow-up and if missing, hospital for oncological treatment, hospital responsible for reporting oncological treatment, hospital performing surgery, reporting hospital"
             ),
             "."
           )
@@ -522,7 +526,9 @@ description_inca.nkbcind <- function(x, ...) {
             x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
             "sjukhus där onkologisk behandling ges",
             x$sjhkod_var %in% c("d_onkpreans_sjhkod", "d_onkpostans_sjhkod") ~
-            "rapporterande sjukhus där onkologisk behandling ges, och om detta saknas, sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus"
+            "rapporterande sjukhus där onkologisk behandling ges, och om detta saknas, sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus",
+            x$sjhkod_var %in% "d_uppfans_sjhkod" ~
+            "sjukhus ansvarigt för rapportering av uppföljning, och om detta saknas, sjukhus för onkologisk behandling, sjukhus ansvarigt för rapportering av onkologisk behandling, opererande sjukhus, anmälande sjukhus"
           ),
           "."
         )
@@ -650,11 +656,9 @@ kpl_description.nkbcind <- function(x, ...) {
           x$sjhkod_var %in% c("post_inr_sjhkod", "pre_inr_sjhkod", "d_onk_sjhkod") ~
           "sjukhus där onkologisk behandling ges",
           x$sjhkod_var %in% c("d_onkpreans_sjhkod", "d_onkpostans_sjhkod") ~
-          paste(
-            "rapporterande sjukhus där onkologisk behandling ges,",
-            "och om detta saknas,",
-            "sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus"
-          )
+          "rapporterande sjukhus där onkologisk behandling ges, och om detta saknas, sjukhus ansvarigt för rapportering av onkologisk behandling, sjukhus för onkologisk behandling, anmälande sjukhus",
+          x$sjhkod_var %in% "d_uppfans_sjhkod" ~
+          "sjukhus ansvarigt för rapportering av uppföljning, och om detta saknas, sjukhus för onkologisk behandling, sjukhus ansvarigt för rapportering av onkologisk behandling, opererande sjukhus, anmälande sjukhus"
         ),
         "."
       ),

@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">nkbcind</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.0</span>
       </span>
     </div>
 
@@ -115,20 +115,121 @@ remotes::install_bitbucket("cancercentrum/nkbcind")</code></pre>
 <a href="#anv%C3%A4ndning" class="anchor"></a>Användning</h2>
 <pre class="{.r}"><code><a href="https://dplyr.tidyverse.org">library(dplyr)
 library(tidyr)
+library(stringr)
 library(lubridate)
-library(nkbcgeneral) # https://cancercentrum.bitbucket.io/nkbcgeneral/
-library(nkbcind) # https://cancercentrum.bitbucket.io/nkbcind/</a></code></pre>
-<p>TODO Lägg till exempel.</p>
-<p>Tills vidare:</p>
+library(nkbcgeneral)
+library(nkbcind)</a></code></pre>
+<p>Läs in ögonblicksbild av NKBC exporterad från INCA.</p>
+<pre class="{.r}"><code><a href="https://rdrr.io/r/base/load.html">load(
+  file.path(Sys.getenv("BRCA_DATA_DIR"), "2021-05-04", "nkbc_nat_avid 2021-05-04 08-25-25.RData")
+)</a></code></pre>
+<p>Generell förbearbetning av NKBC-data.</p>
+<pre class="{.r}"><code>df_main &lt;- df %&gt;%
+  mutate(across(where(is.factor), as.character)) %&gt;%
+  rename_with(
+    str_replace, ends_with("_Värde"),
+    pattern = "_Värde", replacement = "_Varde"
+  ) %&gt;%
+  nkbcgeneral::clean_nkbc_data() %&gt;%
+  nkbcgeneral::mutate_nkbc_d_vars() %&gt;%
+  mutate(period = lubridate::year(a_diag_dat)) %&gt;%
+  filter(period %in% 2008:2020)</code></pre>
+<p>Jämför med generell förbearbetning i utdata-kanalerna</p>
 <ul>
-<li>För att skapa en interaktiv rapport så börjar jag alltså med allmän bearbetning av NKBC-data för att sedan skapa själva Shiny-webbapplikationerna, <a href="https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny/src/develop/main.R" class="uri">https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny/src/develop/main.R</a>
+<li>NKBC interaktiva årsrapport
+<ul>
+<li><a href="https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny/src/2020.1/main.R#lines-44" class="uri">https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny/src/2020.1/main.R#lines-44</a></li>
+</ul>
 </li>
-<li>…som använder definitionen (här nkbc01 som exempel) <a href="https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbc-diag-screening-01.R" class="uri">https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbc-diag-screening-01.R</a>
+<li>NKBC onlinerapporter innanför inloggning på INCA
+<ul>
+<li><a href="https://bitbucket.org/cancercentrum/nkbc-onlinerapporter/src/2021-04-27/d_nkbc_nat_avid.R#lines-28" class="uri">https://bitbucket.org/cancercentrum/nkbc-onlinerapporter/src/2021-04-27/d_nkbc_nat_avid.R#lines-28</a></li>
+</ul>
 </li>
-<li>…och metoderna
-<a href="https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbcind-methods.R" class="uri">https://bitbucket.org/cancercentrum/nkbcind/src/master/R/nkbcind-methods.R</a>
+<li>NKBC Koll på läget (KPL)
+<ul>
+<li>
+<a href="https://bitbucket.org/cancercentrum/nkbc-kpl/src/2021-04-06/nkbc_kpl_omvkir.R#lines-64" class="uri">https://bitbucket.org/cancercentrum/nkbc-kpl/src/2021-04-06/nkbc_kpl_omvkir.R#lines-64</a>
+som använder cashat resultat av sub/basmallen d_nkbc_nat_avid, se ovan</li>
+</ul>
+</li>
+<li>NKBC Vården i siffror
+<ul>
+<li>
+<a href="https://bitbucket.org/cancercentrum/nkbc-vis/src/2021-03-31/nkbc_vis_diag_screening_01.R#lines-42" class="uri">https://bitbucket.org/cancercentrum/nkbc-vis/src/2021-03-31/nkbc_vis_diag_screening_01.R#lines-42</a>
+som använder cashat resultat av sub/basmallen d_nkbc_nat_avid, se ovan</li>
+</ul>
 </li>
 </ul>
+<div id="exempel-screeningupptäckt-bröstcancer" class="section level3">
+<h3 class="hasAnchor">
+<a href="#exempel-screeninguppt%C3%A4ckt-br%C3%B6stcancer" class="anchor"></a>Exempel: Screeningupptäckt bröstcancer</h3>
+<pre class="{.r}"><code>outcomeTitle(nkbc01)
+#&gt; $sv
+#&gt; [1] "Screeningupptäckt bröstcancer"
+textBeforeSubtitle(nkbc01)
+#&gt;                                                      sv 
+#&gt; "Bland kvinnliga fall i åldrarna 40–74 år vid diagnos."</code></pre>
+<p>Specifik databearbetning för kvalitetsindikatorn “Screeningupptäckt bröstcancer” (nkbc01).</p>
+<pre class="{.r}"><code>df_tmp &lt;- df_main %&gt;%
+  filter_pop(nkbc01)() %&gt;%
+  mutate_outcome(nkbc01)()</code></pre>
+<p>Jämför med specifik databearbetning i utdata-kanalerna</p>
+<ul>
+<li>NKBC interaktiva årsrapport
+<ul>
+<li><a href="https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny/src/2020.1/main.R#lines-147" class="uri">https://bitbucket.org/cancercentrum/nkbc-arsrapportshiny/src/2020.1/main.R#lines-147</a></li>
+</ul>
+</li>
+<li>NKBC onlinerapporter innanför inloggning på INCA
+<ul>
+<li><a href="https://bitbucket.org/cancercentrum/nkbc-onlinerapporter/src/2021-04-27/nkbc-rccShiny-generisk-dm.R#lines-116" class="uri">https://bitbucket.org/cancercentrum/nkbc-onlinerapporter/src/2021-04-27/nkbc-rccShiny-generisk-dm.R#lines-116</a></li>
+</ul>
+</li>
+<li>NKBC Koll på läget (KPL)
+<ul>
+<li><a href="https://bitbucket.org/cancercentrum/nkbc-kpl/src/2021-04-06/nkbc_kpl_omvkir.R#lines-130" class="uri">https://bitbucket.org/cancercentrum/nkbc-kpl/src/2021-04-06/nkbc_kpl_omvkir.R#lines-130</a></li>
+</ul>
+</li>
+<li>NKBC Vården i siffror
+<ul>
+<li><a href="https://bitbucket.org/cancercentrum/nkbc-vis/src/2021-03-31/nkbc_vis_diag_screening_01.R#lines-44" class="uri">https://bitbucket.org/cancercentrum/nkbc-vis/src/2021-03-31/nkbc_vis_diag_screening_01.R#lines-44</a></li>
+</ul>
+</li>
+</ul>
+<p>Titta på bearbeatad data.</p>
+<pre class="{.r}"><code>df_tmp %&gt;%
+  mutate(across(any_of("KON_VALUE"), as.factor)) %&gt;%
+  mutate(across(ends_with("_Varde"), as.factor)) %&gt;%
+  select(KON_VALUE, a_pat_alder, a_diag_screening_Varde, outcome) %&gt;%
+  summary()
+#&gt;  KON_VALUE  a_pat_alder    a_diag_screening_Varde  outcome       
+#&gt;  2:83651   Min.   :40.00   0   :31327             Mode :logical  
+#&gt;            1st Qu.:52.00   1   :51996             FALSE:31327    
+#&gt;            Median :62.00   98  :  230             TRUE :51996    
+#&gt;            Mean   :59.98   NA's:   98             NA's :328      
+#&gt;            3rd Qu.:68.00                                         
+#&gt;            Max.   :74.00</code></pre>
+<pre class="{.r}"><code>df_tmp %&gt;%
+  select(period, outcome) %&gt;%
+  table(useNA = "ifany")
+#&gt;       outcome
+#&gt; period FALSE TRUE &lt;NA&gt;
+#&gt;   2008  2551 3124   37
+#&gt;   2009  2428 3243   39
+#&gt;   2010  2389 3832   45
+#&gt;   2011  2529 3917   32
+#&gt;   2012  2337 4091   27
+#&gt;   2013  2352 4265   36
+#&gt;   2014  2399 4355   42
+#&gt;   2015  2380 4205   19
+#&gt;   2016  2392 4098   16
+#&gt;   2017  2367 4394   10
+#&gt;   2018  2355 4259    9
+#&gt;   2019  2477 4454    6
+#&gt;   2020  2371 3759   10</code></pre>
+<p>Jfr <a href="https://statistik.incanet.se/brostcancer/" class="uri">https://statistik.incanet.se/brostcancer/</a> &gt; Diagnostik &gt; Screeningupptäckt bröstcancer</p>
+</div>
 </div>
 </div>
   </div>
